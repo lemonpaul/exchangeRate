@@ -1,0 +1,40 @@
+<div id="new_trigger_form">
+  <h2>Add new trigger</h2>
+  <%= form_with scope: :trigger, url: triggers_path, remote: true do |form| %>
+    <% if @trigger.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@trigger.errors.count, "error") %> prohibited this trigger from being saved:
+        </h2>
+        <ul>
+          <% @trigger.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <p>
+      <%= form.label :email %><br>
+      <%= form.email_field :email %>
+    </p>
+    <p>
+      <%= form.label :currency %><br>
+      <%= form.select :currency, options_for_select([["USD", "usd"], ["EUR", "eur"]]) %>
+    </p>
+    <p>
+      <%= form.label :operation %><br>
+      <%= form.select :operation, options_for_select([["buy", "buy"], ["sell", "sell"]]) %>
+    </p>
+    <p>
+      <%= form.label :kind %><br>
+      <%= form.select :kind, options_for_select([["lower", "lower"], ["upper", "upper"]]) %>
+    </p>
+    <p>
+      <%= form.label :rate %><br>
+      <%= form.text_field :rate %>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+</div>

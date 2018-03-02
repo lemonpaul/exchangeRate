@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  currency: MyString
+  operation: MyString
+  kind: MyString
+  rate: 1.5
+
+two:
+  email: MyString
+  currency: MyString
+  operation: MyString
+  kind: MyString
+  rate: 1.5
