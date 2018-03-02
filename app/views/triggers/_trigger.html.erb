@@ -1,9 +1,9 @@
-<tr align="center" class="trigger" id="trigger_<%= trigger.id %>">
+<tr class="trigger" id="trigger_<%= trigger.id %>">
   <td><%= trigger.email %></td>
   <td><%= trigger.currency %></td>
   <td><%= trigger.operation %></td>
   <td><%= trigger.kind %></td>
   <td><%= trigger.rate %></td>
   <td><%= link_to 'Delete', trigger_path(trigger),
-    method: :delete, remote: true %></td>
+    method: :delete, remote: true, class: 'badge' %></td>
 </tr>

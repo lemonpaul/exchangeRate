@@ -1,40 +1,49 @@
 <div id="new_trigger_form">
-  <h2>Add new trigger</h2>
   <%= form_with scope: :trigger, url: triggers_path, remote: true do |form| %>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <h2>New trigger</h2>
+      </div>
+    </div>
     <% if @trigger.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@trigger.errors.count, "error") %> prohibited this trigger from being saved:
-        </h2>
-        <ul>
-          <% @trigger.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
+      <div id="error_explanation" class="form-row">
+        <div class="form-group col-md-12">
+          <h2><%= pluralize(@trigger.errors.count, "error") %> prohibited this trigger from being saved:</h2>
+        </div>
+        <div class="form-group col-md-12">
+          <ul>
+            <% @trigger.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     <% end %>
-    <p>
-      <%= form.label :email %><br>
-      <%= form.email_field :email %>
-    </p>
-    <p>
-      <%= form.label :currency %><br>
-      <%= form.select :currency, options_for_select([["USD", "usd"], ["EUR", "eur"]]) %>
-    </p>
-    <p>
-      <%= form.label :operation %><br>
-      <%= form.select :operation, options_for_select([["buy", "buy"], ["sell", "sell"]]) %>
-    </p>
-    <p>
-      <%= form.label :kind %><br>
-      <%= form.select :kind, options_for_select([["lower", "lower"], ["upper", "upper"]]) %>
-    </p>
-    <p>
-      <%= form.label :rate %><br>
-      <%= form.text_field :rate %>
-    </p>
-    <p>
-      <%= form.submit %>
-    </p>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <%= form.email_field :email, class: 'form-control', placeholder: 'Email' %>
+      </div>    
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <%= form.select(:currency, [["USD", "usd"], ["EUR", "eur"]], {}, { class: 'form-control' }) %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= form.select(:operation, [["buy", "buy"], ["sell", "sell"]], {}, { class: 'form-control' }) %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= form.select(:kind, [["lower", "lower"], ["upper", "upper"]], {}, { class: 'form-control' }) %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <%= form.text_field :rate, class: 'form-control', placeholder: 'Rate' %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <%= form.submit 'Save trigger', class: 'btn' %>
+      </div>
+    </div>
   <% end %>
 </div>

@@ -1,37 +1,45 @@
-<h1>Rate list</h1>
-<table>
-  <tr align='center'>
-    <th>Time</th>
-    <th>USD buy / average</th>
-    <th>USD sell / average</th>
-    <th>Spread</th>
-    <th>Spread, %</th>
-    <th>EUR buy / average</th>
-    <th>EUR sell / average</th>
-    <th>Spread</th>
-    <th>Spread, %</th>
-  </tr>
-  <tr align="center">
-    <td><%= @currentRate.time %></td>
-    <td><%= "%.2f" % @currentRate.usdBuy.round(2) %> / <%= "%.2f" % @averageUsdBuy.round(2) %></td>
-    <td><%= "%.2f" % @currentRate.usdSell.round(2) %> / <%= "%.2f" % @averageUsdSell.round(2) %></td>
-    <td><%= "%.2f" % @usdSpread.round(2) %></td>
-    <td><%= @perUsdSpread.round %></td>
-    <td><%= "%.2f" % @currentRate.eurBuy.round(2) %> / <%= "%.2f" % @averageEurBuy.round(2) %></td>
-    <td><%= "%.2f" % @currentRate.eurSell.round(2) %> / <%= "%.2f" % @averageEurSell.round(2) %></td>
-    <td><%= "%.2f" % @eurSpread.round(2) %></td>
-    <td ><%= @perEurSpread.round %></td>
-  </tr>
+<h1>Rates</h1>
+<h2>Current</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>USD buy / average</th>
+      <th>USD sell / average</th>
+      <th>Spread</th>
+      <th>Spread, %</th>
+      <th>EUR buy / average</th>
+      <th>EUR sell / average</th>
+      <th>Spread</th>
+      <th>Spread, %</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td><%= @currentRate.time %></td>
+      <td><%= "%.2f" % @currentRate.usdBuy.round(2) %> / <%= "%.2f" % @averageUsdBuy.round(2) %></td>
+      <td><%= "%.2f" % @currentRate.usdSell.round(2) %> / <%= "%.2f" % @averageUsdSell.round(2) %></td>
+      <td><%= "%.2f" % @usdSpread.round(2) %></td>
+      <td><%= @perUsdSpread.round %></td>
+      <td><%= "%.2f" % @currentRate.eurBuy.round(2) %> / <%= "%.2f" % @averageEurBuy.round(2) %></td>
+      <td><%= "%.2f" % @currentRate.eurSell.round(2) %> / <%= "%.2f" % @averageEurSell.round(2) %></td>
+      <td><%= "%.2f" % @eurSpread.round(2) %></td>
+      <td ><%= @perEurSpread.round %></td>
+    </tr>
+  </tfoot>
 </table>
-
-
-<table id="rates_table">
-  <tr align="center">
-    <th>Time</th>
-    <th>USD buy</th>
-    <th>USD sell</th>
-    <th>EUR buy</th>
-    <th>EUR sell</th>
-  </tr>
-  <%= render @rates %>
+<h2>Previous</h2>
+<table id="rates_table" class="table">
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>USD buy</th>
+      <th>USD sell</th>
+      <th>EUR buy</th>
+      <th>EUR sell</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <%= render @rates %>
+  </tfoot>
 </table>
