@@ -1,9 +1,9 @@
-<tr align="center" id="rate_<%= rate.id%>">
-      <td><%= rate.time %></td>
-      <td><%= "%.2f" % rate.usdBuy.round(2) %></td>
-      <td><%= "%.2f" % rate.usdSell.round(2) %></td>
-      <td><%= "%.2f" % rate.eurBuy.round(2) %></td>
-      <td><%= "%.2f" % rate.eurSell.round(2) %></td>
-      <td><%= link_to 'Delete', rate_path(rate),
-        method: :delete %></td>
+<tr align="center" id="rate_<%= rate.id%>" class="rate">
+  <td><%= rate.time %></td>
+  <td><%= "%.2f" % rate.usdBuy.round(2) %></td>
+  <td><%= "%.2f" % rate.usdSell.round(2) %></td>
+  <td><%= "%.2f" % rate.eurBuy.round(2) %></td>
+  <td><%= "%.2f" % rate.eurSell.round(2) %></td>
+  <td><%= link_to 'Delete', rate_path(rate),
+    method: :delete, remote: true %></td>
 </tr>
