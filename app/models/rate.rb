@@ -58,9 +58,9 @@ class Rate < ApplicationRecord
     p = 1
     step = 1
     rates = Rate.cached_all
-    puts rates
     if rates.size > 0
       diffs = rates.each_cons(2).map{|rate| rate[1].time - rate[0].time}
+      puts diffs
       start = diffs.rindex{|diff| diff > 100 }
       if start != nil
         rates = rates[start+1..-1]
