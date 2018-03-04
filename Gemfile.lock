@@ -66,6 +66,8 @@ GEM
     connection_pool (2.2.1)
     crass (1.0.3)
     dalli (2.7.6)
+    delayed_job (4.1.4)
+      activesupport (>= 3.0, < 5.2)
     erubi (1.7.0)
     et-orbi (1.0.9)
       tzinfo
@@ -205,6 +207,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   dalli
+  delayed_job
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3.1)
   json (~> 1.8.6)
