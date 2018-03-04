@@ -1,14 +1,14 @@
 class RatesController < ApplicationController
 
   def index
-    if Rate.all.count == 0
+    if Rate.cached_all.count == 0
       AddRateJob.perform_now
     end
-    @rates = Rate.all
+    @rates = Rate.cached_all
     
     todayRates = @rates.select { |rate| rate.time.to_date == DateTime.now.to_date }
     count = todayRates.count
-    @currentRate = Rate.last
+    @currentRate = Rate.cached_last
     @usdSpread = @currentRate.usdBuy - @currentRate.usdSell
     @perUsdSpread = 2 * @usdSpread / (@currentRate.usdBuy + @currentRate.usdSell) * 100
     @eurSpread = @currentRate.eurBuy - @currentRate.eurSell
@@ -34,13 +34,13 @@ class RatesController < ApplicationController
   
   def destroy
     @rate = Rate.destroy(params[:id])
-    if Rate.all.count == 0
+    if Rate.cached_all.count == 0
       AddRateJob.perform_now
     end
-    @rates = Rate.all    
+    @rates = Rate.cached_all    
     todayRates = @rates.select { |rate| rate.time.to_date == DateTime.now.to_date }
     count = todayRates.count
-    @currentRate = Rate.last
+    @currentRate = Rate.cached_last
     @usdSpread = @currentRate.usdBuy - @currentRate.usdSell
     @perUsdSpread = 2 * @usdSpread / (@currentRate.usdBuy + @currentRate.usdSell) * 100
     @eurSpread = @currentRate.eurBuy - @currentRate.eurSell

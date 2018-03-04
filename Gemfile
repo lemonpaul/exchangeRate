@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'sidekiq'
 gem 'sidekiq-cron'
 gem 'bootstrap-sass', '~>3.2.0'
+gem 'dalli'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

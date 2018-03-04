@@ -1,20 +1,20 @@
-<h1>Triggers</h1>
-<div id="new_trigger">
+<% cache @triggers do  %>
+  <h1><%= pluralize(@triggers.size, "Trigger") %></h1>
   <%= link_to 'New trigger', new_trigger_path, id: "new_link", remote: true, class: 'badge' %>
-</div>
-<% if @triggers.any? %>
-  <table id="triggers_table" class="table">
-    <thead>
-      <tr>
-        <th>Email</th>
-        <th>Currency</th>
-        <th>Operation</th>
-        <th>Type</th>
-        <th>Rate</th>
-      </tr>
-    </thead>
-    <tfoot>
-      <%= render @triggers %>
-    </tfoot>
-  </table>
+  <% if @triggers.any? %>
+    <table id="triggers_table" class="table">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Currency</th>
+          <th>Operation</th>
+          <th>Type</th>
+          <th>Rate</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <%= render :partial => 'triggers/trigger', :collection => @triggers %>
+      </tfoot>
+    </table>
+  <% end %>
 <% end %>

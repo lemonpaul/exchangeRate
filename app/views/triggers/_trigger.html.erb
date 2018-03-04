@@ -3,7 +3,7 @@
   <td><%= trigger.currency %></td>
   <td><%= trigger.operation %></td>
   <td><%= trigger.kind %></td>
-  <td><%= trigger.rate %></td>
+  <td><%= "%.2f" % trigger.rate.round(2) %></td>
   <td><%= link_to 'Delete', trigger_path(trigger),
     method: :delete, remote: true, class: 'badge' %></td>
 </tr>

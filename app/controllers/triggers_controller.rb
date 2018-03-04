@@ -1,7 +1,6 @@
 class TriggersController < ApplicationController
   def index
-    @triggers = Trigger.all
-    @trigger = Trigger.new
+    @triggers = Trigger.cached_all
   end
 
   def new
