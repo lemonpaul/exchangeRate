@@ -2219,3 +2219,588 @@ D, [2018-03-05T01:18:15.040331 #21968] DEBUG -- : [57363812-c18d-40ff-98f4-22786
 I, [2018-03-05T01:18:15.040791 #21968]  INFO -- : [57363812-c18d-40ff-98f4-2278660d65c7]   Rendered triggers/index.html.erb (1.2ms)
 I, [2018-03-05T01:18:15.041038 #21968]  INFO -- : [57363812-c18d-40ff-98f4-2278660d65c7]   Rendered welcome/show.js.erb (6.2ms)
 I, [2018-03-05T01:18:15.041292 #21968]  INFO -- : [57363812-c18d-40ff-98f4-2278660d65c7] Completed 200 OK in 14ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:36:43.655347 #23732]  INFO -- : DB Connection Pool size for Sidekiq Server before disconnect is: 5
+I, [2018-03-05T01:36:43.663137 #23719]  INFO -- : DB Connection Pool size for Sidekiq Server before disconnect is: 5
+I, [2018-03-05T01:36:43.672398 #23732]  INFO -- : DB Connection Pool size for Sidekiq Server is now: 16
+I, [2018-03-05T01:36:43.682208 #23719]  INFO -- : DB Connection Pool size for Sidekiq Server is now: 16
+I, [2018-03-05T01:36:46.367409 #23715]  INFO -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Started GET "/" for 127.0.0.1 at 2018-03-05 01:36:46 +0300
+I, [2018-03-05T01:36:46.382197 #23715]  INFO -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:36:46.392616 #23715] DEBUG -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Cache read: rates_cache
+D, [2018-03-05T01:36:46.393346 #23715] DEBUG -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Dalli::Server#connect 127.0.0.1:11211
+D, [2018-03-05T01:36:46.395890 #23715] DEBUG -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:36:46.396174 #23715] DEBUG -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Cache read: triggers_cache
+D, [2018-03-05T01:36:46.396696 #23715] DEBUG -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:36:46.396809 #23715] DEBUG -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Cache read: rates_cache
+D, [2018-03-05T01:36:46.396882 #23715] DEBUG -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:36:46.401206 #23715] DEBUG -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Cache read: last_rate_cache
+D, [2018-03-05T01:36:46.402023 #23715] DEBUG -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:36:46.402745 #23715] DEBUG -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Cache read: rates_cache
+D, [2018-03-05T01:36:46.402948 #23715] DEBUG -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:36:46.409185 #23715]  INFO -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:36:46.411982 #23715]  INFO -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:36:46.457760 #23715] DEBUG -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:36:46.458613 #23715]  INFO -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0]   Rendered triggers/index.html.erb (46.4ms)
+I, [2018-03-05T01:36:46.459724 #23715]  INFO -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0]   Rendering rates/index.html.erb
+D, [2018-03-05T01:36:46.468824 #23715] DEBUG -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Cache read: views/rates/198-20180304223511292312/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:36:46.476301 #23715] DEBUG -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Cache read: views/rates/187-20180304214059070696/rates/188-20180304214123768679/rates/189-20180304214209177534/rates/190-20180304214309021249/rates/191-20180304214947733587/rates/192-20180304215418144708/rates/193-20180304215506853656/rates/194-20180304220355744237/rates/195-20180304220429473728/rates/196-20180304220512156961/rates/197-20180304220614938278/rates/198-20180304223511292312/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:36:46.476865 #23715]  INFO -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0]   Rendered rates/index.html.erb (17.0ms)
+I, [2018-03-05T01:36:46.477015 #23715]  INFO -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0]   Rendered welcome/index.html.erb within layouts/application (67.6ms)
+I, [2018-03-05T01:36:46.710937 #23715]  INFO -- : [d6f7ed50-be65-4a15-ada9-226ce65198c0] Completed 200 OK in 328ms (Views: 305.0ms | ActiveRecord: 20.4ms)
+I, [2018-03-05T01:36:54.844754 #23732]  INFO -- : [ActiveJob] Enqueued AddRateJob (Job ID: 0b6585ac-d8f1-4718-a06f-be6128786756) to Async(default)
+I, [2018-03-05T01:36:54.858366 #23732]  INFO -- : [ActiveJob] [AddRateJob] [0b6585ac-d8f1-4718-a06f-be6128786756] Performing AddRateJob (Job ID: 0b6585ac-d8f1-4718-a06f-be6128786756) from Async(default)
+D, [2018-03-05T01:36:54.967025 #23732] DEBUG -- : [ActiveJob] [AddRateJob] [0b6585ac-d8f1-4718-a06f-be6128786756]   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+D, [2018-03-05T01:36:54.969783 #23732] DEBUG -- : [ActiveJob] [AddRateJob] [0b6585ac-d8f1-4718-a06f-be6128786756]   [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "rates" ("time", "usdBuy", "usdSell", "eurBuy", "eurSell", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["time", "2018-03-04 22:36:54.937891"], ["usdBuy", 57.65], ["usdSell", 55.95], ["eurBuy", 71.1], ["eurSell", 69.0], ["created_at", "2018-03-04 22:36:54.967430"], ["updated_at", "2018-03-04 22:36:54.967430"]]
+D, [2018-03-05T01:36:54.987293 #23732] DEBUG -- : [ActiveJob] [AddRateJob] [0b6585ac-d8f1-4718-a06f-be6128786756]   [1m[35m (16.9ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-03-05T01:36:54.987491 #23732] DEBUG -- : [ActiveJob] [AddRateJob] [0b6585ac-d8f1-4718-a06f-be6128786756] Cache delete: rates_cache
+D, [2018-03-05T01:36:54.987763 #23732] DEBUG -- : [ActiveJob] [AddRateJob] [0b6585ac-d8f1-4718-a06f-be6128786756] Dalli::Server#connect 127.0.0.1:11211
+D, [2018-03-05T01:36:54.988623 #23732] DEBUG -- : [ActiveJob] [AddRateJob] [0b6585ac-d8f1-4718-a06f-be6128786756] Cache delete: last_rate_cache
+D, [2018-03-05T01:36:54.990582 #23732] DEBUG -- : [ActiveJob] [AddRateJob] [0b6585ac-d8f1-4718-a06f-be6128786756]   [1m[36mTrigger Load (0.7ms)[0m  [1m[34mSELECT "triggers".* FROM "triggers"[0m
+D, [2018-03-05T01:36:55.005801 #23732] DEBUG -- : [ActiveJob] [AddRateJob] [0b6585ac-d8f1-4718-a06f-be6128786756]   [1m[36mCACHE Trigger Load (0.0ms)[0m  [1m[34mSELECT "triggers".* FROM "triggers"[0m
+D, [2018-03-05T01:36:55.006427 #23732] DEBUG -- : [ActiveJob] [AddRateJob] [0b6585ac-d8f1-4718-a06f-be6128786756]   [1m[36mCACHE Trigger Load (0.0ms)[0m  [1m[34mSELECT "triggers".* FROM "triggers"[0m
+D, [2018-03-05T01:36:55.006893 #23732] DEBUG -- : [ActiveJob] [AddRateJob] [0b6585ac-d8f1-4718-a06f-be6128786756]   [1m[36mCACHE Trigger Load (0.0ms)[0m  [1m[34mSELECT "triggers".* FROM "triggers"[0m
+I, [2018-03-05T01:36:55.007232 #23732]  INFO -- : [ActiveJob] [AddRateJob] [0b6585ac-d8f1-4718-a06f-be6128786756] Performed AddRateJob (Job ID: 0b6585ac-d8f1-4718-a06f-be6128786756) from Async(default) in 146.63ms
+I, [2018-03-05T01:36:56.965346 #23715]  INFO -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Started GET "/welcome/show" for 127.0.0.1 at 2018-03-05 01:36:56 +0300
+I, [2018-03-05T01:36:56.967182 #23715]  INFO -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Processing by WelcomeController#show as */*
+D, [2018-03-05T01:36:56.968442 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache read: rates_cache
+D, [2018-03-05T01:36:56.968962 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache generate: rates_cache
+D, [2018-03-05T01:36:56.972255 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3]   [1m[36mRate Load (0.9ms)[0m  [1m[34mSELECT "rates".* FROM "rates"[0m
+D, [2018-03-05T01:36:56.985196 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache write: rates_cache
+D, [2018-03-05T01:36:56.987471 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache read: rates_cache
+D, [2018-03-05T01:36:56.987594 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:36:56.987707 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache read: triggers_cache
+D, [2018-03-05T01:36:56.988349 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:36:56.989619 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache read: last_rate_cache
+D, [2018-03-05T01:36:56.990056 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache generate: last_rate_cache
+D, [2018-03-05T01:36:56.993472 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3]   [1m[36mRate Load (1.2ms)[0m  [1m[34mSELECT  "rates".* FROM "rates" ORDER BY "rates"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+D, [2018-03-05T01:36:56.993889 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache write: last_rate_cache
+D, [2018-03-05T01:36:56.994736 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache read: rates_cache
+D, [2018-03-05T01:36:56.994838 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:36:56.997467 #23715]  INFO -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3]   Rendering welcome/show.js.erb
+I, [2018-03-05T01:36:56.998658 #23715]  INFO -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3]   Rendering rates/index.html.erb
+E, [2018-03-05T01:36:57.000265 #23715] ERROR -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3]   Couldn't find template for digesting: rates/index
+D, [2018-03-05T01:36:57.000460 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache read: views/rates/13-20180304223654967430/
+D, [2018-03-05T01:36:57.001328 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache write: views/rates/13-20180304223654967430/
+D, [2018-03-05T01:36:57.003372 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/
+I, [2018-03-05T01:36:57.008640 #23715]  INFO -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3]   Rendered collection of rates/_rate.html.erb [13 times] (3.2ms)
+D, [2018-03-05T01:36:57.009276 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache write: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/
+I, [2018-03-05T01:36:57.009875 #23715]  INFO -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3]   Rendered rates/index.html.erb (11.1ms)
+I, [2018-03-05T01:36:57.011328 #23715]  INFO -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3]   Rendering triggers/index.html.erb
+E, [2018-03-05T01:36:57.012574 #23715] ERROR -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3]   Couldn't find template for digesting: triggers/index
+D, [2018-03-05T01:36:57.013282 #23715] DEBUG -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/
+I, [2018-03-05T01:36:57.013731 #23715]  INFO -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3]   Rendered triggers/index.html.erb (2.3ms)
+I, [2018-03-05T01:36:57.014020 #23715]  INFO -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3]   Rendered welcome/show.js.erb (16.5ms)
+I, [2018-03-05T01:36:57.014341 #23715]  INFO -- : [dc508ba3-2b2e-402e-9a07-b5ea62d2cfb3] Completed 200 OK in 47ms (Views: 18.0ms | ActiveRecord: 2.1ms)
+I, [2018-03-05T01:40:43.205037 #24372]  INFO -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Started GET "/" for 127.0.0.1 at 2018-03-05 01:40:43 +0300
+I, [2018-03-05T01:40:43.221692 #24372]  INFO -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:40:43.233650 #24372] DEBUG -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Cache read: rates_cache
+D, [2018-03-05T01:40:43.234358 #24372] DEBUG -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Dalli::Server#connect 127.0.0.1:11211
+D, [2018-03-05T01:40:43.238171 #24372] DEBUG -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:43.238471 #24372] DEBUG -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Cache read: triggers_cache
+D, [2018-03-05T01:40:43.239897 #24372] DEBUG -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:40:43.240052 #24372] DEBUG -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Cache read: rates_cache
+D, [2018-03-05T01:40:43.240139 #24372] DEBUG -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:43.243917 #24372] DEBUG -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Cache read: last_rate_cache
+D, [2018-03-05T01:40:43.244628 #24372] DEBUG -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:40:43.245310 #24372] DEBUG -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Cache read: rates_cache
+D, [2018-03-05T01:40:43.245582 #24372] DEBUG -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:40:43.252618 #24372]  INFO -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:40:43.255647 #24372]  INFO -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:40:43.308913 #24372] DEBUG -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:40:43.310492 #24372]  INFO -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba]   Rendered triggers/index.html.erb (54.6ms)
+I, [2018-03-05T01:40:43.311525 #24372]  INFO -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba]   Rendering rates/index.html.erb
+D, [2018-03-05T01:40:43.321456 #24372] DEBUG -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Cache read: views/rates/13-20180304223654967430/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:40:43.330294 #24372] DEBUG -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:40:43.330929 #24372]  INFO -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba]   Rendered rates/index.html.erb (19.3ms)
+I, [2018-03-05T01:40:43.332450 #24372]  INFO -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba]   Rendered welcome/index.html.erb within layouts/application (79.6ms)
+I, [2018-03-05T01:40:43.702454 #24372]  INFO -- : [55cdffdb-7506-478c-8911-e0f4d0d803ba] Completed 200 OK in 480ms (Views: 453.4ms | ActiveRecord: 24.9ms)
+I, [2018-03-05T01:40:44.205990 #24361]  INFO -- : DB Connection Pool size for Sidekiq Server before disconnect is: 5
+I, [2018-03-05T01:40:44.220724 #24361]  INFO -- : DB Connection Pool size for Sidekiq Server is now: 16
+I, [2018-03-05T01:40:44.270348 #24376]  INFO -- : DB Connection Pool size for Sidekiq Server before disconnect is: 5
+I, [2018-03-05T01:40:44.285068 #24376]  INFO -- : DB Connection Pool size for Sidekiq Server is now: 16
+I, [2018-03-05T01:40:44.525927 #24372]  INFO -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Started GET "/" for 127.0.0.1 at 2018-03-05 01:40:44 +0300
+I, [2018-03-05T01:40:44.527292 #24372]  INFO -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:40:44.528441 #24372] DEBUG -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Cache read: rates_cache
+D, [2018-03-05T01:40:44.529915 #24372] DEBUG -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:44.530095 #24372] DEBUG -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Cache read: triggers_cache
+D, [2018-03-05T01:40:44.530684 #24372] DEBUG -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:40:44.530806 #24372] DEBUG -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Cache read: rates_cache
+D, [2018-03-05T01:40:44.530903 #24372] DEBUG -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:44.532875 #24372] DEBUG -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Cache read: last_rate_cache
+D, [2018-03-05T01:40:44.533357 #24372] DEBUG -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:40:44.533626 #24372] DEBUG -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Cache read: rates_cache
+D, [2018-03-05T01:40:44.533730 #24372] DEBUG -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:40:44.535028 #24372]  INFO -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:40:44.535216 #24372]  INFO -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:40:44.535922 #24372] DEBUG -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:40:44.536225 #24372]  INFO -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1]   Rendered triggers/index.html.erb (0.9ms)
+I, [2018-03-05T01:40:44.536363 #24372]  INFO -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1]   Rendering rates/index.html.erb
+D, [2018-03-05T01:40:44.536688 #24372] DEBUG -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Cache read: views/rates/13-20180304223654967430/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:40:44.538439 #24372] DEBUG -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:40:44.538758 #24372]  INFO -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1]   Rendered rates/index.html.erb (2.3ms)
+I, [2018-03-05T01:40:44.538869 #24372]  INFO -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1]   Rendered welcome/index.html.erb within layouts/application (3.7ms)
+I, [2018-03-05T01:40:44.540641 #24372]  INFO -- : [c94c1c46-3413-4851-a67a-cbc2cf565fc1] Completed 200 OK in 13ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:40:45.319470 #24372]  INFO -- : [90afa877-0922-4c2a-ab8d-892194625d18] Started GET "/" for 127.0.0.1 at 2018-03-05 01:40:45 +0300
+I, [2018-03-05T01:40:45.320827 #24372]  INFO -- : [90afa877-0922-4c2a-ab8d-892194625d18] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:40:45.321760 #24372] DEBUG -- : [90afa877-0922-4c2a-ab8d-892194625d18] Cache read: rates_cache
+D, [2018-03-05T01:40:45.322770 #24372] DEBUG -- : [90afa877-0922-4c2a-ab8d-892194625d18] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:45.322895 #24372] DEBUG -- : [90afa877-0922-4c2a-ab8d-892194625d18] Cache read: triggers_cache
+D, [2018-03-05T01:40:45.323246 #24372] DEBUG -- : [90afa877-0922-4c2a-ab8d-892194625d18] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:40:45.323319 #24372] DEBUG -- : [90afa877-0922-4c2a-ab8d-892194625d18] Cache read: rates_cache
+D, [2018-03-05T01:40:45.323383 #24372] DEBUG -- : [90afa877-0922-4c2a-ab8d-892194625d18] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:45.324667 #24372] DEBUG -- : [90afa877-0922-4c2a-ab8d-892194625d18] Cache read: last_rate_cache
+D, [2018-03-05T01:40:45.324957 #24372] DEBUG -- : [90afa877-0922-4c2a-ab8d-892194625d18] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:40:45.325144 #24372] DEBUG -- : [90afa877-0922-4c2a-ab8d-892194625d18] Cache read: rates_cache
+D, [2018-03-05T01:40:45.325213 #24372] DEBUG -- : [90afa877-0922-4c2a-ab8d-892194625d18] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:40:45.326314 #24372]  INFO -- : [90afa877-0922-4c2a-ab8d-892194625d18]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:40:45.326514 #24372]  INFO -- : [90afa877-0922-4c2a-ab8d-892194625d18]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:40:45.327213 #24372] DEBUG -- : [90afa877-0922-4c2a-ab8d-892194625d18] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:40:45.327609 #24372]  INFO -- : [90afa877-0922-4c2a-ab8d-892194625d18]   Rendered triggers/index.html.erb (1.0ms)
+I, [2018-03-05T01:40:45.327835 #24372]  INFO -- : [90afa877-0922-4c2a-ab8d-892194625d18]   Rendering rates/index.html.erb
+D, [2018-03-05T01:40:45.328304 #24372] DEBUG -- : [90afa877-0922-4c2a-ab8d-892194625d18] Cache read: views/rates/13-20180304223654967430/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:40:45.330366 #24372] DEBUG -- : [90afa877-0922-4c2a-ab8d-892194625d18] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:40:45.330809 #24372]  INFO -- : [90afa877-0922-4c2a-ab8d-892194625d18]   Rendered rates/index.html.erb (2.8ms)
+I, [2018-03-05T01:40:45.330975 #24372]  INFO -- : [90afa877-0922-4c2a-ab8d-892194625d18]   Rendered welcome/index.html.erb within layouts/application (4.5ms)
+I, [2018-03-05T01:40:45.332692 #24372]  INFO -- : [90afa877-0922-4c2a-ab8d-892194625d18] Completed 200 OK in 12ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:40:54.709779 #24361]  INFO -- : [ActiveJob] [AddRateJob] [d218d549-8a40-4e35-b901-67d1535d4b43] Performing AddRateJob (Job ID: d218d549-8a40-4e35-b901-67d1535d4b43) from Async(default)
+I, [2018-03-05T01:40:54.710100 #24361]  INFO -- : [ActiveJob] Enqueued AddRateJob (Job ID: d218d549-8a40-4e35-b901-67d1535d4b43) to Async(default)
+D, [2018-03-05T01:40:54.847595 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d218d549-8a40-4e35-b901-67d1535d4b43]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2018-03-05T01:40:54.850570 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d218d549-8a40-4e35-b901-67d1535d4b43]   [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "rates" ("time", "usdBuy", "usdSell", "eurBuy", "eurSell", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["time", "2018-03-04 22:40:54.803320"], ["usdBuy", 57.65], ["usdSell", 55.95], ["eurBuy", 71.1], ["eurSell", 69.0], ["created_at", "2018-03-04 22:40:54.847915"], ["updated_at", "2018-03-04 22:40:54.847915"]]
+D, [2018-03-05T01:40:54.856580 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d218d549-8a40-4e35-b901-67d1535d4b43]   [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-03-05T01:40:54.856786 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d218d549-8a40-4e35-b901-67d1535d4b43] Cache delete: rates_cache
+D, [2018-03-05T01:40:54.857050 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d218d549-8a40-4e35-b901-67d1535d4b43] Dalli::Server#connect 127.0.0.1:11211
+D, [2018-03-05T01:40:54.857674 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d218d549-8a40-4e35-b901-67d1535d4b43] Cache delete: last_rate_cache
+D, [2018-03-05T01:40:54.859700 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d218d549-8a40-4e35-b901-67d1535d4b43]   [1m[36mTrigger Load (1.0ms)[0m  [1m[34mSELECT "triggers".* FROM "triggers"[0m
+D, [2018-03-05T01:40:54.879774 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d218d549-8a40-4e35-b901-67d1535d4b43]   [1m[36mCACHE Trigger Load (0.0ms)[0m  [1m[34mSELECT "triggers".* FROM "triggers"[0m
+D, [2018-03-05T01:40:54.880351 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d218d549-8a40-4e35-b901-67d1535d4b43]   [1m[36mCACHE Trigger Load (0.0ms)[0m  [1m[34mSELECT "triggers".* FROM "triggers"[0m
+D, [2018-03-05T01:40:54.880784 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d218d549-8a40-4e35-b901-67d1535d4b43]   [1m[36mCACHE Trigger Load (0.0ms)[0m  [1m[34mSELECT "triggers".* FROM "triggers"[0m
+I, [2018-03-05T01:40:54.881158 #24361]  INFO -- : [ActiveJob] [AddRateJob] [d218d549-8a40-4e35-b901-67d1535d4b43] Performed AddRateJob (Job ID: d218d549-8a40-4e35-b901-67d1535d4b43) from Async(default) in 170.78ms
+I, [2018-03-05T01:40:55.407572 #24372]  INFO -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Started GET "/welcome/show" for 127.0.0.1 at 2018-03-05 01:40:55 +0300
+I, [2018-03-05T01:40:55.409059 #24372]  INFO -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Processing by WelcomeController#show as */*
+D, [2018-03-05T01:40:55.409905 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache read: rates_cache
+D, [2018-03-05T01:40:55.410270 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache generate: rates_cache
+D, [2018-03-05T01:40:55.413597 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58]   [1m[36mRate Load (0.9ms)[0m  [1m[34mSELECT "rates".* FROM "rates"[0m
+D, [2018-03-05T01:40:55.427370 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache write: rates_cache
+D, [2018-03-05T01:40:55.430149 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache read: rates_cache
+D, [2018-03-05T01:40:55.430384 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:55.430522 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache read: triggers_cache
+D, [2018-03-05T01:40:55.431265 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:40:55.433575 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache read: last_rate_cache
+D, [2018-03-05T01:40:55.434035 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache generate: last_rate_cache
+D, [2018-03-05T01:40:55.439062 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58]   [1m[36mRate Load (1.2ms)[0m  [1m[34mSELECT  "rates".* FROM "rates" ORDER BY "rates"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+D, [2018-03-05T01:40:55.439500 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache write: last_rate_cache
+D, [2018-03-05T01:40:55.440179 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache read: rates_cache
+D, [2018-03-05T01:40:55.440273 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:40:55.442710 #24372]  INFO -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58]   Rendering welcome/show.js.erb
+I, [2018-03-05T01:40:55.444148 #24372]  INFO -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58]   Rendering rates/index.html.erb
+E, [2018-03-05T01:40:55.446737 #24372] ERROR -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58]   Couldn't find template for digesting: rates/index
+D, [2018-03-05T01:40:55.447038 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache read: views/rates/14-20180304224054847915/
+D, [2018-03-05T01:40:55.448098 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache write: views/rates/14-20180304224054847915/
+D, [2018-03-05T01:40:55.451256 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/
+I, [2018-03-05T01:40:55.459434 #24372]  INFO -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58]   Rendered collection of rates/_rate.html.erb [14 times] (4.7ms)
+D, [2018-03-05T01:40:55.460507 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache write: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/
+I, [2018-03-05T01:40:55.461114 #24372]  INFO -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58]   Rendered rates/index.html.erb (16.8ms)
+I, [2018-03-05T01:40:55.463234 #24372]  INFO -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58]   Rendering triggers/index.html.erb
+E, [2018-03-05T01:40:55.464871 #24372] ERROR -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58]   Couldn't find template for digesting: triggers/index
+D, [2018-03-05T01:40:55.465854 #24372] DEBUG -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/
+I, [2018-03-05T01:40:55.466438 #24372]  INFO -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58]   Rendered triggers/index.html.erb (3.0ms)
+I, [2018-03-05T01:40:55.466895 #24372]  INFO -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58]   Rendered welcome/show.js.erb (24.1ms)
+I, [2018-03-05T01:40:55.467270 #24372]  INFO -- : [54cfb65a-9dd6-41ea-bebd-13e40fb66e58] Completed 200 OK in 58ms (Views: 25.5ms | ActiveRecord: 2.1ms)
+I, [2018-03-05T01:40:57.300111 #24372]  INFO -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Started GET "/" for 127.0.0.1 at 2018-03-05 01:40:57 +0300
+I, [2018-03-05T01:40:57.301734 #24372]  INFO -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:40:57.303047 #24372] DEBUG -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Cache read: rates_cache
+D, [2018-03-05T01:40:57.304737 #24372] DEBUG -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:57.304875 #24372] DEBUG -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Cache read: triggers_cache
+D, [2018-03-05T01:40:57.305379 #24372] DEBUG -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:40:57.305472 #24372] DEBUG -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Cache read: rates_cache
+D, [2018-03-05T01:40:57.305545 #24372] DEBUG -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:57.306886 #24372] DEBUG -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Cache read: last_rate_cache
+D, [2018-03-05T01:40:57.307200 #24372] DEBUG -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:40:57.307314 #24372] DEBUG -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Cache read: rates_cache
+D, [2018-03-05T01:40:57.307381 #24372] DEBUG -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:40:57.308319 #24372]  INFO -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:40:57.308506 #24372]  INFO -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:40:57.309161 #24372] DEBUG -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:40:57.309444 #24372]  INFO -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5]   Rendered triggers/index.html.erb (0.8ms)
+I, [2018-03-05T01:40:57.309578 #24372]  INFO -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5]   Rendering rates/index.html.erb
+D, [2018-03-05T01:40:57.309909 #24372] DEBUG -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Cache read: views/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:40:57.310434 #24372] DEBUG -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Cache write: views/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:40:57.312318 #24372] DEBUG -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:40:57.317849 #24372]  INFO -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5]   Rendered collection of rates/_rate.html.erb [14 times] (4.2ms)
+D, [2018-03-05T01:40:57.318678 #24372] DEBUG -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Cache write: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:40:57.319187 #24372]  INFO -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5]   Rendered rates/index.html.erb (9.5ms)
+I, [2018-03-05T01:40:57.319330 #24372]  INFO -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5]   Rendered welcome/index.html.erb within layouts/application (10.9ms)
+I, [2018-03-05T01:40:57.321008 #24372]  INFO -- : [9b44a077-a5c7-4cc4-aff3-aab0cb8645e5] Completed 200 OK in 19ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:40:58.360541 #24372]  INFO -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Started GET "/" for 127.0.0.1 at 2018-03-05 01:40:58 +0300
+I, [2018-03-05T01:40:58.362165 #24372]  INFO -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:40:58.363244 #24372] DEBUG -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Cache read: rates_cache
+D, [2018-03-05T01:40:58.365112 #24372] DEBUG -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:58.365272 #24372] DEBUG -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Cache read: triggers_cache
+D, [2018-03-05T01:40:58.366060 #24372] DEBUG -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:40:58.366157 #24372] DEBUG -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Cache read: rates_cache
+D, [2018-03-05T01:40:58.366232 #24372] DEBUG -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:58.367775 #24372] DEBUG -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Cache read: last_rate_cache
+D, [2018-03-05T01:40:58.368356 #24372] DEBUG -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:40:58.368507 #24372] DEBUG -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Cache read: rates_cache
+D, [2018-03-05T01:40:58.368595 #24372] DEBUG -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:40:58.370019 #24372]  INFO -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:40:58.370319 #24372]  INFO -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:40:58.371086 #24372] DEBUG -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:40:58.371490 #24372]  INFO -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1]   Rendered triggers/index.html.erb (1.1ms)
+I, [2018-03-05T01:40:58.371671 #24372]  INFO -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1]   Rendering rates/index.html.erb
+D, [2018-03-05T01:40:58.372020 #24372] DEBUG -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Cache read: views/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:40:58.373846 #24372] DEBUG -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:40:58.374152 #24372]  INFO -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1]   Rendered rates/index.html.erb (2.4ms)
+I, [2018-03-05T01:40:58.374293 #24372]  INFO -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1]   Rendered welcome/index.html.erb within layouts/application (4.1ms)
+I, [2018-03-05T01:40:58.375933 #24372]  INFO -- : [f4400252-a8cd-4d1b-b88c-2819b1a0d3e1] Completed 200 OK in 14ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:40:58.966708 #24372]  INFO -- : [71b13abd-4b30-4141-aa02-47d104245e59] Started GET "/" for 127.0.0.1 at 2018-03-05 01:40:58 +0300
+I, [2018-03-05T01:40:58.968171 #24372]  INFO -- : [71b13abd-4b30-4141-aa02-47d104245e59] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:40:58.969267 #24372] DEBUG -- : [71b13abd-4b30-4141-aa02-47d104245e59] Cache read: rates_cache
+D, [2018-03-05T01:40:58.971257 #24372] DEBUG -- : [71b13abd-4b30-4141-aa02-47d104245e59] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:58.971387 #24372] DEBUG -- : [71b13abd-4b30-4141-aa02-47d104245e59] Cache read: triggers_cache
+D, [2018-03-05T01:40:58.971879 #24372] DEBUG -- : [71b13abd-4b30-4141-aa02-47d104245e59] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:40:58.971967 #24372] DEBUG -- : [71b13abd-4b30-4141-aa02-47d104245e59] Cache read: rates_cache
+D, [2018-03-05T01:40:58.972040 #24372] DEBUG -- : [71b13abd-4b30-4141-aa02-47d104245e59] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:58.973424 #24372] DEBUG -- : [71b13abd-4b30-4141-aa02-47d104245e59] Cache read: last_rate_cache
+D, [2018-03-05T01:40:58.973760 #24372] DEBUG -- : [71b13abd-4b30-4141-aa02-47d104245e59] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:40:58.973879 #24372] DEBUG -- : [71b13abd-4b30-4141-aa02-47d104245e59] Cache read: rates_cache
+D, [2018-03-05T01:40:58.973968 #24372] DEBUG -- : [71b13abd-4b30-4141-aa02-47d104245e59] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:40:58.974999 #24372]  INFO -- : [71b13abd-4b30-4141-aa02-47d104245e59]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:40:58.975196 #24372]  INFO -- : [71b13abd-4b30-4141-aa02-47d104245e59]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:40:58.975948 #24372] DEBUG -- : [71b13abd-4b30-4141-aa02-47d104245e59] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:40:58.976335 #24372]  INFO -- : [71b13abd-4b30-4141-aa02-47d104245e59]   Rendered triggers/index.html.erb (1.0ms)
+I, [2018-03-05T01:40:58.976556 #24372]  INFO -- : [71b13abd-4b30-4141-aa02-47d104245e59]   Rendering rates/index.html.erb
+D, [2018-03-05T01:40:58.976972 #24372] DEBUG -- : [71b13abd-4b30-4141-aa02-47d104245e59] Cache read: views/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:40:58.979116 #24372] DEBUG -- : [71b13abd-4b30-4141-aa02-47d104245e59] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:40:58.979468 #24372]  INFO -- : [71b13abd-4b30-4141-aa02-47d104245e59]   Rendered rates/index.html.erb (2.8ms)
+I, [2018-03-05T01:40:58.979665 #24372]  INFO -- : [71b13abd-4b30-4141-aa02-47d104245e59]   Rendered welcome/index.html.erb within layouts/application (4.5ms)
+I, [2018-03-05T01:40:58.981488 #24372]  INFO -- : [71b13abd-4b30-4141-aa02-47d104245e59] Completed 200 OK in 13ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:40:59.215173 #24372]  INFO -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Started GET "/" for 127.0.0.1 at 2018-03-05 01:40:59 +0300
+I, [2018-03-05T01:40:59.216420 #24372]  INFO -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:40:59.217175 #24372] DEBUG -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Cache read: rates_cache
+D, [2018-03-05T01:40:59.218415 #24372] DEBUG -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:59.218544 #24372] DEBUG -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Cache read: triggers_cache
+D, [2018-03-05T01:40:59.219086 #24372] DEBUG -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:40:59.219203 #24372] DEBUG -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Cache read: rates_cache
+D, [2018-03-05T01:40:59.219282 #24372] DEBUG -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:59.221112 #24372] DEBUG -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Cache read: last_rate_cache
+D, [2018-03-05T01:40:59.221627 #24372] DEBUG -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:40:59.221790 #24372] DEBUG -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Cache read: rates_cache
+D, [2018-03-05T01:40:59.221923 #24372] DEBUG -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:40:59.223232 #24372]  INFO -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:40:59.223519 #24372]  INFO -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:40:59.224570 #24372] DEBUG -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:40:59.225093 #24372]  INFO -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0]   Rendered triggers/index.html.erb (1.4ms)
+I, [2018-03-05T01:40:59.225332 #24372]  INFO -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0]   Rendering rates/index.html.erb
+D, [2018-03-05T01:40:59.225922 #24372] DEBUG -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Cache read: views/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:40:59.227623 #24372] DEBUG -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:40:59.227890 #24372]  INFO -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0]   Rendered rates/index.html.erb (2.4ms)
+I, [2018-03-05T01:40:59.228014 #24372]  INFO -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0]   Rendered welcome/index.html.erb within layouts/application (4.6ms)
+I, [2018-03-05T01:40:59.229480 #24372]  INFO -- : [dff79321-f9a2-43dc-9b97-9dbc1e6b67f0] Completed 200 OK in 13ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:40:59.419711 #24372]  INFO -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Started GET "/" for 127.0.0.1 at 2018-03-05 01:40:59 +0300
+I, [2018-03-05T01:40:59.420635 #24372]  INFO -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:40:59.421308 #24372] DEBUG -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Cache read: rates_cache
+D, [2018-03-05T01:40:59.422454 #24372] DEBUG -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:59.422571 #24372] DEBUG -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Cache read: triggers_cache
+D, [2018-03-05T01:40:59.423025 #24372] DEBUG -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:40:59.423113 #24372] DEBUG -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Cache read: rates_cache
+D, [2018-03-05T01:40:59.423195 #24372] DEBUG -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:59.424484 #24372] DEBUG -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Cache read: last_rate_cache
+D, [2018-03-05T01:40:59.424803 #24372] DEBUG -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:40:59.424922 #24372] DEBUG -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Cache read: rates_cache
+D, [2018-03-05T01:40:59.425003 #24372] DEBUG -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:40:59.426035 #24372]  INFO -- : [bd01782d-447d-45ef-96fe-246f87f79bd4]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:40:59.426369 #24372]  INFO -- : [bd01782d-447d-45ef-96fe-246f87f79bd4]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:40:59.427511 #24372] DEBUG -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:40:59.428024 #24372]  INFO -- : [bd01782d-447d-45ef-96fe-246f87f79bd4]   Rendered triggers/index.html.erb (1.5ms)
+I, [2018-03-05T01:40:59.428285 #24372]  INFO -- : [bd01782d-447d-45ef-96fe-246f87f79bd4]   Rendering rates/index.html.erb
+D, [2018-03-05T01:40:59.428911 #24372] DEBUG -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Cache read: views/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:40:59.432262 #24372] DEBUG -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:40:59.432860 #24372]  INFO -- : [bd01782d-447d-45ef-96fe-246f87f79bd4]   Rendered rates/index.html.erb (4.4ms)
+I, [2018-03-05T01:40:59.432965 #24372]  INFO -- : [bd01782d-447d-45ef-96fe-246f87f79bd4]   Rendered welcome/index.html.erb within layouts/application (6.8ms)
+I, [2018-03-05T01:40:59.434499 #24372]  INFO -- : [bd01782d-447d-45ef-96fe-246f87f79bd4] Completed 200 OK in 14ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:40:59.617101 #24372]  INFO -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Started GET "/" for 127.0.0.1 at 2018-03-05 01:40:59 +0300
+I, [2018-03-05T01:40:59.618175 #24372]  INFO -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:40:59.619032 #24372] DEBUG -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Cache read: rates_cache
+D, [2018-03-05T01:40:59.620479 #24372] DEBUG -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:59.620721 #24372] DEBUG -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Cache read: triggers_cache
+D, [2018-03-05T01:40:59.621466 #24372] DEBUG -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:40:59.621624 #24372] DEBUG -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Cache read: rates_cache
+D, [2018-03-05T01:40:59.621745 #24372] DEBUG -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:40:59.623824 #24372] DEBUG -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Cache read: last_rate_cache
+D, [2018-03-05T01:40:59.624396 #24372] DEBUG -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:40:59.624586 #24372] DEBUG -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Cache read: rates_cache
+D, [2018-03-05T01:40:59.624734 #24372] DEBUG -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:40:59.625944 #24372]  INFO -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:40:59.626203 #24372]  INFO -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:40:59.627077 #24372] DEBUG -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:40:59.627478 #24372]  INFO -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19]   Rendered triggers/index.html.erb (1.1ms)
+I, [2018-03-05T01:40:59.627652 #24372]  INFO -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19]   Rendering rates/index.html.erb
+D, [2018-03-05T01:40:59.628121 #24372] DEBUG -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Cache read: views/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:40:59.630296 #24372] DEBUG -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:40:59.630555 #24372]  INFO -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19]   Rendered rates/index.html.erb (2.8ms)
+I, [2018-03-05T01:40:59.630658 #24372]  INFO -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19]   Rendered welcome/index.html.erb within layouts/application (4.6ms)
+I, [2018-03-05T01:40:59.632711 #24372]  INFO -- : [665493a9-3c4e-4d0e-8238-9f7568ddfc19] Completed 200 OK in 14ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:41:09.698551 #24372]  INFO -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Started GET "/welcome/show" for 127.0.0.1 at 2018-03-05 01:41:09 +0300
+I, [2018-03-05T01:41:09.699917 #24372]  INFO -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Processing by WelcomeController#show as */*
+D, [2018-03-05T01:41:09.701026 #24372] DEBUG -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Cache read: rates_cache
+D, [2018-03-05T01:41:09.702964 #24372] DEBUG -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:09.703255 #24372] DEBUG -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Cache read: rates_cache
+D, [2018-03-05T01:41:09.703398 #24372] DEBUG -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:09.703530 #24372] DEBUG -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Cache read: triggers_cache
+D, [2018-03-05T01:41:09.704349 #24372] DEBUG -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:41:09.706448 #24372] DEBUG -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Cache read: last_rate_cache
+D, [2018-03-05T01:41:09.748936 #24372] DEBUG -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:41:09.749189 #24372] DEBUG -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Cache read: rates_cache
+D, [2018-03-05T01:41:09.749273 #24372] DEBUG -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:41:09.750360 #24372]  INFO -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3]   Rendering welcome/show.js.erb
+I, [2018-03-05T01:41:09.750571 #24372]  INFO -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3]   Rendering rates/index.html.erb
+D, [2018-03-05T01:41:09.751050 #24372] DEBUG -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Cache read: views/rates/14-20180304224054847915/
+D, [2018-03-05T01:41:09.753009 #24372] DEBUG -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/
+I, [2018-03-05T01:41:09.753453 #24372]  INFO -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3]   Rendered rates/index.html.erb (2.8ms)
+I, [2018-03-05T01:41:09.754436 #24372]  INFO -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:41:09.755149 #24372] DEBUG -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/
+I, [2018-03-05T01:41:09.755722 #24372]  INFO -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3]   Rendered triggers/index.html.erb (1.2ms)
+I, [2018-03-05T01:41:09.756033 #24372]  INFO -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3]   Rendered welcome/show.js.erb (5.6ms)
+I, [2018-03-05T01:41:09.756287 #24372]  INFO -- : [5c8cb811-d233-4b52-90e2-162fa00ee6f3] Completed 200 OK in 56ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:41:15.106991 #24372]  INFO -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Started GET "/" for 127.0.0.1 at 2018-03-05 01:41:15 +0300
+I, [2018-03-05T01:41:15.108235 #24372]  INFO -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:41:15.109152 #24372] DEBUG -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Cache read: rates_cache
+D, [2018-03-05T01:41:15.110477 #24372] DEBUG -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:15.110652 #24372] DEBUG -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Cache read: triggers_cache
+D, [2018-03-05T01:41:15.111353 #24372] DEBUG -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:41:15.111456 #24372] DEBUG -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Cache read: rates_cache
+D, [2018-03-05T01:41:15.111540 #24372] DEBUG -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:15.112999 #24372] DEBUG -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Cache read: last_rate_cache
+D, [2018-03-05T01:41:15.113425 #24372] DEBUG -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:41:15.113550 #24372] DEBUG -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Cache read: rates_cache
+D, [2018-03-05T01:41:15.113701 #24372] DEBUG -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:41:15.114755 #24372]  INFO -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:41:15.115069 #24372]  INFO -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:41:15.115839 #24372] DEBUG -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:41:15.116258 #24372]  INFO -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e]   Rendered triggers/index.html.erb (1.1ms)
+I, [2018-03-05T01:41:15.116443 #24372]  INFO -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e]   Rendering rates/index.html.erb
+D, [2018-03-05T01:41:15.116874 #24372] DEBUG -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Cache read: views/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:41:15.119420 #24372] DEBUG -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:41:15.120076 #24372]  INFO -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e]   Rendered rates/index.html.erb (3.5ms)
+I, [2018-03-05T01:41:15.120247 #24372]  INFO -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e]   Rendered welcome/index.html.erb within layouts/application (5.4ms)
+I, [2018-03-05T01:41:15.122576 #24372]  INFO -- : [9e4feeb4-d289-4fa8-b71d-70e04834be3e] Completed 200 OK in 14ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:41:15.728463 #24372]  INFO -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Started GET "/" for 127.0.0.1 at 2018-03-05 01:41:15 +0300
+I, [2018-03-05T01:41:15.730134 #24372]  INFO -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:41:15.731242 #24372] DEBUG -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Cache read: rates_cache
+D, [2018-03-05T01:41:15.733042 #24372] DEBUG -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:15.733176 #24372] DEBUG -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Cache read: triggers_cache
+D, [2018-03-05T01:41:15.733699 #24372] DEBUG -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:41:15.733790 #24372] DEBUG -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Cache read: rates_cache
+D, [2018-03-05T01:41:15.733867 #24372] DEBUG -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:15.735515 #24372] DEBUG -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Cache read: last_rate_cache
+D, [2018-03-05T01:41:15.736070 #24372] DEBUG -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:41:15.736285 #24372] DEBUG -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Cache read: rates_cache
+D, [2018-03-05T01:41:15.736395 #24372] DEBUG -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:41:15.738112 #24372]  INFO -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:41:15.738512 #24372]  INFO -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:41:15.739830 #24372] DEBUG -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:41:15.740373 #24372]  INFO -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0]   Rendered triggers/index.html.erb (1.7ms)
+I, [2018-03-05T01:41:15.740606 #24372]  INFO -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0]   Rendering rates/index.html.erb
+D, [2018-03-05T01:41:15.741120 #24372] DEBUG -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Cache read: views/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:41:15.742863 #24372] DEBUG -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:41:15.743245 #24372]  INFO -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0]   Rendered rates/index.html.erb (2.5ms)
+I, [2018-03-05T01:41:15.743360 #24372]  INFO -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0]   Rendered welcome/index.html.erb within layouts/application (5.1ms)
+I, [2018-03-05T01:41:15.745351 #24372]  INFO -- : [4265bc5a-437c-4bbd-99c7-b834131b92e0] Completed 200 OK in 15ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:41:16.031565 #24372]  INFO -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Started GET "/" for 127.0.0.1 at 2018-03-05 01:41:16 +0300
+I, [2018-03-05T01:41:16.032677 #24372]  INFO -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:41:16.033624 #24372] DEBUG -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Cache read: rates_cache
+D, [2018-03-05T01:41:16.035306 #24372] DEBUG -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:16.035481 #24372] DEBUG -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Cache read: triggers_cache
+D, [2018-03-05T01:41:16.036188 #24372] DEBUG -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:41:16.036377 #24372] DEBUG -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Cache read: rates_cache
+D, [2018-03-05T01:41:16.036470 #24372] DEBUG -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:16.038356 #24372] DEBUG -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Cache read: last_rate_cache
+D, [2018-03-05T01:41:16.038925 #24372] DEBUG -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:41:16.039066 #24372] DEBUG -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Cache read: rates_cache
+D, [2018-03-05T01:41:16.039153 #24372] DEBUG -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:41:16.040302 #24372]  INFO -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:41:16.040575 #24372]  INFO -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:41:16.041406 #24372] DEBUG -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:41:16.041829 #24372]  INFO -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd]   Rendered triggers/index.html.erb (1.2ms)
+I, [2018-03-05T01:41:16.042006 #24372]  INFO -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd]   Rendering rates/index.html.erb
+D, [2018-03-05T01:41:16.042436 #24372] DEBUG -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Cache read: views/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:41:16.044572 #24372] DEBUG -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:41:16.044896 #24372]  INFO -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd]   Rendered rates/index.html.erb (2.8ms)
+I, [2018-03-05T01:41:16.045022 #24372]  INFO -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd]   Rendered welcome/index.html.erb within layouts/application (4.6ms)
+I, [2018-03-05T01:41:16.047206 #24372]  INFO -- : [78d2d80f-dbdd-4b8f-99e7-9b231b8b6fbd] Completed 200 OK in 14ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:41:16.284766 #24372]  INFO -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Started GET "/" for 127.0.0.1 at 2018-03-05 01:41:16 +0300
+I, [2018-03-05T01:41:16.286552 #24372]  INFO -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:41:16.287640 #24372] DEBUG -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Cache read: rates_cache
+D, [2018-03-05T01:41:16.289659 #24372] DEBUG -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:16.289829 #24372] DEBUG -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Cache read: triggers_cache
+D, [2018-03-05T01:41:16.290668 #24372] DEBUG -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:41:16.290805 #24372] DEBUG -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Cache read: rates_cache
+D, [2018-03-05T01:41:16.290976 #24372] DEBUG -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:16.292749 #24372] DEBUG -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Cache read: last_rate_cache
+D, [2018-03-05T01:41:16.293164 #24372] DEBUG -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:41:16.293313 #24372] DEBUG -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Cache read: rates_cache
+D, [2018-03-05T01:41:16.293406 #24372] DEBUG -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:41:16.294619 #24372]  INFO -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:41:16.294834 #24372]  INFO -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:41:16.295640 #24372] DEBUG -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:41:16.296124 #24372]  INFO -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449]   Rendered triggers/index.html.erb (1.2ms)
+I, [2018-03-05T01:41:16.296312 #24372]  INFO -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449]   Rendering rates/index.html.erb
+D, [2018-03-05T01:41:16.296800 #24372] DEBUG -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Cache read: views/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:41:16.298613 #24372] DEBUG -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:41:16.298948 #24372]  INFO -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449]   Rendered rates/index.html.erb (2.5ms)
+I, [2018-03-05T01:41:16.299065 #24372]  INFO -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449]   Rendered welcome/index.html.erb within layouts/application (4.3ms)
+I, [2018-03-05T01:41:16.301042 #24372]  INFO -- : [1290208e-5b09-4c26-a47d-3ce1e3bc6449] Completed 200 OK in 14ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:41:16.546547 #24372]  INFO -- : [b34415e4-263e-42a8-8cad-585bde61d808] Started GET "/" for 127.0.0.1 at 2018-03-05 01:41:16 +0300
+I, [2018-03-05T01:41:16.547630 #24372]  INFO -- : [b34415e4-263e-42a8-8cad-585bde61d808] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:41:16.548595 #24372] DEBUG -- : [b34415e4-263e-42a8-8cad-585bde61d808] Cache read: rates_cache
+D, [2018-03-05T01:41:16.550393 #24372] DEBUG -- : [b34415e4-263e-42a8-8cad-585bde61d808] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:16.550531 #24372] DEBUG -- : [b34415e4-263e-42a8-8cad-585bde61d808] Cache read: triggers_cache
+D, [2018-03-05T01:41:16.551139 #24372] DEBUG -- : [b34415e4-263e-42a8-8cad-585bde61d808] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:41:16.551247 #24372] DEBUG -- : [b34415e4-263e-42a8-8cad-585bde61d808] Cache read: rates_cache
+D, [2018-03-05T01:41:16.551345 #24372] DEBUG -- : [b34415e4-263e-42a8-8cad-585bde61d808] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:16.552893 #24372] DEBUG -- : [b34415e4-263e-42a8-8cad-585bde61d808] Cache read: last_rate_cache
+D, [2018-03-05T01:41:16.553393 #24372] DEBUG -- : [b34415e4-263e-42a8-8cad-585bde61d808] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:41:16.553544 #24372] DEBUG -- : [b34415e4-263e-42a8-8cad-585bde61d808] Cache read: rates_cache
+D, [2018-03-05T01:41:16.553646 #24372] DEBUG -- : [b34415e4-263e-42a8-8cad-585bde61d808] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:41:16.554923 #24372]  INFO -- : [b34415e4-263e-42a8-8cad-585bde61d808]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:41:16.555236 #24372]  INFO -- : [b34415e4-263e-42a8-8cad-585bde61d808]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:41:16.556477 #24372] DEBUG -- : [b34415e4-263e-42a8-8cad-585bde61d808] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:41:16.556953 #24372]  INFO -- : [b34415e4-263e-42a8-8cad-585bde61d808]   Rendered triggers/index.html.erb (1.6ms)
+I, [2018-03-05T01:41:16.557130 #24372]  INFO -- : [b34415e4-263e-42a8-8cad-585bde61d808]   Rendering rates/index.html.erb
+D, [2018-03-05T01:41:16.557665 #24372] DEBUG -- : [b34415e4-263e-42a8-8cad-585bde61d808] Cache read: views/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:41:16.561414 #24372] DEBUG -- : [b34415e4-263e-42a8-8cad-585bde61d808] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:41:16.562203 #24372]  INFO -- : [b34415e4-263e-42a8-8cad-585bde61d808]   Rendered rates/index.html.erb (4.9ms)
+I, [2018-03-05T01:41:16.562342 #24372]  INFO -- : [b34415e4-263e-42a8-8cad-585bde61d808]   Rendered welcome/index.html.erb within layouts/application (7.3ms)
+I, [2018-03-05T01:41:16.564035 #24372]  INFO -- : [b34415e4-263e-42a8-8cad-585bde61d808] Completed 200 OK in 16ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:41:16.993624 #24372]  INFO -- : [8305c344-2938-4ff8-b196-3f078fe28574] Started GET "/" for 127.0.0.1 at 2018-03-05 01:41:16 +0300
+I, [2018-03-05T01:41:16.994743 #24372]  INFO -- : [8305c344-2938-4ff8-b196-3f078fe28574] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:41:16.995678 #24372] DEBUG -- : [8305c344-2938-4ff8-b196-3f078fe28574] Cache read: rates_cache
+D, [2018-03-05T01:41:16.997028 #24372] DEBUG -- : [8305c344-2938-4ff8-b196-3f078fe28574] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:16.997151 #24372] DEBUG -- : [8305c344-2938-4ff8-b196-3f078fe28574] Cache read: triggers_cache
+D, [2018-03-05T01:41:16.997661 #24372] DEBUG -- : [8305c344-2938-4ff8-b196-3f078fe28574] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:41:16.997764 #24372] DEBUG -- : [8305c344-2938-4ff8-b196-3f078fe28574] Cache read: rates_cache
+D, [2018-03-05T01:41:16.997861 #24372] DEBUG -- : [8305c344-2938-4ff8-b196-3f078fe28574] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:16.999653 #24372] DEBUG -- : [8305c344-2938-4ff8-b196-3f078fe28574] Cache read: last_rate_cache
+D, [2018-03-05T01:41:17.000184 #24372] DEBUG -- : [8305c344-2938-4ff8-b196-3f078fe28574] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:41:17.000350 #24372] DEBUG -- : [8305c344-2938-4ff8-b196-3f078fe28574] Cache read: rates_cache
+D, [2018-03-05T01:41:17.000461 #24372] DEBUG -- : [8305c344-2938-4ff8-b196-3f078fe28574] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:41:17.001791 #24372]  INFO -- : [8305c344-2938-4ff8-b196-3f078fe28574]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:41:17.002136 #24372]  INFO -- : [8305c344-2938-4ff8-b196-3f078fe28574]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:41:17.002851 #24372] DEBUG -- : [8305c344-2938-4ff8-b196-3f078fe28574] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:41:17.003608 #24372]  INFO -- : [8305c344-2938-4ff8-b196-3f078fe28574]   Rendered triggers/index.html.erb (1.4ms)
+I, [2018-03-05T01:41:17.003772 #24372]  INFO -- : [8305c344-2938-4ff8-b196-3f078fe28574]   Rendering rates/index.html.erb
+D, [2018-03-05T01:41:17.004155 #24372] DEBUG -- : [8305c344-2938-4ff8-b196-3f078fe28574] Cache read: views/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:41:17.006379 #24372] DEBUG -- : [8305c344-2938-4ff8-b196-3f078fe28574] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:41:17.006960 #24372]  INFO -- : [8305c344-2938-4ff8-b196-3f078fe28574]   Rendered rates/index.html.erb (3.1ms)
+I, [2018-03-05T01:41:17.007127 #24372]  INFO -- : [8305c344-2938-4ff8-b196-3f078fe28574]   Rendered welcome/index.html.erb within layouts/application (5.1ms)
+I, [2018-03-05T01:41:17.010001 #24372]  INFO -- : [8305c344-2938-4ff8-b196-3f078fe28574] Completed 200 OK in 15ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:41:17.311995 #24372]  INFO -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Started GET "/" for 127.0.0.1 at 2018-03-05 01:41:17 +0300
+I, [2018-03-05T01:41:17.312939 #24372]  INFO -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:41:17.313676 #24372] DEBUG -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Cache read: rates_cache
+D, [2018-03-05T01:41:17.315032 #24372] DEBUG -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:17.315191 #24372] DEBUG -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Cache read: triggers_cache
+D, [2018-03-05T01:41:17.315692 #24372] DEBUG -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:41:17.315884 #24372] DEBUG -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Cache read: rates_cache
+D, [2018-03-05T01:41:17.315964 #24372] DEBUG -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:17.317318 #24372] DEBUG -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Cache read: last_rate_cache
+D, [2018-03-05T01:41:17.317689 #24372] DEBUG -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:41:17.317824 #24372] DEBUG -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Cache read: rates_cache
+D, [2018-03-05T01:41:17.317906 #24372] DEBUG -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:41:17.318969 #24372]  INFO -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:41:17.319172 #24372]  INFO -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:41:17.319921 #24372] DEBUG -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:41:17.320252 #24372]  INFO -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02]   Rendered triggers/index.html.erb (1.0ms)
+I, [2018-03-05T01:41:17.320420 #24372]  INFO -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02]   Rendering rates/index.html.erb
+D, [2018-03-05T01:41:17.320801 #24372] DEBUG -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Cache read: views/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:41:17.322738 #24372] DEBUG -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:41:17.323061 #24372]  INFO -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02]   Rendered rates/index.html.erb (2.5ms)
+I, [2018-03-05T01:41:17.323171 #24372]  INFO -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02]   Rendered welcome/index.html.erb within layouts/application (4.1ms)
+I, [2018-03-05T01:41:17.325062 #24372]  INFO -- : [3c7c624d-4241-4e55-bbee-2f299ccbbc02] Completed 200 OK in 12ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:41:17.589925 #24372]  INFO -- : [10134908-5988-42b8-9451-cda88a82b297] Started GET "/" for 127.0.0.1 at 2018-03-05 01:41:17 +0300
+I, [2018-03-05T01:41:17.591044 #24372]  INFO -- : [10134908-5988-42b8-9451-cda88a82b297] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:41:17.591879 #24372] DEBUG -- : [10134908-5988-42b8-9451-cda88a82b297] Cache read: rates_cache
+D, [2018-03-05T01:41:17.593311 #24372] DEBUG -- : [10134908-5988-42b8-9451-cda88a82b297] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:17.593455 #24372] DEBUG -- : [10134908-5988-42b8-9451-cda88a82b297] Cache read: triggers_cache
+D, [2018-03-05T01:41:17.594129 #24372] DEBUG -- : [10134908-5988-42b8-9451-cda88a82b297] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:41:17.594251 #24372] DEBUG -- : [10134908-5988-42b8-9451-cda88a82b297] Cache read: rates_cache
+D, [2018-03-05T01:41:17.594361 #24372] DEBUG -- : [10134908-5988-42b8-9451-cda88a82b297] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:17.596004 #24372] DEBUG -- : [10134908-5988-42b8-9451-cda88a82b297] Cache read: last_rate_cache
+D, [2018-03-05T01:41:17.596456 #24372] DEBUG -- : [10134908-5988-42b8-9451-cda88a82b297] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:41:17.596730 #24372] DEBUG -- : [10134908-5988-42b8-9451-cda88a82b297] Cache read: rates_cache
+D, [2018-03-05T01:41:17.596813 #24372] DEBUG -- : [10134908-5988-42b8-9451-cda88a82b297] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:41:17.597944 #24372]  INFO -- : [10134908-5988-42b8-9451-cda88a82b297]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:41:17.598214 #24372]  INFO -- : [10134908-5988-42b8-9451-cda88a82b297]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:41:17.598924 #24372] DEBUG -- : [10134908-5988-42b8-9451-cda88a82b297] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:41:17.599274 #24372]  INFO -- : [10134908-5988-42b8-9451-cda88a82b297]   Rendered triggers/index.html.erb (1.0ms)
+I, [2018-03-05T01:41:17.599415 #24372]  INFO -- : [10134908-5988-42b8-9451-cda88a82b297]   Rendering rates/index.html.erb
+D, [2018-03-05T01:41:17.599765 #24372] DEBUG -- : [10134908-5988-42b8-9451-cda88a82b297] Cache read: views/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:41:17.601707 #24372] DEBUG -- : [10134908-5988-42b8-9451-cda88a82b297] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:41:17.602066 #24372]  INFO -- : [10134908-5988-42b8-9451-cda88a82b297]   Rendered rates/index.html.erb (2.6ms)
+I, [2018-03-05T01:41:17.602181 #24372]  INFO -- : [10134908-5988-42b8-9451-cda88a82b297]   Rendered welcome/index.html.erb within layouts/application (4.1ms)
+I, [2018-03-05T01:41:17.604012 #24372]  INFO -- : [10134908-5988-42b8-9451-cda88a82b297] Completed 200 OK in 13ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+I, [2018-03-05T01:41:22.920349 #24361]  INFO -- : [ActiveJob] Enqueued AddRateJob (Job ID: d6775593-7b60-4b81-a42c-7b669e59e3f5) to Async(default)
+I, [2018-03-05T01:41:22.920860 #24361]  INFO -- : [ActiveJob] [AddRateJob] [d6775593-7b60-4b81-a42c-7b669e59e3f5] Performing AddRateJob (Job ID: d6775593-7b60-4b81-a42c-7b669e59e3f5) from Async(default)
+D, [2018-03-05T01:41:22.972926 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d6775593-7b60-4b81-a42c-7b669e59e3f5]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2018-03-05T01:41:22.974868 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d6775593-7b60-4b81-a42c-7b669e59e3f5]   [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "rates" ("time", "usdBuy", "usdSell", "eurBuy", "eurSell", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["time", "2018-03-04 22:41:22.971553"], ["usdBuy", 57.65], ["usdSell", 55.95], ["eurBuy", 71.1], ["eurSell", 69.0], ["created_at", "2018-03-04 22:41:22.973179"], ["updated_at", "2018-03-04 22:41:22.973179"]]
+D, [2018-03-05T01:41:22.990293 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d6775593-7b60-4b81-a42c-7b669e59e3f5]   [1m[35m (14.9ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-03-05T01:41:22.990720 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d6775593-7b60-4b81-a42c-7b669e59e3f5] Cache delete: rates_cache
+D, [2018-03-05T01:41:22.991129 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d6775593-7b60-4b81-a42c-7b669e59e3f5] Cache delete: last_rate_cache
+D, [2018-03-05T01:41:22.992499 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d6775593-7b60-4b81-a42c-7b669e59e3f5]   [1m[36mTrigger Load (0.5ms)[0m  [1m[34mSELECT "triggers".* FROM "triggers"[0m
+D, [2018-03-05T01:41:22.993587 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d6775593-7b60-4b81-a42c-7b669e59e3f5]   [1m[36mCACHE Trigger Load (0.0ms)[0m  [1m[34mSELECT "triggers".* FROM "triggers"[0m
+D, [2018-03-05T01:41:22.994371 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d6775593-7b60-4b81-a42c-7b669e59e3f5]   [1m[36mCACHE Trigger Load (0.0ms)[0m  [1m[34mSELECT "triggers".* FROM "triggers"[0m
+D, [2018-03-05T01:41:22.995015 #24361] DEBUG -- : [ActiveJob] [AddRateJob] [d6775593-7b60-4b81-a42c-7b669e59e3f5]   [1m[36mCACHE Trigger Load (0.0ms)[0m  [1m[34mSELECT "triggers".* FROM "triggers"[0m
+I, [2018-03-05T01:41:22.995409 #24361]  INFO -- : [ActiveJob] [AddRateJob] [d6775593-7b60-4b81-a42c-7b669e59e3f5] Performed AddRateJob (Job ID: d6775593-7b60-4b81-a42c-7b669e59e3f5) from Async(default) in 74.02ms
+I, [2018-03-05T01:41:25.889922 #24372]  INFO -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Started GET "/" for 127.0.0.1 at 2018-03-05 01:41:25 +0300
+I, [2018-03-05T01:41:25.891425 #24372]  INFO -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Processing by WelcomeController#index as HTML
+D, [2018-03-05T01:41:25.892332 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache read: rates_cache
+D, [2018-03-05T01:41:25.892735 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache generate: rates_cache
+D, [2018-03-05T01:41:25.894505 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0]   [1m[36mRate Load (0.6ms)[0m  [1m[34mSELECT "rates".* FROM "rates"[0m
+D, [2018-03-05T01:41:25.895404 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache write: rates_cache
+D, [2018-03-05T01:41:25.898323 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache read: triggers_cache
+D, [2018-03-05T01:41:25.898845 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:41:25.898937 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache read: rates_cache
+D, [2018-03-05T01:41:25.899018 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:25.900763 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache read: last_rate_cache
+D, [2018-03-05T01:41:25.901105 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache generate: last_rate_cache
+D, [2018-03-05T01:41:25.903858 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0]   [1m[36mRate Load (1.8ms)[0m  [1m[34mSELECT  "rates".* FROM "rates" ORDER BY "rates"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+D, [2018-03-05T01:41:25.904288 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache write: last_rate_cache
+D, [2018-03-05T01:41:25.905013 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache read: rates_cache
+D, [2018-03-05T01:41:25.905137 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:41:25.906711 #24372]  INFO -- : [59c1a65b-c453-409b-8bd1-2f52491077f0]   Rendering welcome/index.html.erb within layouts/application
+I, [2018-03-05T01:41:25.907050 #24372]  INFO -- : [59c1a65b-c453-409b-8bd1-2f52491077f0]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:41:25.908022 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/5bfc59cb25f3621a590c86ecb4466f61
+I, [2018-03-05T01:41:25.908558 #24372]  INFO -- : [59c1a65b-c453-409b-8bd1-2f52491077f0]   Rendered triggers/index.html.erb (1.4ms)
+I, [2018-03-05T01:41:25.908769 #24372]  INFO -- : [59c1a65b-c453-409b-8bd1-2f52491077f0]   Rendering rates/index.html.erb
+D, [2018-03-05T01:41:25.909280 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache read: views/rates/15-20180304224122973179/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:41:25.910797 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache write: views/rates/15-20180304224122973179/9d97b9f903fd792c0f03f13e0b3b0d9c
+D, [2018-03-05T01:41:25.913486 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/rates/15-20180304224122973179/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:41:25.918416 #24372]  INFO -- : [59c1a65b-c453-409b-8bd1-2f52491077f0]   Rendered collection of rates/_rate.html.erb [15 times] (3.9ms)
+D, [2018-03-05T01:41:25.919610 #24372] DEBUG -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Cache write: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/rates/15-20180304224122973179/9d97b9f903fd792c0f03f13e0b3b0d9c
+I, [2018-03-05T01:41:25.920212 #24372]  INFO -- : [59c1a65b-c453-409b-8bd1-2f52491077f0]   Rendered rates/index.html.erb (11.3ms)
+I, [2018-03-05T01:41:25.920386 #24372]  INFO -- : [59c1a65b-c453-409b-8bd1-2f52491077f0]   Rendered welcome/index.html.erb within layouts/application (13.5ms)
+I, [2018-03-05T01:41:25.922492 #24372]  INFO -- : [59c1a65b-c453-409b-8bd1-2f52491077f0] Completed 200 OK in 31ms (Views: 16.3ms | ActiveRecord: 2.4ms)
+I, [2018-03-05T01:41:36.018958 #24372]  INFO -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Started GET "/welcome/show" for 127.0.0.1 at 2018-03-05 01:41:36 +0300
+I, [2018-03-05T01:41:36.020131 #24372]  INFO -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Processing by WelcomeController#show as */*
+D, [2018-03-05T01:41:36.020983 #24372] DEBUG -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Cache read: rates_cache
+D, [2018-03-05T01:41:36.022653 #24372] DEBUG -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:36.022788 #24372] DEBUG -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Cache read: rates_cache
+D, [2018-03-05T01:41:36.022883 #24372] DEBUG -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Cache fetch_hit: rates_cache
+D, [2018-03-05T01:41:36.022980 #24372] DEBUG -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Cache read: triggers_cache
+D, [2018-03-05T01:41:36.023587 #24372] DEBUG -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Cache fetch_hit: triggers_cache
+D, [2018-03-05T01:41:36.025623 #24372] DEBUG -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Cache read: last_rate_cache
+D, [2018-03-05T01:41:36.026208 #24372] DEBUG -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Cache fetch_hit: last_rate_cache
+D, [2018-03-05T01:41:36.026368 #24372] DEBUG -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Cache read: rates_cache
+D, [2018-03-05T01:41:36.026516 #24372] DEBUG -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Cache fetch_hit: rates_cache
+I, [2018-03-05T01:41:36.028043 #24372]  INFO -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c]   Rendering welcome/show.js.erb
+I, [2018-03-05T01:41:36.028325 #24372]  INFO -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c]   Rendering rates/index.html.erb
+D, [2018-03-05T01:41:36.028897 #24372] DEBUG -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Cache read: views/rates/15-20180304224122973179/
+D, [2018-03-05T01:41:36.029644 #24372] DEBUG -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Cache write: views/rates/15-20180304224122973179/
+D, [2018-03-05T01:41:36.033155 #24372] DEBUG -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Cache read: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/rates/15-20180304224122973179/
+I, [2018-03-05T01:41:36.038490 #24372]  INFO -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c]   Rendered collection of rates/_rate.html.erb [15 times] (4.3ms)
+D, [2018-03-05T01:41:36.039389 #24372] DEBUG -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Cache write: views/rates/1-20180304215802197413/rates/2-20180304215906026771/rates/3-20180304220008453336/rates/4-20180304220114295942/rates/5-20180304220213931247/rates/6-20180304220951763430/rates/7-20180304221317859915/rates/8-20180304221405647470/rates/9-20180304221512991906/rates/10-20180304221602981756/rates/11-20180304221731759787/rates/12-20180304221802424508/rates/13-20180304223654967430/rates/14-20180304224054847915/rates/15-20180304224122973179/
+I, [2018-03-05T01:41:36.039919 #24372]  INFO -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c]   Rendered rates/index.html.erb (11.5ms)
+I, [2018-03-05T01:41:36.040969 #24372]  INFO -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c]   Rendering triggers/index.html.erb
+D, [2018-03-05T01:41:36.041761 #24372] DEBUG -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Cache read: views/triggers/3-20180304221750712047/triggers/4-20180304221755900065/triggers/5-20180304221804753014/
+I, [2018-03-05T01:41:36.042163 #24372]  INFO -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c]   Rendered triggers/index.html.erb (1.1ms)
+I, [2018-03-05T01:41:36.042459 #24372]  INFO -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c]   Rendered welcome/show.js.erb (14.3ms)
+I, [2018-03-05T01:41:36.042745 #24372]  INFO -- : [d72b4685-14f6-47c8-bc1a-f975f07c4c9c] Completed 200 OK in 22ms (Views: 15.2ms | ActiveRecord: 0.0ms)
