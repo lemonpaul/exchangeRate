@@ -43,6 +43,7 @@ class WelcomeController < ApplicationController
       AddRateJob.perform_now
     end
     @rates = Rate.cached_all
+    @triggers = Trigger.cached_all
     todayRates = @rates.select { |rate| rate.time.to_date == DateTime.now.to_date }
     count = todayRates.count
     @currentRate = Rate.cached_last
@@ -76,6 +77,7 @@ class WelcomeController < ApplicationController
     end
     
     respond_to do |format|
+
       format.js
     end
   end
