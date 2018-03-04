@@ -39,6 +39,7 @@ gem 'sidekiq-cron'
 gem 'bootstrap-sass', '~>3.2.0'
 gem 'dalli'
 gem 'rb-inotify', '~> 0.9.10'
+gem 'activesupport', '~> 5.1.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
