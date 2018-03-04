@@ -4,6 +4,10 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
+  config.action_controller.perform_caching = true
+
+  config.cache_store = :dalli_store
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
@@ -65,12 +69,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-   :address              => "smtp.gmail.com",
-   :port                 => 587,
-   :user_name            => ENV['aztec969'],
-   :password             => ENV['sonya2380'],
-   :authentication       => "plain",
-  :enable_starttls_auto => true
+   address: "smtp.gmail.com",
+   port: 587,
+   domain: "gmail.com",
+   authentication: "plain",
+   enable_starttls_auto: true,
+   user_name: 'aztec969',
+   password: 'sonya2380'
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
