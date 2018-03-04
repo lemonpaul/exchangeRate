@@ -16,6 +16,12 @@ class WelcomeController < ApplicationController
     @averageUsdSell = 0
     @averageEurBuy = 0
     @averageEurSell = 0
+    forecast = Rate.forecast
+
+    @forecastUsdBuy = forecast[0]
+    @forecastUsdSell = forecast[1]
+    @forecastEurBuy = forecast[2]
+    @forecastEurSell = forecast[3]
     if count > 0
       todayRates.collect{|rate| rate.usdBuy}.each{|usdBuy| @averageUsdBuy+=usdBuy}    
       @averageUsdBuy = @averageUsdBuy/count
@@ -28,13 +34,6 @@ class WelcomeController < ApplicationController
         
       todayRates.collect{|rate| rate.eurSell}.each{|eurSell| @averageEurSell+=eurSell}    
       @averageEurSell = @averageEurSell/count
-
-      forecast = Rate.forecast
-
-      @forecastUsdBuy = forecast[0]
-      @forecastUsdSell = forecast[1]
-      @forecastEurBuy = forecast[2]
-      @forecastEurSell =forecast[3]
     end
   end
 
@@ -55,6 +54,12 @@ class WelcomeController < ApplicationController
     @averageUsdSell = 0
     @averageEurBuy = 0
     @averageEurSell = 0
+    forecast = Rate.forecast
+
+    @forecastUsdBuy = forecast[0]
+    @forecastUsdSell = forecast[1]
+    @forecastEurBuy = forecast[2]
+    @forecastEurSell = forecast[3]
     if count > 0
       todayRates.collect{|rate| rate.usdBuy}.each{|usdBuy| @averageUsdBuy+=usdBuy}    
       @averageUsdBuy = @averageUsdBuy/count
@@ -67,13 +72,6 @@ class WelcomeController < ApplicationController
         
       todayRates.collect{|rate| rate.eurSell}.each{|eurSell| @averageEurSell+=eurSell}    
       @averageEurSell = @averageEurSell/count
-
-      forecast = Rate.forecast
-
-      @forecastUsdBuy = forecast[0]
-      @forecastUsdSell = forecast[1]
-      @forecastEurBuy = forecast[2]
-      @forecastEurSell = forecast[3]
     end
     
     respond_to do |format|
