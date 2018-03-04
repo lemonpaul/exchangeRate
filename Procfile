@@ -1,2 +1,2 @@
 web: bin/rails server -p $PORT -e $RAILS_ENV
-worker: bundle exec sidekiq -c 5 -v
+worker: bundle exec sidekiq -C config/initializers/sidekiq.rb
