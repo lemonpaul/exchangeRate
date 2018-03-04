@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
   get 'welcome/show'
+  get 'rates/forecast'
   post 'welcome/index'
   require 'sidekiq/web'
   require 'sidekiq/api'

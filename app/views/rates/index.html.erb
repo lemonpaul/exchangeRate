@@ -6,12 +6,20 @@
       <thead>
         <tr>
           <th>Time</th>
-          <th>USD buy / average</th>
-          <th>USD sell / average</th>
+          <th>USD buy</th>
+          <th>Average</th>
+          <th>Forecast</th>
+          <th>USD sell</th>
+          <th>Average</th>
+          <th>Forecast</th>
           <th>Spread</th>
           <th>Spread, %</th>
-          <th>EUR buy / average</th>
-          <th>EUR sell / average</th>
+          <th>EUR buy</th>
+          <th>Average</th>
+          <th>Forecast</th>
+          <th>EUR sell</th>
+          <th>Average</th>
+          <th>Forecast</th>
           <th>Spread</th>
           <th>Spread, %</th>
         </tr>
@@ -19,12 +27,20 @@
       <tfoot>
         <tr id="current_rate">
           <td><%= @currentRate.time %></td>
-          <td><%= "%.2f" % @currentRate.usdBuy.round(2) %> / <%= "%.2f" % @averageUsdBuy.round(2) %></td>
-          <td><%= "%.2f" % @currentRate.usdSell.round(2) %> / <%= "%.2f" % @averageUsdSell.round(2) %></td>
+          <td><%= "%.2f" % @currentRate.usdBuy.round(2) %></td>
+          <td> <%= "%.2f" % @averageUsdBuy.round(2) %></td>
+          <td> <%= "%.2f" % @forecastUsdBuy.round(2) %></td>
+          <td><%= "%.2f" % @currentRate.usdSell.round(2) %></td>
+          <td><%= "%.2f" % @averageUsdSell.round(2) %></td>
+          <td><%= "%.2f" % @forecastUsdSell.round(2) %></td>
           <td><%= "%.2f" % @usdSpread.round(2) %></td>
           <td><%= @perUsdSpread.round %></td>
-          <td><%= "%.2f" % @currentRate.eurBuy.round(2) %> / <%= "%.2f" % @averageEurBuy.round(2) %></td>
-          <td><%= "%.2f" % @currentRate.eurSell.round(2) %> / <%= "%.2f" % @averageEurSell.round(2) %></td>
+          <td><%= "%.2f" % @currentRate.eurBuy.round(2) %></td> 
+          <td><%= "%.2f" % @averageEurBuy.round(2) %></td>
+          <td><%= "%.2f" % @forecastEurBuy.round(2) %></td>
+          <td><%= "%.2f" % @currentRate.eurSell.round(2) %></td>
+          <td><%= "%.2f" % @averageEurSell.round(2) %></td>
+          <td><%= "%.2f" % @forecastEurSell.round(2) %></td>
           <td><%= "%.2f" % @eurSpread.round(2) %></td>
           <td ><%= @perEurSpread.round %></td>
         </tr>

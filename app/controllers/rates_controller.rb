@@ -29,6 +29,13 @@ class RatesController < ApplicationController
         
       todayRates.collect{|rate| rate.eurSell}.each{|eurSell| @averageEurSell+=eurSell}    
       @averageEurSell = @averageEurSell/count
+
+      forecast = Rate.forecast
+
+      @forecastUsdBuy = forecast[0]
+      @forecastUsdSell = forecast[1]
+      @forecastEurBuy = forecast[2]
+      @forecastEurSell = forecast[3]
     end
   end
   
@@ -37,7 +44,7 @@ class RatesController < ApplicationController
     if Rate.cached_all.count == 0
       AddRateJob.perform_now
     end
-    @rates = Rate.cached_all    
+    @rates = Rate.cached_all 
     todayRates = @rates.select { |rate| rate.time.to_date == DateTime.now.to_date }
     count = todayRates.count
     @currentRate = Rate.cached_last
@@ -61,6 +68,13 @@ class RatesController < ApplicationController
         
       todayRates.collect{|rate| rate.eurSell}.each{|eurSell| @averageEurSell+=eurSell}    
       @averageEurSell = @averageEurSell/count
+
+      forecast = Rate.forecast
+
+      @forecastUsdBuy = forecast[0]
+      @forecastUsdSell = forecast[1]
+      @forecastEurBuy = forecast[2]
+      @forecastEurSell =forecast[3]
     end
     respond_to do |format|
       format.html { redirect_to root_path }
