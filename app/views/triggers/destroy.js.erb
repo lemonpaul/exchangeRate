@@ -1,2 +1,1 @@
-$('#trigger_<%= @trigger.id %>').remove();
-$('#triggers_table:not(:has(.trigger))').remove();
+$('#triggers').replaceWith("<div id='triggers'><%= j render :template => 'triggers/index' %></div>");
