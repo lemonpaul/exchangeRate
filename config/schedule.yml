@@ -1,4 +1,4 @@
 add_rate:
-  cron: "* * * * *"
+  cron: "0 */1 * * * *"
   class: "AddRateJob"
   queue: default

@@ -1,3 +1,5 @@
+include ActionView::Helpers::DateHelper
+
 class Rate < ApplicationRecord
   after_commit :flush_cache
 
@@ -59,8 +61,8 @@ class Rate < ApplicationRecord
     step = 1
     rates = Rate.cached_all
     if rates.size > 0
-      diffs = rates.each_cons(2).map{|rate| rate[1].time - rate[0].time}
-      start = diffs.rindex{|diff| diff > 100 }
+      diffs = rates.each_cons(2).map{|rate| distance_of_time_in_words(rate[1].time, rate[0].time)}
+      start = diffs.rindex{|diff| diff == "less than a minute" || diff == "minute" }
       if start != nil
         rates = rates[start+1..-1]
       end
