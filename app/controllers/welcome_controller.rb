@@ -7,7 +7,7 @@ class WelcomeController < ApplicationController
     @rates = Rate.cached_all
     todayRates = @rates.select { |rate| rate.time.to_date == DateTime.now.to_date }
     count = todayRates.count
-    @currentRate = Rate.cached_last
+    @currentRate = Rate.cached_last 
     @usdSpread = @currentRate.usdBuy - @currentRate.usdSell
     @perUsdSpread = 2 * @usdSpread / (@currentRate.usdBuy + @currentRate.usdSell) * 100
     @eurSpread = @currentRate.eurBuy - @currentRate.eurSell
