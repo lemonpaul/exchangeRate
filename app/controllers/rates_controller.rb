@@ -1,80 +1,49 @@
 class RatesController < ApplicationController
 
-  def index
+  def init_values
+    currencies = ['usd', 'eur']
+    operations = ['buy', 'sell']
+    
     if Rate.cached_all.count == 0
       AddRateJob.perform_now
     end
     @rates = Rate.cached_all
-    
-    todayRates = @rates.select { |rate| rate.time.to_date == DateTime.now.to_date }
-    count = todayRates.count
-    @currentRate = Rate.cached_last
-    @usdSpread = @currentRate.usdBuy - @currentRate.usdSell
-    @perUsdSpread = 2 * @usdSpread / (@currentRate.usdBuy + @currentRate.usdSell) * 100
-    @eurSpread = @currentRate.eurBuy - @currentRate.eurSell
-    @perEurSpread = 2 * @eurSpread / (@currentRate.eurBuy + @currentRate.eurSell) * 100
-    @averageUsdBuy = 0
-    @averageUsdSell = 0
-    @averageEurBuy = 0
-    @averageEurSell = 0
-    
-    forecast = Rate.forecast
 
-    @forecastUsdBuy = forecast[0]
-    @forecastUsdSell = forecast[1]
-    @forecastEurBuy = forecast[2]
-    @forecastEurSell = forecast[3]
-    if count > 0
-      todayRates.collect{|rate| rate.usdBuy}.each{|usdBuy| @averageUsdBuy+=usdBuy}    
-      @averageUsdBuy = @averageUsdBuy/count
-        
-      todayRates.collect{|rate| rate.usdSell}.each{|usdSell| @averageUsdSell+=usdSell}
-      @averageUsdSell = @averageUsdSell/count
-        
-      todayRates.collect{|rate| rate.eurBuy}.each{|eurBuy| @averageEurBuy+=eurBuy}    
-      @averageEurBuy = @averageEurBuy/count
-        
-      todayRates.collect{|rate| rate.eurSell}.each{|eurSell| @averageEurSell+=eurSell}    
-      @averageEurSell = @averageEurSell/count
+    today_rates = @rates.select{|rate| rate.created_at == DateTime.now.to_date}
+    counts = Array.new(4)
+    @current_rates = Array.new(4)
+    @current_rates.each_index do |index|
+      counts[index] = today_rates.
+        select{|rate| rate.currency == index / 2 && 
+          rate.operation == index % 2}.count
+      @current_rates[index] = @rates.select{|rate| rate.currency == index / 2 && 
+        rate.operation == index % 2}.last
     end
+    @spreads = Array.new(2)
+    @per_spreads = Array.new(2)
+    @spreads.each_index do |index|
+      @spreads[index] = @current_rates[2 * index + 1].rate - @current_rates[2 * index].rate
+      @per_spreads[index] = 2 * @spreads[index] / (@current_rates[2*index + 1].rate + @current_rates[2*index].rate) * 100
+    end
+    counts.keep_if{|count| count}.each_index do |index|
+      if counts[index] > 0
+        today_rates.select{|rate| rate.currency == currencies[index / 2] && rate.operation == operations[index % 2]}.
+          each{|rate| @averages[index] += rate.rate}
+        @averages[index] = @averages[index] / counts[index]
+      end
+    end
+    @forecasts = [  Rate.forecast(currencies.index('usd'), operations.index('buy')), 
+                    Rate.forecast(currencies.index('usd'), operations.index('sell')), 
+                    Rate.forecast(currencies.index('eur'), operations.index('buy')), 
+                    Rate.forecast(currencies.index('eur'), operations.index('sell')) ]
+  end
+
+  def index
+    init_values
   end
   
   def destroy
-    @rate = Rate.destroy(params[:id])
-    if Rate.cached_all.count == 0
-      AddRateJob.perform_now
-    end
-    @rates = Rate.cached_all 
-    todayRates = @rates.select { |rate| rate.time.to_date == DateTime.now.to_date }
-    count = todayRates.count
-    @currentRate = Rate.cached_last
-    @usdSpread = @currentRate.usdBuy - @currentRate.usdSell
-    @perUsdSpread = 2 * @usdSpread / (@currentRate.usdBuy + @currentRate.usdSell) * 100
-    @eurSpread = @currentRate.eurBuy - @currentRate.eurSell
-    @perEurSpread = 2 * @eurSpread / (@currentRate.eurBuy + @currentRate.eurSell) * 100
-    @averageUsdBuy = 0
-    @averageUsdSell = 0
-    @averageEurBuy = 0
-    @averageEurSell = 0
-    forecast = Rate.forecast
-
-    @forecastUsdBuy = forecast[0]
-    @forecastUsdSell = forecast[1]
-    @forecastEurBuy = forecast[2]
-    @forecastEurSell = forecast[3]
-    if count > 0
-      todayRates.collect{|rate| rate.usdBuy}.each{|usdBuy| @averageUsdBuy+=usdBuy}    
-      @averageUsdBuy = @averageUsdBuy/count
-        
-      todayRates.collect{|rate| rate.usdSell}.each{|usdSell| @averageUsdSell+=usdSell}
-      @averageUsdSell = @averageUsdSell/count
-        
-      todayRates.collect{|rate| rate.eurBuy}.each{|eurBuy| @averageEurBuy+=eurBuy}    
-      @averageEurBuy = @averageEurBuy/count
-        
-      todayRates.collect{|rate| rate.eurSell}.each{|eurSell| @averageEurSell+=eurSell}    
-      @averageEurSell = @averageEurSell/count
-    end
+    init_values
     respond_to do |format|
       format.html { redirect_to root_path }
       format.js

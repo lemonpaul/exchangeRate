@@ -31,20 +31,18 @@ ActiveRecord::Schema.define(version: 20180304224622) do
   end
 
   create_table "rates", force: :cascade do |t|
-    t.datetime "time"
-    t.float "usdBuy"
-    t.float "usdSell"
-    t.float "eurBuy"
-    t.float "eurSell"
+    t.integer "currency"
+    t.integer "operation"
+    t.float "rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "triggers", force: :cascade do |t|
     t.string "email"
-    t.string "currency"
-    t.string "operation"
-    t.string "kind"
+    t.integer "currency"
+    t.integer "operation"
+    t.integer "kind"
     t.float "rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

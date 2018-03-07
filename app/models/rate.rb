@@ -38,7 +38,7 @@ class Rate < ApplicationRecord
     ymean = mean(y)
     cov = 0.0
     x.each_index do |i|
-      cov *= (x[i] - xmean)*(y[i] - ymean)
+      cov += (x[i] - xmean)*(y[i] - ymean)
     end
     cov
   end
@@ -55,112 +55,50 @@ class Rate < ApplicationRecord
     lin/x.size
   end
 
-  def self.forecast
-    m = 4
-    p = 1
+  def self.forecast(currency, operation)
+    sample_length = 4
+    forecast_length = 1
     step = 1
     rates = Rate.cached_all
+    rates = rates.select{|rate| rate.currency == currency &&
+      rate.operation == operation}
     if rates.size > 0
-      diffs = rates.each_cons(2).map{|rate| distance_of_time_in_words(rate[1].time, rate[0].time)}
-      start = diffs.rindex{|diff| diff == "less than a minute" || diff == "minute" }
-      if start != nil
-        rates = rates[start+1..-1]
+      time_diffs = rates.each_cons(2).map{|rate| distance_of_time_in_words(rate[1].created_at, rate[0].created_at)}
+      start_index = time_diffs.rindex{|diff| diff == "less than a minute" || diff == "minute" }
+      if start_index != nil
+        rates = rates[start_index..-1]
       end
     end
     if rates.size < 5
-      return 0.0, 0.0, 0.0, 0.0
+      forecast = 0.0
     else
-      usdBuyRates = rates.map{|rate| rate.usdBuy}
-      usdSellRates = rates.map{|rate| rate.usdSell}
-      eurBuyRates = rates.map{|rate| rate.eurBuy}
-      eurSellRates = rates.map{|rate| rate.eurSell}
-      histNewDataUsdBuy = usdBuyRates[-m..-1]
-      histNewDataUsdSell = usdSellRates[-m..-1]
-      histNewDataEurBuy = eurBuyRates[-m..-1]
-      histNewDataEurSell = eurSellRates[-m..-1]
-      ind = usdBuyRates.size - step * 2
-      k = 0
-      likenessUsdBuy = Array.new(2) { [0] }
-      likenessUsdSell = Array.new(2) { [0] }
-      likenessEurBuy = Array.new(2) { [0] }
-      likenessEurSell = Array.new(2) { [0] }
-      while ind + 2 * step > m
-        histOldDataUsdBuy = usdBuyRates[ind - m +1..ind]
-        likenessUsdBuy[0][k] = ind
-        if (covariate(histNewDataUsdBuy, histOldDataUsdBuy) != 0)
-          likenessUsdBuy[1][k] = correlate(histOldDataUsdBuy, histNewDataUsdBuy).abs
+      rates = rates.map{|rate| rate.rate}
+      new_sample = rates[-sample_length..-1]
+      sample_index = rates.size - step * 2
+      likeness_index = 0
+      likeness = Array.new(2) { [0] }
+      while sample_index + 2 * step > sample_length
+        old_sample = rates[sample_index - sample_length +1..sample_index]
+        likeness[0][likeness_index] = sample_index
+        if (sigma(new_sample) != 0.0 && sigma(old_sample) != 0.0)
+          likeness[1][likeness_index] = correlate(new_sample, old_sample).abs
+        elsif (sigma(new_sample) == 0.0 && sigma(old_sample) == 0)
+          likeness[1][likeness_index] = 1
         else
-          likenessUsdBuy[1][k] = 0
+          likeness[1][likeness_index] = 0
         end
-        histOldDataUsdSell = usdSellRates[ind - m +1..ind]
-        likenessUsdSell[0][k] = ind
-        if (covariate(histNewDataUsdSell, histOldDataUsdSell) != 0)
-          likenessUsdSell[1][k] = correlate(histOldDataUsdSell, histNewDataUsdSell).abs
-        else
-          likenessUsdSell[1][k] = 0
-        end
-        histOldDataEurBuy = eurBuyRates[ind - m +1..ind]
-        likenessEurBuy[0][k] = ind
-        if (covariate(histNewDataEurBuy, histOldDataEurBuy) != 0)
-          likenessEurBuy[1][k] = correlate(histOldDataEurBuy, histNewDataEurBuy).abs
-        else
-          likenessEurBuy[1][k] = 0
-        end
-        histOldDataEurSell = eurSellRates[ind - m +1..ind]
-        likenessEurSell[0][k] = ind
-        if (covariate(histNewDataEurSell, histOldDataEurSell) != 0)
-          likenessEurSell[1][k] = correlate(histOldDataEurSell, histNewDataEurSell).abs
-        else
-          likenessEurSell[1][k] = 0
-        end
-        k = k + 1
-        ind = ind - step
+        likeness_index += 1
+        sample_index -= step
       end
-      maxLikeness = likenessUsdBuy[1].max
-      indexLikeness = likenessUsdBuy[1].index{|x| x == maxLikeness}
-      msp = likenessUsdBuy[0][indexLikeness]
-      mspData = usdBuyRates[msp-m+1..msp]
-      histBaseDataUsdBuy = usdBuyRates[msp+1..msp+p]
-      x = mspData
-      y = histNewDataUsdBuy
-      a = linear(x, y)
-      x = histBaseDataUsdBuy
-      forecastUsdBuy = x * a
-
-      maxLikeness = likenessUsdSell[1].max
-      indexLikeness = likenessUsdSell[1].index{|x| x == maxLikeness}
-      msp = likenessUsdSell[0][indexLikeness]
-      mspData = usdSellRates[msp-m+1..msp]
-      histBaseDataUsdSell = usdSellRates[msp+1..msp+p]
-      x = mspData
-      y = histNewDataUsdSell
-      a = linear(x, y)
-      x = histBaseDataUsdSell
-      forecastUsdSell = x * a
-
-      maxLikeness = likenessEurBuy[1].max
-      indexLikeness = likenessEurBuy[1].index{|x| x == maxLikeness}
-      msp = likenessEurBuy[0][indexLikeness]
-      mspData = eurBuyRates[msp-m+1..msp]
-      histBaseDataEurBuy = eurBuyRates[msp+1..msp+p]
-      x = mspData
-      y = histNewDataEurBuy
-      a = linear(x, y)
-      x = histBaseDataEurBuy
-      forecastEurBuy = x * a
-
-      maxLikeness = likenessEurSell[1].max
-      indexLikeness = likenessEurSell[1].index{|x| x == maxLikeness}
-      msp = likenessEurSell[0][indexLikeness]
-      mspData = eurSellRates[msp-m+1..msp]
-      histBaseDataEurSell = eurSellRates[msp+1..msp+p]
-      x = mspData
-      y = histNewDataEurSell
-      a = linear(x, y)
-      x = histBaseDataEurSell
-      forecastEurSell = x * a
-
-      return forecastUsdBuy[0], forecastUsdSell[0], forecastEurBuy[0], forecastEurSell[0]      
+      max_likeness = likeness[1].max
+      max_likeness_index = likeness[1].index{|x| x == max_likeness}
+      max_likeness_sample_index = likeness[0][max_likeness_index]
+      max_likeness_sample = rates[max_likeness_sample_index - sample_length + 1..max_likeness_sample_index]
+      data = rates[max_likeness_sample_index + 1..max_likeness_sample_index + forecast_length]
+      factor = linear(max_likeness_sample, new_sample)
+      forecast = data * factor
+      forecast = forecast[0]
     end
+    forecast
   end
 end
