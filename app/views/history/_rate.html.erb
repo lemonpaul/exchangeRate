@@ -1,5 +1,5 @@
 <tr id="rate_<%= rate.id%>" class="rate">
-  <td><%= rate.created_at %></td>
+  <td><%= rate.created_at.strftime("%F %H:%M") %></td>
   <% if rate.currency == 0 %>
     <td>usd</td>
   <% else %>

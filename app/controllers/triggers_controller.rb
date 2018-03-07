@@ -1,15 +1,25 @@
 class TriggersController < ApplicationController
 
   def index
-    @triggers = Trigger.all
+    @triggers = Trigger.cahced_all
   end
 
   def new
     @trigger = Trigger.new
   end
 
+  def show
+    @triggers = Trigger.cached_all
+    puts trigger_params[:email]
+    @triggers = @triggers.select{|trigger| trigger.email = trigger_params[:email]}
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
+  end
+
   def create
-    @triggers = Trigger.all
+    @triggers = Trigger.cached_all
     @trigger = Trigger.new(trigger_params)
 
     if @trigger.save

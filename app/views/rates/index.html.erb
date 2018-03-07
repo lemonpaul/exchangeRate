@@ -1,13 +1,12 @@
 <div id="rates" class="container">
   <% cache @current_rates do %>
     <h1>Current Rate</h1>
-    <div class="col-sm-6">
+    <div class="row col-sm-6">
       <div class="col-sm-4">
         <h4><br></h4>
         <h2>USD:</h2>
         <p><b>Average:</b></p>
         <p><b>Forecast:</b></p>
-        <p><b>Spread:</b></p>
       </div>
       <div class="col-sm-4">
         <h4>buy</h4>
@@ -45,23 +44,25 @@
           <% end %>
         </p>
       </div>
+      <div class="col-sm-4">
+        <p><b>Spread:</b></p>
+      </div>
       <div class="col-sm-8">
         <p><%= "%.2f" % @spreads[0].round(2) %> &#8381; (<%= @per_spreads[0].round %>%)</p>
       </div>
     </div>
-    <div class="col-sm-6">
+    <div class="row col-sm-6">
       <div class="col-sm-4">
         <h4><br></h4>
         <h2>EUR:</h2>
         <p><b>Average:</b></p>
         <p><b>Forecast:</b></p>
-        <p><b>Spread:</b></p>
       </div>
       <div class="col-sm-4">
         <h4>buy</h4>
         <h2><%= "%.2f" % @current_rates[2].rate.round(2) %> &#8381;</h2>
         <p>
-          <% if @averages[0] != 0 %>
+          <% if @averages[2] != 0 %>
             <%= "%.2f" % @averages[2].round(2) %> &#8381;
           <% else %>
             N/D
@@ -69,7 +70,7 @@
         </p>
         <p>
           <% if @forecasts[2] != 0 %>
-            <%= "%.2f" % @forecasts[02].round(2) %> &#8381;
+            <%= "%.2f" % @forecasts[2].round(2) %> &#8381;
           <% else %>
             N/D
           <% end %>
@@ -79,7 +80,7 @@
         <h4>sell</h4>
         <h2><%= "%.2f" % @current_rates[3].rate.round(2) %> &#8381;</h2>
         <p>
-          <% if @averages[3] != 0 %>
+          <% if @averages[1] != 0 %>
             <%= "%.2f" % @averages[3].round(2) %> &#8381;
           <% else %>
             N/D
@@ -87,14 +88,17 @@
         </p>
         <p>
           <% if @forecasts[3] != 0 %>
-            <%= "%.2f" % @forecasts[3].round(2) %> &#8381;
+            <%= "%.2f" % @forecasts[1].round(2) %> &#8381;
           <% else %>
             N/D
           <% end %>
         </p>
       </div>
+      <div class="col-sm-4">
+        <p><b>Spread:</b></p>
+      </div>
       <div class="col-sm-8">
-        <p><%= "%.2f" % @spreads[1].round(2) %> &#8381; (<%= @per_spreads[1].round %>%)</p>
+        <p><%= "%.2f" % @spreads[1].round(2) %> &#8381; (<%= @per_spreads[0].round %>%)</p>
       </div>
     </div>
   <% end %>

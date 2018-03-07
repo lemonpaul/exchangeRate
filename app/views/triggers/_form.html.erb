@@ -27,9 +27,9 @@
     <br>
     <div class="input-group">
       <%= form.number_field :rate, in: 0.01..200.00, step:0.01, class: 'form-control', placeholder: 'Rate' %>
-      <span class="input-group-addon">rub.</span>
+      <span class="input-group-addon">&#8381;</span>
     </div>
     <br>
-    <%= form.submit 'Save trigger', class: 'btn btn-primary btn-lg btn-block' %>
+    <%= form.submit 'Save trigger', class: 'btn btn-primary btn-block' %>
   <% end %>
 </div>
