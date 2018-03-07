@@ -1,113 +1,93 @@
-<div id="rates">
-  <div class="container">
-    <% cache @current_rates do %>
-      <h1>Current Rate</h1>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Currency</th>
-            <th>Operation</th>
-            <th>Rate</th>
-            <th>Average</th>
-            <th>Forecast</th>
-            <th>Spread</th>
-            <th>Spread, %</th>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr id="current_rate">
-            <td><%= @current_rates[0].created_at %></td>
-            <% if @current_rates[0].currency == 0 %>
-              <td>usd</td>
-            <% else %>
-              <td>eur</td>
-            <% end %>
-            <% if @current_rates[0].operation == 0 %>
-              <td>buy</td>
-            <% else %>
-              <td>sell</td>
-            <% end %>
-            <td><%= "%.2f" % @current_rates[0].rate.round(2) %></td>
-            <td><%= "%.2f" % @averages[0].round(2) %></td>
-            <td><%= "%.2f" % @forecasts[0].round(2) %></td>
-            <td><%= "%.2f" % @spreads[0].round(2) %></td>
-            <td ><%= @per_spreads[0].round %></td>
-          </tr>
-          <tr id="current_rate">
-            <td><%= @current_rates[1].created_at %></td>
-            <% if @current_rates[1].currency == 0 %>
-              <td>usd</td>
-            <% else %>
-              <td>eur</td>
-            <% end %>
-            <% if @current_rates[1].operation == 0 %>
-              <td>buy</td>
-            <% else %>
-              <td>sell</td>
-            <% end %>
-            <td><%= "%.2f" % @current_rates[1].rate.round(2) %></td>
-            <td><%= "%.2f" % @averages[1].round(2) %></td>
-            <td><%= "%.2f" % @forecasts[1].round(2) %></td>
-            <td><%= "%.2f" % @spreads[0].round(2) %></td>
-            <td ><%= @per_spreads[0].round %></td>
-          </tr>
-          <tr id="current_rate">
-            <td><%= @current_rates[2].created_at %></td>
-            <% if @current_rates[2].currency == 0 %>
-              <td>usd</td>
-            <% else %>
-              <td>eur</td>
-            <% end %>
-            <% if @current_rates[2].operation == 0 %>
-              <td>buy</td>
-            <% else %>
-              <td>sell</td>
-            <% end %>
-            <td><%= "%.2f" % @current_rates[2].rate.round(2) %></td>
-            <td><%= "%.2f" % @averages[2].round(2) %></td>
-            <td><%= "%.2f" % @forecasts[2].round(2) %></td>
-            <td><%= "%.2f" % @spreads[1].round(2) %></td>
-            <td ><%= @per_spreads[1].round %></td>
-          </tr>
-          <tr id="current_rate">
-            <td><%= @current_rates[3].created_at %></td>
-            <% if @current_rates[3].currency == 0 %>
-              <td>usd</td>
-            <% else %>
-              <td>eur</td>
-            <% end %>
-            <% if @current_rates[3].operation == 0 %>
-              <td>buy</td>
-            <% else %>
-              <td>sell</td>
-            <% end %>
-            <td><%= "%.2f" % @current_rates[3].rate.round(2) %></td>
-            <td><%= "%.2f" % @averages[3].round(2) %></td>
-            <td><%= "%.2f" % @forecasts[3].round(2) %></td>
-            <td><%= "%.2f" % @spreads[1].round(2) %></td>
-            <td ><%= @per_spreads[1].round %></td>
-          </tr>
-        </tfoot>
-      </table>
-    <% end %>
-  </div>
-  <div class="container">
-    <% cache @rates do %>
-      <h1><%= pluralize(@rates.size, "Rate") %></h1>
-      <table id="rates_table" class="table">
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Currency</th>
-            <th>Operation</th>
-            <th>Rate</th>
-          </tr>
-        </thead>
-        <tfoot>
-          <%= render :partial => 'rates/rate.html.erb', :collection => @rates.sort.reverse %>
-        </tfoot>
-      </table>
-    <% end %>
-  <div class="container">
+<div id="rates" class="container">
+  <% cache @current_rates do %>
+    <h1>Current Rate</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Currency</th>
+          <th>Operation</th>
+          <th>Rate</th>
+          <th>Average</th>
+          <th>Forecast</th>
+          <th>Spread</th>
+          <th>Spread, %</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr id="current_rate">
+          <td><%= @current_rates[0].created_at %></td>
+          <% if @current_rates[0].currency == 0 %>
+            <td>usd</td>
+          <% else %>
+            <td>eur</td>
+          <% end %>
+          <% if @current_rates[0].operation == 0 %>
+            <td>buy</td>
+          <% else %>
+            <td>sell</td>
+          <% end %>
+          <td><%= "%.2f" % @current_rates[0].rate.round(2) %></td>
+          <td><%= "%.2f" % @averages[0].round(2) %></td>
+          <td><%= "%.2f" % @forecasts[0].round(2) %></td>
+          <td><%= "%.2f" % @spreads[0].round(2) %></td>
+          <td ><%= @per_spreads[0].round %></td>
+        </tr>
+        <tr id="current_rate">
+          <td><%= @current_rates[1].created_at %></td>
+          <% if @current_rates[1].currency == 0 %>
+            <td>usd</td>
+          <% else %>
+            <td>eur</td>
+          <% end %>
+          <% if @current_rates[1].operation == 0 %>
+            <td>buy</td>
+          <% else %>
+            <td>sell</td>
+          <% end %>
+          <td><%= "%.2f" % @current_rates[1].rate.round(2) %></td>
+          <td><%= "%.2f" % @averages[1].round(2) %></td>
+          <td><%= "%.2f" % @forecasts[1].round(2) %></td>
+          <td><%= "%.2f" % @spreads[0].round(2) %></td>
+          <td ><%= @per_spreads[0].round %></td>
+        </tr>
+        <tr id="current_rate">
+          <td><%= @current_rates[2].created_at %></td>
+          <% if @current_rates[2].currency == 0 %>
+            <td>usd</td>
+          <% else %>
+            <td>eur</td>
+          <% end %>
+          <% if @current_rates[2].operation == 0 %>
+            <td>buy</td>
+          <% else %>
+            <td>sell</td>
+          <% end %>
+          <td><%= "%.2f" % @current_rates[2].rate.round(2) %></td>
+          <td><%= "%.2f" % @averages[2].round(2) %></td>
+          <td><%= "%.2f" % @forecasts[2].round(2) %></td>
+          <td><%= "%.2f" % @spreads[1].round(2) %></td>
+          <td ><%= @per_spreads[1].round %></td>
+        </tr>
+        <tr id="current_rate">
+          <td><%= @current_rates[3].created_at %></td>
+          <% if @current_rates[3].currency == 0 %>
+            <td>usd</td>
+          <% else %>
+            <td>eur</td>
+          <% end %>
+          <% if @current_rates[3].operation == 0 %>
+            <td>buy</td>
+          <% else %>
+            <td>sell</td>
+          <% end %>
+          <td><%= "%.2f" % @current_rates[3].rate.round(2) %></td>
+          <td><%= "%.2f" % @averages[3].round(2) %></td>
+          <td><%= "%.2f" % @forecasts[3].round(2) %></td>
+          <td><%= "%.2f" % @spreads[1].round(2) %></td>
+          <td ><%= @per_spreads[1].round %></td>
+        </tr>
+      </tfoot>
+    </table>
+  <% end %>
 </div>

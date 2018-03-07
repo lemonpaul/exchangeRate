@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'history/index'
+
   get 'welcome/index'
   get 'welcome/show'
   get 'rates/forecast'
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
   resources :rates
   resources :triggers
+  resources :history
 
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

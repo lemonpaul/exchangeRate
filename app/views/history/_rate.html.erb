@@ -1,0 +1,19 @@
+<tr id="rate_<%= rate.id%>" class="rate">
+  <td><%= rate.created_at %></td>
+  <% if rate.currency == 0 %>
+    <td>usd</td>
+  <% else %>
+    <td>eur</td>
+  <% end %>
+  <% if rate.operation == 0 %>
+    <td>buy</td>
+  <% else %>
+    <td>sell</td>
+  <% end %>
+  <td><%= "%.2f" % rate.rate %></td>
+  <td><%= link_to 'Delete', 
+    rate_path(rate),
+    method: :delete, 
+    remote: true, 
+    class: 'badge' %></td>
+</tr>
