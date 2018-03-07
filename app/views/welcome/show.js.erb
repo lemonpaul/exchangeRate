@@ -1,5 +1,5 @@
-$('#rates').replaceWith("<div id='rates'><%= j render :template => 'rates/index' %></div>");
+$('#rates').replaceWith("<%= j render :template => 'rates/index' %>");
 if ($('#new_link').is(":visible"))
 {
-  $('#triggers').replaceWith("<div id='triggers'><%= j render :template => 'triggers/index' %></div>");
+  $('#triggers').replaceWith("<%= j render :template => 'triggers/index' %>");
 }

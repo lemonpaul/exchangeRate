@@ -1,49 +1,35 @@
-<div id="new_trigger_form">
+<div id="new_trigger_form" class="col-md-4 order-md-2 mb-4">
+  <h2 class="mb-3">New trigger</h2>
+  <% if @trigger.errors.any? %>
+    <h2 class="mb-3"><%= pluralize(@trigger.errors.count, "error") %> prohibited this trigger from being saved:</h2>
+    <ul>
+      <% @trigger.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <%= form_with scope: :trigger, url: triggers_path, remote: true do |form| %>
-    <div class="form-row">
-      <div class="form-group col-md-12">
-        <h2>New trigger</h2>
-      </div>
+    <div class="mb-3">
+        <%= form.email_field :email, class: 'form-control', placeholder: 'Email' %> 
     </div>
-    <% if @trigger.errors.any? %>
-      <div id="error_explanation" class="form-row">
-        <div class="form-group col-md-12">
-          <h2><%= pluralize(@trigger.errors.count, "error") %> prohibited this trigger from being saved:</h2>
-        </div>
-        <div class="form-group col-md-12">
-          <ul>
-            <% @trigger.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    <% end %>
-    <div class="form-row">
-      <div class="form-group col-md-12">
-        <%= form.email_field :email, class: 'form-control', placeholder: 'Email' %>
-      </div>    
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-4">
+    <br>
+    <div class="row">
+      <div class="col-md-4 mb-3">
         <%= form.select(:currency, [["USD", 0], ["EUR", 1]], {}, { class: 'form-control' }) %>
       </div>
-      <div class="form-group col-md-4">
+      <div class="col-md-4 mb-3">
         <%= form.select(:operation, [["buy", 0], ["sell", 1]], {}, { class: 'form-control' }) %>
       </div>
-      <div class="form-group col-md-4">
+      <div class="col-md-4 mb-3">
         <%= form.select(:kind, [["lower", 0], ["upper", 1]], {}, { class: 'form-control' }) %>
       </div>
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-12">
-        <%= form.text_field :rate, class: 'form-control', placeholder: 'Rate' %>
-      </div>
+    <br>
+    <div class="input-group">
+      <%= form.number_field :rate, in: 0.01..200.00, step:0.01, class: 'form-control', placeholder: 'Rate' %>
+      <span class="input-group-addon">rub.</span>
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-12">
-        <%= form.submit 'Save trigger', class: 'btn' %>
-      </div>
-    </div>
+    <br>
+    <%= form.submit 'Save trigger', class: 'btn btn-primary btn-lg btn-block' %>
   <% end %>
 </div>

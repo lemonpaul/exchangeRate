@@ -9,7 +9,7 @@ class RatesController < ApplicationController
     end
     @rates = Rate.cached_all
 
-    today_rates = @rates.select{|rate| rate.created_at == DateTime.now.to_date}
+    today_rates = @rates.select{|rate| rate.created_at.to_date == DateTime.now.to_date}
     counts = Array.new(4)
     @current_rates = Array.new(4)
     @current_rates.each_index do |index|
@@ -19,19 +19,23 @@ class RatesController < ApplicationController
       @current_rates[index] = @rates.select{|rate| rate.currency == index / 2 && 
         rate.operation == index % 2}.last
     end
+
     @spreads = Array.new(2)
     @per_spreads = Array.new(2)
     @spreads.each_index do |index|
       @spreads[index] = @current_rates[2 * index + 1].rate - @current_rates[2 * index].rate
       @per_spreads[index] = 2 * @spreads[index] / (@current_rates[2*index + 1].rate + @current_rates[2*index].rate) * 100
     end
-    counts.keep_if{|count| count}.each_index do |index|
+
+    @averages = [0.0, 0.0, 0.0, 0.0]
+    counts.each_index do |index|
       if counts[index] > 0
-        today_rates.select{|rate| rate.currency == currencies[index / 2] && rate.operation == operations[index % 2]}.
+        today_rates.select{|rate| rate.currency == index / 2 && rate.operation == index % 2}.
           each{|rate| @averages[index] += rate.rate}
         @averages[index] = @averages[index] / counts[index]
       end
     end
+
     @forecasts = [  Rate.forecast(currencies.index('usd'), operations.index('buy')), 
                     Rate.forecast(currencies.index('usd'), operations.index('sell')), 
                     Rate.forecast(currencies.index('eur'), operations.index('buy')), 

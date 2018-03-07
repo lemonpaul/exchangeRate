@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.notification.subject
   #
-  def notification(email, currency_index, operation_index, type_index, rate)
+  def notification(email, currency_index, operation_index, kind_index, rate)
     currencies = ['usd',   'eur'  ]
     operations = ['buy',   'sell' ]
     kinds      = ['lower', 'upper']

@@ -96,8 +96,7 @@ class Rate < ApplicationRecord
       max_likeness_sample = rates[max_likeness_sample_index - sample_length + 1..max_likeness_sample_index]
       data = rates[max_likeness_sample_index + 1..max_likeness_sample_index + forecast_length]
       factor = linear(max_likeness_sample, new_sample)
-      forecast = data * factor
-      forecast = forecast[0]
+      forecast = data[0] * factor
     end
     forecast
   end
