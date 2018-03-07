@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+  before_action :init_values
 
   def init_values
     currencies = ['usd', 'eur']
@@ -43,12 +44,7 @@ class WelcomeController < ApplicationController
                     Rate.forecast(currencies.index('eur'), operations.index('sell')) ]
   end
 
-  def index
-    init_values
-  end
-
   def show
-    init_values
     respond_to do |format|
       format.js
     end

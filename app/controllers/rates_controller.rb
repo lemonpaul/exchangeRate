@@ -1,4 +1,5 @@
 class RatesController < ApplicationController
+  before_action :init_values
 
   def init_values
     currencies = ['usd', 'eur']
@@ -24,7 +25,7 @@ class RatesController < ApplicationController
     @per_spreads = Array.new(2)
     @spreads.each_index do |index|
       @spreads[index] = @current_rates[2 * index + 1].rate - @current_rates[2 * index].rate
-      @per_spreads[index] = 2 * @spreads[index] / (@current_rates[2*index + 1].rate + @current_rates[2*index].rate) * 100
+      @per_spreads[index] = 2 * @spreads[index] / (@current_rates[2 * index + 1].rate + @current_rates[2 * index].rate) * 100
     end
 
     @averages = [0.0, 0.0, 0.0, 0.0]
@@ -41,13 +42,8 @@ class RatesController < ApplicationController
                     Rate.forecast(currencies.index('eur'), operations.index('buy')), 
                     Rate.forecast(currencies.index('eur'), operations.index('sell')) ]
   end
-
-  def index
-    init_values
-  end
   
   def destroy
-    init_values
     respond_to do |format|
       format.html { redirect_to root_path }
       format.js

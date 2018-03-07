@@ -1,4 +1,5 @@
 class HistoryController < ApplicationController
+  before_action :init_values
 
   def init_values
     currencies = ['usd', 'eur']
@@ -10,7 +11,4 @@ class HistoryController < ApplicationController
     @rates = Rate.cached_all
   end
 
-  def index
-    init_values
-  end
 end
