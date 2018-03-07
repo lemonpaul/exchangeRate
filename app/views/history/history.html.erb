@@ -1,0 +1,16 @@
+<div id="history" hidden="true">
+  <h1><%= pluralize(@rates.size, "Rate") %></h1>
+  <table id="rates_table" class="table">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Currency</th>
+        <th>Operation</th>
+        <th>Rate</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <%= render :partial => 'history/rate.html.erb', :collection => @rates.sort.reverse %>
+    </tfoot>
+  </table>
+</div>

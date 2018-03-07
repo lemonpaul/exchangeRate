@@ -3,4 +3,8 @@ if ($('#new_link').is(":visible"))
 {
   $('#triggers').replaceWith("<%= j render :template => 'triggers/index' %>");
 }
-$('#old_rates').replaceWith("<%= j render :template => 'history/index' %>");
+if ($('#history').is(":visible"))
+{
+  $('#history').replaceWith("<%= j render :template => 'history/history' %>");
+  $('#history').show();
+}

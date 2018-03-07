@@ -1,4 +1,5 @@
 class HistoryController < ApplicationController
+
   def init_values
     currencies = ['usd', 'eur']
     operations = ['buy', 'sell']

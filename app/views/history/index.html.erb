@@ -1,18 +1,6 @@
 <div id="old_rates" class="container">
   <% cache @rates do %>
-    <h1><%= pluralize(@rates.size, "Rate") %></h1>
-    <table id="rates_table" class="table">
-      <thead>
-        <tr>
-          <th>Time</th>
-          <th>Currency</th>
-          <th>Operation</th>
-          <th>Rate</th>
-        </tr>
-      </thead>
-      <tfoot>
-        <%= render :partial => 'history/rate.html.erb', :collection => @rates.sort.reverse %>
-      </tfoot>
-    </table>
+    <%= link_to 'Show History', new_history_path, id: "show_link", remote: true, class: 'badge' %>
+    <%= render :template => 'history/history' %>
   <% end %>
 </div>
