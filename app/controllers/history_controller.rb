@@ -1,14 +1,19 @@
+# History controller class
 class HistoryController < ApplicationController
   before_action :init_values
 
   def init_values
-    currencies = ['usd', 'eur']
-    operations = ['buy', 'sell']
-    
-    if Rate.cached_all.count == 0
-      AddRateJob.perform_now
-    end
+    Rate.cached_all.count || AddRateJob.perform_now
     @rates = Rate.cached_all
   end
 
+  def destroy
+    Rate.destroy(params[:id])
+    Rate.cached_all.empty? && AddRateJob.perform_now
+    @rates = Rate.cached_all
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
+  end
 end

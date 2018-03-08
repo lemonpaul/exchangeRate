@@ -12,7 +12,7 @@
   <% end %>
   <td><%= "%.2f" % rate.rate %></td>
   <td><%= link_to 'Delete', 
-    rate_path(rate),
+    history_path(rate),
     method: :delete, 
     remote: true, 
     class: 'badge' %></td>
