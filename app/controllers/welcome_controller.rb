@@ -56,13 +56,12 @@ class WelcomeController < ApplicationController
 
   def averages(rates, counts)
     averages = [0.0, 0.0, 0.0, 0.0]
-    counts.each_index do |index|
+    averages.each_index do |index|
       next unless counts[index] > 0
       index_rates(rates, index)
         .each { |rate| averages[index] += rate.rate }
       averages[index] = averages[index] / counts[index]
     end
-    averages
   end
 
   def forecasts
