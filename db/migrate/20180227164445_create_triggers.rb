@@ -1,3 +1,4 @@
+# Create triggers class
 class CreateTriggers < ActiveRecord::Migration[5.1]
   def change
     create_table :triggers do |t|
@@ -6,7 +7,6 @@ class CreateTriggers < ActiveRecord::Migration[5.1]
       t.integer :operation
       t.integer :kind
       t.float :rate
-
       t.timestamps
     end
   end

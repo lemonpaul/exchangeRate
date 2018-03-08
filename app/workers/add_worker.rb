@@ -1,3 +1,4 @@
+# Add worker class
 class AddWorker
   include Sidekiq::Worker
 

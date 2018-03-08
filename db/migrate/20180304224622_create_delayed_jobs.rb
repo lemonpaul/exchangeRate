@@ -1,3 +1,4 @@
+# Create delayed jobs class
 class CreateDelayedJobs < ActiveRecord::Migration[5.1]
   def self.up
     create_table :delayed_jobs, force: true do |table|
@@ -12,7 +13,6 @@ class CreateDelayedJobs < ActiveRecord::Migration[5.1]
       table.string :queue                              # The name of the queue this job is in
       table.timestamps null: true
     end
-
     add_index :delayed_jobs, [:priority, :run_at], name: "delayed_jobs_priority"
   end
 
