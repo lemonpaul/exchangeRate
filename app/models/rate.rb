@@ -74,7 +74,7 @@ class Rate < ApplicationRecord
     end
   end
 
-  def self.forest_rates(currency, operation)
+  def self.forecast_rates(currency, operation)
     rates = new_rates(currency, operation)
     return rates unless rates.empty?
     start_index = time_diffs(rates).rindex do |diff|
@@ -84,11 +84,9 @@ class Rate < ApplicationRecord
     rates
   end
 
-  def self.likeness(rates)
+  def self.likeness(rates, sample_length, new_sample)
     step = 1
-    sample_length = 4
     sample_index = rates.size - step * 2
-    new_sample = rates[-sample_length..-1]
     likeness = Array.new(2) { [0] }
     likeness_index = 0
     while sample_index + 2 * step > sample_length
@@ -107,7 +105,9 @@ class Rate < ApplicationRecord
       forecast = 0.0
     else
       rates = rates.map(&:rate)
-      likeness = likeness(rates)
+      sample_length = 4
+      new_sample = rates[-sample_length..-1]
+      likeness = likeness(rates, sample_length, new_sample)
       max_likeness = likeness[1].max
       max_likeness_index = likeness[1].index { |x| x == max_likeness }
       max_likeness_sample_index = likeness[0][max_likeness_index]
