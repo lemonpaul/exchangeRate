@@ -1,6 +1,6 @@
-include ActionView::Helpers::DateHelper
-
+# Rate class
 class Rate < ApplicationRecord
+  include ActionView::Helpers::DateHelper
   after_commit :flush_cache
 
   def self.cached_all
@@ -9,92 +9,113 @@ class Rate < ApplicationRecord
 
   def self.cached_last
     Rails.cache.fetch('last_rate_cache') { last }
-  end  
+  end
 
   def flush_cache
     Rails.cache.delete('rates_cache')
     Rails.cache.delete('last_rate_cache')
   end
 
-  def self.mean(x)
+  def self.mean(array)
     sum = 0.0
-    x.each { |v| sum += v }
-    sum/x.size
+    array.each { |v| sum += v }
+    sum / array.size
   end
 
-  def self.variance(x)
-    m = mean(x)
+  def self.variance(array)
+    mean = mean(array)
     sum = 0.0
-    x.each{ |v| sum += (v-m)**2 }
-    sum/x.size
+    array.each { |v| sum += (v - mean)**2 }
+    sum / array.size
   end
 
-  def self.sigma(x)
-    Math.sqrt(variance(x))
+  def self.sigma(array)
+    Math.sqrt(variance(array))
   end
 
-  def self.covariate(x, y)
-    xmean = mean(x)
-    ymean = mean(y)
-    cov = 0.0
-    x.each_index do |i|
-      cov += (x[i] - xmean)*(y[i] - ymean)
+  def self.covariate(x_array, y_array)
+    x_mean = mean(x_array)
+    y_mean = mean(y_array)
+    covariate = 0.0
+    x_array.each_index do |i|
+      covariate += (x_array[i] - x_mean) * (y_array[i] - y_mean)
     end
-    cov
+    covariate
   end
 
-  def self.correlate(x, y)
-    covariate(x, y)/(sigma(x)*sigma(y))
-  end
-
-  def self.linear(x, y)
-    lin = 0.0
-    x.each_index do |i|
-      lin += y[i]/x[i]
+  def self.correlate(x_array, y_array)
+    if sigma(x_array) != 0.0 && sigma(y_array) != 0.0
+      covariate(x_array, y_array) / (sigma(x_array) * sigma(y_array)).abs
+    elsif sigma(x_array).zero? && sigma(y_array).zero?
+      1
+    else
+      0
     end
-    lin/x.size
+  end
+
+  def self.linear(x_array, y_array)
+    linear = 0.0
+    x_array.each_index do |i|
+      linear += y_array[i] / x_array[i]
+    end
+    linear / x_array.size
+  end
+
+  def self.time_diffs(rates)
+    rates.each_cons(2).map do |rate|
+      distance_of_time_in_words(rate[1].created_at,
+                                rate[0].created_at)
+    end
+  end
+
+  def self.new_rates(currency, operation)
+    Rate.cached_all.select do |rate|
+      rate.currency == currency && rate.operation == operation
+    end
+  end
+
+  def self.forest_rates(currency, operation)
+    rates = new_rates(currency, operation)
+    return rates unless rates.empty?
+    start_index = time_diffs(rates).rindex do |diff|
+      diff == 'less than a minute' || diff == 'minute'
+    end
+    !start_index.nil? && rates = rates[start_index..-1]
+    rates
+  end
+
+  def self.likeness(rates)
+    step = 1
+    sample_length = 4
+    sample_index = rates.size - step * 2
+    new_sample = rates[-sample_length..-1]
+    likeness = Array.new(2) { [0] }
+    likeness_index = 0
+    while sample_index + 2 * step > sample_length
+      old_sample = rates[sample_index - sample_length + 1..sample_index]
+      likeness[0][likeness_index] = sample_index
+      likeness[1][likeness_index] = correlate(new_sample, old_sample).abs
+      likeness_index += 1
+      sample_index -= step
+    end
+    likeness
   end
 
   def self.forecast(currency, operation)
-    sample_length = 4
-    forecast_length = 1
-    step = 1
-    rates = Rate.cached_all
-    rates = rates.select{|rate| rate.currency == currency &&
-      rate.operation == operation}
-    if rates.size > 0
-      time_diffs = rates.each_cons(2).map{|rate| distance_of_time_in_words(rate[1].created_at, rate[0].created_at)}
-      start_index = time_diffs.rindex{|diff| diff == "less than a minute" || diff == "minute" }
-      if start_index != nil
-        rates = rates[start_index..-1]
-      end
-    end
+    rates = forecast_rates(currency, operation)
     if rates.size < 5
       forecast = 0.0
     else
-      rates = rates.map{|rate| rate.rate}
-      new_sample = rates[-sample_length..-1]
-      sample_index = rates.size - step * 2
-      likeness_index = 0
-      likeness = Array.new(2) { [0] }
-      while sample_index + 2 * step > sample_length
-        old_sample = rates[sample_index - sample_length +1..sample_index]
-        likeness[0][likeness_index] = sample_index
-        if (sigma(new_sample) != 0.0 && sigma(old_sample) != 0.0)
-          likeness[1][likeness_index] = correlate(new_sample, old_sample).abs
-        elsif (sigma(new_sample) == 0.0 && sigma(old_sample) == 0)
-          likeness[1][likeness_index] = 1
-        else
-          likeness[1][likeness_index] = 0
-        end
-        likeness_index += 1
-        sample_index -= step
-      end
+      rates = rates.map(&:rate)
+      likeness = likeness(rates)
       max_likeness = likeness[1].max
-      max_likeness_index = likeness[1].index{|x| x == max_likeness}
+      max_likeness_index = likeness[1].index { |x| x == max_likeness }
       max_likeness_sample_index = likeness[0][max_likeness_index]
-      max_likeness_sample = rates[max_likeness_sample_index - sample_length + 1..max_likeness_sample_index]
-      data = rates[max_likeness_sample_index + 1..max_likeness_sample_index + forecast_length]
+      max_likeness_sample = rates[max_likeness_sample_index - sample_length +
+                                  1..max_likeness_sample_index]
+      forecast_length = 1
+      data = rates[max_likeness_sample_index + 1..
+                   max_likeness_sample_index + forecast_length]
       factor = linear(max_likeness_sample, new_sample)
       forecast = data[0] * factor
     end
