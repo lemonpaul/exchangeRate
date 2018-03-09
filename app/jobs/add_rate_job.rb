@@ -2,6 +2,11 @@
 class AddRateJob < ApplicationJob
   queue_as :default
 
+  USD = 0
+  EUR = 1
+  BUY = 0
+  SELL = 1
+
   def new_hash
     require 'net/http'
     require 'json'
@@ -27,27 +32,20 @@ class AddRateJob < ApplicationJob
     hash = new_hash
     usd_rates = usd_rates(hash)
     eur_rates = eur_rates(hash)
-    [usd_rates['buy'], usd_rates['sell'], eur_rates['buy'], eur_rates['sell']]
-  end
-
-  def currency_index(index)
-    index / 2
-  end
-
-  def operation_index(index)
-    index % 2
+    { usd: { buy: usd_rates['buy'], sell: usd_rates['sell'] }, 
+      eur: { buy: eur_rates['buy'], sell: eur_rates['sell'] } }
   end
 
   def add_current_rates
     rates = new_rates
-    current_rates = Array.new(4)
-    current_rates.each_index do |index|
-      current_rates[index] = Rate
-                             .create(currency: currency_index(index),
-                                     operation: operation_index(index),
-                                     rate: rates[index])
+    [USD, EUR].each do |currency|
+      [SELL, BUY].each do |operation|
+        Rate.create(currency: currency,
+                    operation: operation,
+                    rate: rates.values[currency].values[operation])
+      end
     end
-    current_rates
+    rates
   end
 
   def notificate(trigger)

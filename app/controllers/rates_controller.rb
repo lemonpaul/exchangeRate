@@ -5,11 +5,10 @@ class RatesController < ApplicationController
   def init_values
     @today_rates = new_today_rates
     @counts = counts(@today_rates)
-    #@current_rates = ApplicationHelper::current_rates(@rates)
-    #@spreads = ApplicationHelper::spreads(@current_rates)
-    #@per_spreads = ApplicationHelper::per_spreads(@current_rates)
-    #@averages = ApplicationHelper::new_averages(today_rates, counts)
-    #@forecasts = ApplicationHelper::forecasts
+    @rates = Rate.cached_all
+    @today_rates = Rate.today
+    @counts = Rate.counts
+    @current_rates = Rate.current
   end
 
   def destroy

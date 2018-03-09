@@ -35,7 +35,7 @@ module ApplicationHelper
       [BUY, SELL].each do |operation|
         next unless counts.values[currency].values[operation] > 0
         avg[currency][operation] = 0.0
-        find_rates(rates, currency, operation).each { |rate| avg[currency][operation] += rate.rate }
+        Rate.find(currency, operation).each { |rate| avg[currency][operation] += rate.rate }
         avg[currency][operation] = avg[currency][operation] / counts.values[currency].values[operation]
       end
     end
