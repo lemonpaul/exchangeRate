@@ -1,5 +1,6 @@
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
+  # Settings specified here will take precedence over those in
+  # config/application.rb.
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -12,18 +13,14 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  config.action_controller.perform_caching = true
+  config.cache_store = :dalli_store
+
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
-    config.action_controller.perform_caching = true
-
-    config.cache_store = :dalli_store
     config.public_file_server.headers = {
       'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
     }
-  else
-    config.action_controller.perform_caching = true
-
-    config.cache_store = :dalli_store
   end
 
   # Don't care if the mailer can't send.
@@ -32,15 +29,15 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.delivery_method = :smtp
-  
+
   config.action_mailer.smtp_settings = {
-   address: 'smtp.gmail.com',
-   port: 587,
-   domain: 'gmail.com',
-   authentication: 'plain',
-   enable_starttls_auto: true,
-   user_name: 'aztec969',
-   password: 'sonya2380'
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    user_name: 'aztec969',
+    password: 'sonya2380'
   }
 
   # Print deprecation notices to the Rails logger.
