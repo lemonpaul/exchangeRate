@@ -46,8 +46,6 @@ class AddRateJob < ApplicationJob
 
   def check_trigger(trigger)
     rates = Rate.current
-    puts '---------------------------------------------------------------------'
-    puts rates
     (trigger.kind.zero? &&
      rates.values[trigger.currency].values[trigger.operation].rate <= trigger.rate) ||
       (trigger.kind == 1 &&
