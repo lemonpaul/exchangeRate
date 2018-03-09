@@ -9,7 +9,7 @@ class WelcomeController < ApplicationController
     @current_rates = current_rates(@rates)
     @spreads = spreads(@current_rates)
     @per_spreads = per_spreads(@current_rates)
-    @averages = averages(today_rates, counts)
+    @averages = new_averages(today_rates, counts)
     @forecasts = forecasts
   end
 

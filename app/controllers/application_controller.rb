@@ -2,79 +2,72 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  def currency_index(index)
-    index / 2
+  USD = 0
+  EUR = 1
+  BUY = 0
+  SELL = 1
+
+  class << self
+    attr_accessor :email
   end
 
-  def operation_index(index)
-    index % 2
+  def spread(current_rates, currency)
+    current_rates.values[currency][:sell].rate - current_rates.values[currency][:buy].rate
   end
 
-  def spread(current_rates, index)
-    current_rates[2 * index + 1].rate - current_rates[2 * index].rate
+  def per_spread(current_rates, currency)
+    2 * (current_rates.values[currency][:sell].rate - current_rates.values[currency][:buy].rate) /
+      (current_rates.values[currency][:sell].rate + current_rates.values[currency][:buy].rate) * 100
   end
 
-  def per_spread(current_rates, spreads, index)
-    2 * spreads[index] /
-      (current_rates[2 * index + 1].rate + current_rates[2 * index].rate) * 100
-  end
-
-  def index_rates(rates, index)
-    rates.select do |rate|
-      rate.currency == currency_index(index) &&
-        rate.operation == operation_index(index)
+  def find_rates(rates, currency, operation)
+    rates = rates.select do |rate|
+      rate.currency == currency &&
+        rate.operation == operation
     end
   end
 
-  def counts(today_rates)
-    counts = Array.new(4)
-    counts.each_index do |index|
-      counts[index] = index_rates(today_rates, index).count
-    end
+  def counts(rates)
+    {usd: {buy: find_rates(rates, USD, BUY).count,
+           sell: find_rates(rates, USD, SELL).count},
+     eur: {buy: find_rates(rates, EUR, BUY).count,
+           sell: find_rates(rates, BUY, SELL).count}}
   end
 
   def current_rates(rates)
-    current_rates = Array.new(4)
-    current_rates.each_index do |index|
-      current_rates[index] = index_rates(rates, index).last
-    end
+    {usd: {buy: find_rates(rates, USD, BUY).last,
+           sell: find_rates(rates, USD, SELL).last},
+     eur: {buy: find_rates(rates, EUR, BUY).last,
+           sell: find_rates(rates, EUR, SELL).last}}
   end
 
-  def spreads(rates)
-    spreads = Array.new(2)
-    spreads.each_index do |index|
-      spreads[index] = spread(rates, index)
-    end
+  def spreads(current_rates)
+    {usd: spread(current_rates, USD), eur: spread(current_rates, EUR)}
   end
 
-  def per_spreads(rates)
-    per_spreads = Array.new(2)
-    per_spreads.each_index do |index|
-      per_spreads[index] = per_spread(rates, @spreads, index)
-    end
+  def per_spreads(current_rates)
+    {usd: per_spread(current_rates, USD), eur: per_spread(current_rates, EUR)}
   end
 
-  def averages(rates, counts)
-    averages = [0.0, 0.0, 0.0, 0.0]
-    averages.each_index do |index|
-      next unless counts[index] > 0
-      index_rates(rates, index)
-        .each { |rate| averages[index] += rate.rate }
-      averages[index] = averages[index] / counts[index]
+  def new_averages(rates, counts)
+    avg = [[0.0, 0.0], [0.0, 0.0]]
+    [USD, EUR].each do |currency|
+      [BUY, SELL].each do |operation|
+        next unless counts.values[currency].values[operation] > 0
+        avg[currency][operation] = 0.0
+        find_rates(rates, currency, operation).each { |rate| avg[currency][operation] += rate.rate }
+        avg[currency][operation] = avg[currency][operation] / counts.values[currency].values[operation]
+      end
     end
+    {usd: {buy: avg[USD][BUY], sell: avg[USD][SELL]},
+     eur: {buy: avg[EUR][BUY], sell: avg[EUR][SELL]}}
   end
 
   def forecasts
-    currencies = %w[usd eur]
-    operations = %w[buy sell]
-    [Forecast.forecast(currencies.index('usd'),
-                   operations.index('buy')),
-     Forecast.forecast(currencies.index('usd'),
-                   operations.index('sell')),
-     Forecast.forecast(currencies.index('eur'),
-                   operations.index('buy')),
-     Forecast.forecast(currencies.index('eur'),
-                   operations.index('sell'))]
+    {usd: {buy: Forecast.forecast(USD, BUY),
+               sell: Forecast.forecast(USD, SELL)},
+     eur: {buy: Forecast.forecast(EUR, BUY),
+                sell: Forecast.forecast(EUR, SELL)}}
   end
 
   def new_today_rates
