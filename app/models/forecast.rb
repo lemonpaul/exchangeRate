@@ -1,6 +1,5 @@
   # Rate class
 class Forecast < ApplicationRecord
-  include ActionView::Helpers::DateHelper
 
   SAMPLE_LENGTH = 4
   FORECAST_LENGTH = 1
@@ -52,8 +51,7 @@ class Forecast < ApplicationRecord
 
   def self.time_diffs(rates)
     rates.each_cons(2).map do |rate|
-      distance_of_time_in_words(rate[1].created_at,
-                                rate[0].created_at)
+      (rate[1].created_at.to_i - rate[0].created_at.to_i) / 60.0
     end
   end
 
@@ -65,23 +63,23 @@ class Forecast < ApplicationRecord
 
   def self.forecast_rates(currency, operation)
     rates = new_rates(currency, operation)
-    return rates unless rates.empty?
+    return rates if rates.empty?
     start_index = time_diffs(rates).rindex do |diff|
-      diff == 'less than a minute' || diff == 'minute'
+      diff > 2.0
     end
-    !start_index.nil? && rates = rates[start_index..-1]
+    !start_index.nil? && rates = rates[start_index + 1..-1]
     rates
   end
 
   def self.new_likeness(rates, sample_length, new_sample)
     step = 1
     sample_index = rates.size - step * 2
-    likeness = Array.new(2) { [0] }
+    likeness = {sample_index: [0], value: [0]}
     likeness_index = 0
     while sample_index + 2 * step > sample_length
       old_sample = rates[sample_index - sample_length + 1..sample_index]
-      likeness[0][likeness_index] = sample_index
-      likeness[1][likeness_index] = correlate(new_sample, old_sample).abs
+      likeness[:sample_index][likeness_index] = sample_index
+      likeness[:value][likeness_index] = correlate(new_sample, old_sample).abs
       likeness_index += 1
       sample_index -= step
     end
@@ -96,9 +94,8 @@ class Forecast < ApplicationRecord
       rates = rates.map(&:rate)
       new_sample = rates[-SAMPLE_LENGTH..-1]
       likeness = new_likeness(rates, SAMPLE_LENGTH, new_sample)
-      max_likeness = likeness[1].max
-      max_likeness_index = likeness[1].index { |x| x == max_likeness }
-      max_likeness_sample_index = likeness[0][max_likeness_index]
+      max_likeness_index = likeness[:value].index { |x| x == likeness[:value].max }
+      max_likeness_sample_index = likeness[:sample_index][max_likeness_index]
       max_likeness_sample = rates[max_likeness_sample_index - SAMPLE_LENGTH +
                                   1..max_likeness_sample_index]
       data = rates[max_likeness_sample_index + 1..
