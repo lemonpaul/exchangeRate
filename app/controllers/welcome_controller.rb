@@ -14,7 +14,6 @@ class WelcomeController < ApplicationController
   end
 
   def show
-    puts Trigger.get_email
     respond_to { |format| format.js }
   end
 end

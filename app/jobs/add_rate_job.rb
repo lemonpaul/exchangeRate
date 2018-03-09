@@ -61,7 +61,7 @@ class AddRateJob < ApplicationJob
   end
 
   def check_trigger(trigger, current_rates)
-    (trigger.kind.zero == 0 &&
+    (trigger.kind.zero? &&
      current_rates[rate_index(trigger)].rate <= trigger.rate) ||
     (trigger.kind == 1 &&
      current_rates[rate_index(trigger)].rate >= trigger.rate)

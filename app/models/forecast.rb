@@ -96,7 +96,6 @@ class Forecast < ApplicationRecord
       rates = rates.map(&:rate)
       new_sample = rates[-SAMPLE_LENGTH..-1]
       likeness = new_likeness(rates, SAMPLE_LENGTH, new_sample)
-      puts likeness
       max_likeness = likeness[1].max
       max_likeness_index = likeness[1].index { |x| x == max_likeness }
       max_likeness_sample_index = likeness[0][max_likeness_index]
