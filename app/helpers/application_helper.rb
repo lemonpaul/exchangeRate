@@ -30,7 +30,7 @@ module ApplicationHelper
   end
 
   def new_averages(rates, counts)
-    avg = [[0.0, 0.0], [0.0, 0.0]]
+    avg = [[nil, nil], [nil, nil]]
     [USD, EUR].each do |currency|
       [BUY, SELL].each do |operation|
         next unless counts.values[currency].values[operation] > 0
