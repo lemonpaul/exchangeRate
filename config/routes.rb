@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   get 'history/index'
-
   get 'welcome/index'
   get 'welcome/show'
   get 'rates/forecast'
+  post 'triggers/update'
   post 'welcome/index'
   require 'sidekiq/web'
   require 'sidekiq/api'

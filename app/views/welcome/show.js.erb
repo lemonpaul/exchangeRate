@@ -1,7 +1,9 @@
 $('#rates').replaceWith("<%= j render :template => 'rates/index' %>");
 if ($('#new_link').is(":visible"))
 {
-  $('#triggers').replaceWith("<%= j render :template => 'triggers/index' %>");
+  //$('#triggers').replaceWith("<%= j render :template => 'triggers/index' %>");
+  $('#triggers_header').replaceWith("<h1 id='triggers_header'><%= j pluralize(@triggers.size, 'Trigger') %></h1>");
+  $('#triggers_table').replaceWith("<%= j render :template => 'triggers/triggers' %>");
 }
 if ($('#history').is(":visible"))
 {

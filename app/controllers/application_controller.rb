@@ -67,13 +67,13 @@ class ApplicationController < ActionController::Base
   def forecasts
     currencies = %w[usd eur]
     operations = %w[buy sell]
-    [Rate.forecast(currencies.index('usd'),
+    [Forecast.forecast(currencies.index('usd'),
                    operations.index('buy')),
-     Rate.forecast(currencies.index('usd'),
+     Forecast.forecast(currencies.index('usd'),
                    operations.index('sell')),
-     Rate.forecast(currencies.index('eur'),
+     Forecast.forecast(currencies.index('eur'),
                    operations.index('buy')),
-     Rate.forecast(currencies.index('eur'),
+     Forecast.forecast(currencies.index('eur'),
                    operations.index('sell'))]
   end
 
@@ -81,5 +81,13 @@ class ApplicationController < ActionController::Base
     Rate.cached_all.empty? && AddRateJob.perform_now
     @rates = Rate.cached_all
     @rates.select { |rate| rate.created_at.to_date == Time.now.to_date }
+  end
+
+  def set_email(value)
+    self.class.email = value
+  end
+
+  def get_email
+    self.class.email
   end
 end

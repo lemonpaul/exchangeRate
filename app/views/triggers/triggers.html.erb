@@ -1,0 +1,16 @@
+<% if @triggers.any? %>
+  <table id="triggers_table" class="table">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Currency</th>
+        <th>Operation</th>
+        <th>Type</th>
+        <th>Rate</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <%= render :partial => 'triggers/trigger', :collection => @triggers %>
+    </tfoot>
+  </table>
+<% end %>

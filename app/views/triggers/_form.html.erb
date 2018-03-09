@@ -1,7 +1,7 @@
-<div id="new_trigger_form" class="col-md-4 order-md-2 mb-4">
-  <h2 class="mb-3">New trigger</h2>
+<div id="new_trigger" class="container">
+  <h2>New trigger</h2>
   <% if @trigger.errors.any? %>
-    <h2 class="mb-3"><%= pluralize(@trigger.errors.count, "error") %> prohibited this trigger from being saved:</h2>
+    <h2><%= pluralize(@trigger.errors.count, "error") %> prohibited this trigger from being saved:</h2>
     <ul>
       <% @trigger.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -9,18 +9,18 @@
     </ul>
   <% end %>
   <%= form_with scope: :trigger, url: triggers_path, remote: true do |form| %>
-    <div class="mb-3">
-        <%= form.email_field :email, class: 'form-control', placeholder: 'Email' %> 
+    <div>
+        <%= form.email_field :email, class: 'form-control', placeholder: 'Email' %>
     </div>
     <br>
     <div class="row">
-      <div class="col-md-4 mb-3">
+      <div class="col-sm-4">
         <%= form.select(:currency, [["USD", 0], ["EUR", 1]], {}, { class: 'form-control' }) %>
       </div>
-      <div class="col-md-4 mb-3">
+      <div class="col-sm-4">
         <%= form.select(:operation, [["buy", 0], ["sell", 1]], {}, { class: 'form-control' }) %>
       </div>
-      <div class="col-md-4 mb-3">
+      <div class="col-sm-4">
         <%= form.select(:kind, [["lower", 0], ["upper", 1]], {}, { class: 'form-control' }) %>
       </div>
     </div>

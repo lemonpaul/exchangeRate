@@ -1,27 +1,23 @@
-<div id="triggers" class="container">
+<div id="triggers">
   <% cache @triggers do %>
-    <% if @triggers %>
-      <h1><%= pluralize(@triggers.size, "Trigger") %></h1>
-      <%= link_to 'New trigger', new_trigger_path, id: "new_link", remote: true, class: 'badge' %>
-      <% if @triggers.any? %>
-        <table id="triggers_table" class="table">
-          <thead>
-            <tr>
-              <th>Email</th>
-              <th>Currency</th>
-              <th>Operation</th>
-              <th>Type</th>
-              <th>Rate</th>
-            </tr>
-          </thead>
-          <tfoot>
-            <%= render :partial => 'triggers/trigger', :collection => @triggers %>
-          </tfoot>
-        </table>
+    <div class="container">
+      <h1 id="triggers_header"><%= pluralize(@triggers.size, "Trigger") %></h1>
+      <%= form_with scope: :trigger, url: triggers_update_path, remote: true do |form| %>
+        <div class="row">
+          <div class="col-md-4">
+            <%= form.email_field :email, class: 'form-control', placeholder: Trigger.get_email %>
+          </div>
+          <div class="col-md-2">
+            <%= form.submit 'View', class: 'btn btn-primary btn-block' %>
+          </div>
+        </div>
+        <br>
       <% end %>
-    <% else %>
-      <h1>0 Triggers</h1>
-      <%= link_to 'New trigger', new_trigger_path, id: "new_link", remote: true, class: 'badge' %>
-    <% end %>
+      <% if @triggers %>
+        <%= render :template => 'triggers/triggers' %>
+      <% end %>
+    </div>
+    <%= link_to 'New trigger', new_trigger_path, id: "new_link", remote: true, class: 'badge' %>
+    <br>
   <% end %>
 </div>

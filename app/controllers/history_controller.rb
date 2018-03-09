@@ -3,7 +3,7 @@ class HistoryController < ApplicationController
   before_action :init_values
 
   def init_values
-    Rate.cached_all.count || AddRateJob.perform_now
+    Rate.cached_all.empty? && AddRateJob.perform_now
     @rates = Rate.cached_all
   end
 
