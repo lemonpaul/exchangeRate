@@ -1,4 +1,4 @@
-<div id="rates" class="container">
+<div id="rates" class="container col-sm-12">
   <% cache @current_rates do %>
     <h1>Current Rate</h1>
     <div class="row">
@@ -12,15 +12,15 @@
         <h4>buy</h4>
         <h2><%= "%.2f" % @current_rates[:usd][:buy].rate.round(2) %> &#8381;</h2>
         <p>
-          <% if @averages[:usd][:buy] %>
-            <%= "%.2f" % @averages[:usd][:buy].round(2) %> &#8381;
+          <% if new_averages(@today_rates, @counts)[:usd][:buy] %>
+            <%= "%.2f" % new_averages(@today_rates, @counts)[:usd][:buy].round(2) %> &#8381;
           <% else %>
             N/D
           <% end %>
         </p>
         <p>
-          <% if @forecasts[:usd][:buy] %>
-            <%= "%.2f" % @forecasts[:usd][:buy].round(2) %> &#8381;
+          <% if new_forecasts[:usd][:buy] %>
+            <%= "%.2f" % new_forecasts[:usd][:buy].round(2) %> &#8381;
           <% else %>
             N/D
           <% end %>
@@ -30,15 +30,15 @@
         <h4>sell</h4>
         <h2><%= "%.2f" % @current_rates[:usd][:sell].rate.round(2) %> &#8381;</h2>
         <p>
-          <% if @averages[:usd][:sell] %>
-            <%= "%.2f" % @averages[:usd][:sell].round(2) %> &#8381;
+          <% if new_averages(@today_rates, @counts)[:usd][:sell] %>
+            <%= "%.2f" % new_averages(@today_rates, @counts)[:usd][:sell].round(2) %> &#8381;
           <% else %>
             N/D
           <% end %>
         </p>
         <p>
-          <% if @forecasts[:usd][:sell] %>
-            <%= "%.2f" % @forecasts[:usd][:sell].round(2) %> &#8381;
+          <% if new_forecasts[:usd][:sell] %>
+            <%= "%.2f" % new_forecasts[:usd][:sell].round(2) %> &#8381;
           <% else %>
             N/D
           <% end %>
@@ -54,15 +54,15 @@
         <h4>buy</h4>
         <h2><%= "%.2f" % @current_rates[:eur][:buy].rate.round(2) %> &#8381;</h2>
         <p>
-          <% if @averages[:eur][:buy] %>
-            <%= "%.2f" % @averages[:eur][:buy].round(2) %> &#8381;
+          <% if new_averages(@today_rates, @counts)[:eur][:buy] %>
+            <%= "%.2f" % new_averages(@today_rates, @counts)[:eur][:buy].round(2) %> &#8381;
           <% else %>
             N/D
           <% end %>
         </p>
         <p>
-          <% if @forecasts[:eur][:buy] %>
-            <%= "%.2f" % @forecasts[:eur][:buy].round(2) %> &#8381;
+          <% if new_forecasts[:eur][:buy] %>
+            <%= "%.2f" % new_forecasts[:eur][:buy].round(2) %> &#8381;
           <% else %>
             N/D
           <% end %>
@@ -72,15 +72,15 @@
         <h4>sell</h4>
         <h2><%= "%.2f" % @current_rates[:eur][:sell].rate.round(2) %> &#8381;</h2>
         <p>
-          <% if @averages[:eur][:sell] %>
-            <%= "%.2f" % @averages[:eur][:sell].round(2) %> &#8381;
+          <% if new_averages(@today_rates, @counts)[:eur][:sell] %>
+            <%= "%.2f" % new_averages(@today_rates, @counts)[:eur][:sell].round(2) %> &#8381;
           <% else %>
             N/D
           <% end %>
         </p>
         <p>
-          <% if @forecasts[:eur][:sell] %>
-            <%= "%.2f" % @forecasts[:eur][:sell].round(2) %> &#8381;
+          <% if new_forecasts[:eur][:sell] %>
+            <%= "%.2f" % new_forecasts[:eur][:sell].round(2) %> &#8381;
           <% else %>
             N/D
           <% end %>
@@ -90,13 +90,13 @@
         <p><b>Spread:</b></p>
       </div>
       <div class="col-sm-4">
-        <p><%= "%.2f" % @spreads[:usd].round(2) %> &#8381; (<%= @per_spreads[:usd].round %>%)</p>
+        <p><%= "%.2f" % spreads(@current_rates)[:usd].round(2) %> &#8381; (<%= per_spreads(@current_rates)[:usd].round %>)%</p>
       </div>
       <div class="col-sm-2">
         <p><b>Spread:</b></p>
       </div>
       <div class="col-sm-4">
-        <p><%= "%.2f" % @spreads[:eur].round(2) %> &#8381; (<%= @per_spreads[:eur].round %>%)</p>
+        <p><%= "%.2f" % spreads(@current_rates)[:eur].round(2) %> &#8381; (<%= per_spreads(@current_rates)[:eur].round %>%)</p>
       </div>
     </div>
   <% end %>

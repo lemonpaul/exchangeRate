@@ -1,6 +1,6 @@
 <div id="triggers">
   <% cache @triggers do %>
-    <div class="container">
+    <div class="container col-sm-12">
       <h1 id="triggers_header"><%= pluralize(@triggers.size, "Trigger") %></h1>
       <%= form_with scope: :trigger, url: triggers_update_path, remote: true do |form| %>
         <div class="row">
