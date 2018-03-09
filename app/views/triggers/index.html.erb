@@ -5,7 +5,7 @@
       <%= form_with scope: :trigger, url: triggers_update_path, remote: true do |form| %>
         <div class="row">
           <div class="col-md-4">
-            <%= form.email_field :email, class: 'form-control', placeholder: Trigger.get_email %>
+            <%= form.email_field :email, class: 'form-control', placeholder: Trigger.email %>
           </div>
           <div class="col-md-2">
             <%= form.submit 'View', class: 'btn btn-primary btn-block' %>

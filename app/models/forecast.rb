@@ -1,6 +1,5 @@
-  # Rate class
+# Rate class
 class Forecast < ApplicationRecord
-
   SAMPLE_LENGTH = 4
   FORECAST_LENGTH = 1
 
@@ -74,7 +73,7 @@ class Forecast < ApplicationRecord
   def self.new_likeness(rates, sample_length, new_sample)
     step = 1
     sample_index = rates.size - step * 2
-    likeness = {sample_index: [0], value: [0]}
+    likeness = { sample_index: [0], value: [0] }
     likeness_index = 0
     while sample_index + 2 * step > sample_length
       old_sample = rates[sample_index - sample_length + 1..sample_index]
@@ -94,7 +93,8 @@ class Forecast < ApplicationRecord
       rates = rates.map(&:rate)
       new_sample = rates[-SAMPLE_LENGTH..-1]
       likeness = new_likeness(rates, SAMPLE_LENGTH, new_sample)
-      max_likeness_index = likeness[:value].index { |x| x == likeness[:value].max }
+      max_likeness_index = likeness[:value]
+                           .index { |x| x == likeness[:value].max }
       max_likeness_sample_index = likeness[:sample_index][max_likeness_index]
       max_likeness_sample = rates[max_likeness_sample_index - SAMPLE_LENGTH +
                                   1..max_likeness_sample_index]

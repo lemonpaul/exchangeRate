@@ -5,8 +5,12 @@ class Trigger < ApplicationRecord
   validates :email, uniqueness: { scope: %i[currency operation kind rate],
                                   message: 'already has this trigger' }
   after_commit :flush_cache
-  
+
   @email = 'Email'
+
+  class << self
+    attr_reader :email
+  end
 
   def flush_cache
     Rails.cache.delete('triggers_cache')
@@ -16,12 +20,8 @@ class Trigger < ApplicationRecord
     Rails.cache.fetch('triggers_cache') { all.to_a }
   end
 
-  def self.set_email(email)
+  def self.new_email(email)
     @email = email
     Rails.cache.delete('views//')
-  end
-
-  def self.get_email
-    @email
   end
 end

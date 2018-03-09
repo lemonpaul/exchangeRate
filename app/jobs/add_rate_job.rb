@@ -28,24 +28,14 @@ class AddRateJob < ApplicationJob
       .select { |rate| rate['fromCurrency']['name'] == 'EUR' }[0]
   end
 
-  def new_rates
+  def add_rates
     hash = new_hash
     usd_rates = usd_rates(hash)
     eur_rates = eur_rates(hash)
-    { usd: { buy: usd_rates['buy'], sell: usd_rates['sell'] }, 
-      eur: { buy: eur_rates['buy'], sell: eur_rates['sell'] } }
-  end
-
-  def add_current_rates
-    rates = new_rates
-    [USD, EUR].each do |currency|
-      [SELL, BUY].each do |operation|
-        Rate.create(currency: currency,
-                    operation: operation,
-                    rate: rates.values[currency].values[operation])
-      end
-    end
-    rates
+    Rate.create(currency: USD, operation: BUY, rate: usd_rates['buy'])
+    Rate.create(currency: USD, operation: SELL, rate: usd_rates['sell'])
+    Rate.create(currency: EUR, operation: BUY, rate: eur_rates['buy'])
+    Rate.create(currency: EUR, operation: SELL, rate: eur_rates['sell'])
   end
 
   def notificate(trigger)
@@ -54,21 +44,20 @@ class AddRateJob < ApplicationJob
     trigger.destroy
   end
 
-  def rate_index(trigger)
-    2 * trigger.currency + trigger.operation
-  end
-
-  def check_trigger(trigger, current_rates)
+  def check_trigger(trigger)
+    rates = Rate.current
+    puts '---------------------------------------------------------------------'
+    puts rates
     (trigger.kind.zero? &&
-     current_rates[rate_index(trigger)].rate <= trigger.rate) ||
-    (trigger.kind == 1 &&
-     current_rates[rate_index(trigger)].rate >= trigger.rate)
+     rates.values[trigger.currency].values[trigger.operation].rate <= trigger.rate) ||
+      (trigger.kind == 1 &&
+       rates.values[trigger.currency].values[trigger.operation].rate >= trigger.rate)
   end
 
   def perform
-    current_rates = add_current_rates
+    add_rates
     Trigger.cached_all.each do |trigger|
-      check_trigger(trigger, current_rates) && notificate(trigger)
+      check_trigger(trigger) && notificate(trigger)
     end
   end
 end
