@@ -4,13 +4,14 @@ class Rate < ApplicationRecord
   EUR = 1
   BUY = 0
   SELL = 1
-  ALL = -1
-  UP = 0
-  DOWN = 1
+  TYPE = ['created_at', 'currency', 'operation', 'rate']
+  CURRENCY = [0, 1, [0, 1]]
+  OPERATION = [0, 1, [0, 1]]
+  ORDER = [' ASC', ' DESC']
 
   @sort_type = 0
-  @currency_filter = -1
-  @operation_filter = -1
+  @currency_filter = 2
+  @operation_filter = 2
   @order = 0
 
   class << self
@@ -18,60 +19,34 @@ class Rate < ApplicationRecord
   end
 
   def self.sorted
-    rates = Rate.all
-    case sort_type.to_i
-    when 1
-      rates = rates.sort_by { |rate| rate.currency }
-    when 2
-      rates = rates.sort_by { |rate| rate.operation }
-    when 3
-      rates = rates.sort_by { |rate| rate.rate }
-    else
-      rates = rates.sort_by { |rate| rate.created_at }
-    end
-    if currency_filter.to_i != ALL
-      rates = rates.select { |rate| rate.currency == currency_filter.to_i }
-    end
-    if operation_filter.to_i != ALL
-      rates = rates.select { |rate| rate.operation == operation_filter.to_i }
-    end
-    if order.to_i == DOWN
-      rates = rates.reverse
-    end
-    rates
+    Rate.where({ currency: CURRENCY[currency_filter.to_i], operation: OPERATION[operation_filter.to_i] })
+        .order(TYPE[sort_type.to_i]+ORDER[order.to_i])
   end
 
   def self.today
     Rate.all.empty? && AddRateJob.perform_now
-    Rate.all
-        .select { |rate| rate.created_at.to_date == Time.now.to_date }
+    Rate.where({ created_at: Time.now.midnight..(Time.now.midnight + 1.day) })
   end
 
   def self.find_rate(currency, operation)
-    Rate.all.select do |rate|
-      rate.currency == currency &&
-        rate.operation == operation
-    end
+    Rate.where({ currency: currency, operation: operation })
   end
 
   def self.today_find(currency, operation)
-    Rate.today.select do |rate|
-      rate.currency == currency &&
-        rate.operation == operation
-    end
+    Rate.where({ created_at: Time.now.midnight..(Time.now.midnight + 1.day), currency: currency, operation: operation })
   end
 
-  def self.counts
-    { usd: { buy: Rate.today_find(USD, BUY).count,
-             sell: Rate.today_find(USD, SELL).count },
-      eur: { buy: Rate.today_find(EUR, BUY).count,
-             sell: Rate.today_find(BUY, SELL).count } }
+  def self.count_rates(currency, operation)
+    Rate.where({ created_at: Time.now.midnight..(Time.now.midnight + 1.day),
+                 currency: currency, operation: operation }).count
   end
 
-  def self.current
-    { usd: { buy: Rate.find_rate(USD, BUY).last,
-             sell: Rate.find_rate(USD, SELL).last },
-      eur: { buy: Rate.find_rate(EUR, BUY).last,
-             sell: Rate.find_rate(EUR, SELL).last } }
+  def self.average_rate(currency, operation)
+    Rate.where({ created_at: Time.now.midnight..(Time.now.midnight + 1.day),
+                 currency: currency, operation: operation }).average(:rate)
+  end
+
+  def self.last_rate(currency, operation)
+    Rate.where({ currency: currency, operation: operation}).last
   end
 end

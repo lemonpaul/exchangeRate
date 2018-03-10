@@ -4,9 +4,6 @@ class RatesController < ApplicationController
 
   def init_values
     @rates = Rate.all
-    @today_rates = Rate.today
-    @counts = Rate.counts
-    @current_rates = Rate.current
   end
 
   def destroy

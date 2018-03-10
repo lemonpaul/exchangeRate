@@ -6,13 +6,13 @@ module ApplicationHelper
   SELL = 1
 
   def spread(currency)
-    rates = Rate.current
+    rates = current
     rates.values[currency][:sell].rate -
       rates.values[currency][:buy].rate
   end
 
   def per_spread(currency)
-    rates = Rate.current
+    rates = current
     2 * (rates.values[currency][:sell].rate -
          rates.values[currency][:buy].rate) /
       (rates.values[currency][:sell].rate +
@@ -28,17 +28,10 @@ module ApplicationHelper
   end
 
   def averages
-    counts = Rate.counts
     avg = [[nil, nil], [nil, nil]]
     [USD, EUR].each do |currency|
       [BUY, SELL].each do |operation|
-        next unless counts.values[currency].values[operation] > 0
-        avg[currency][operation] = 0.0
-        Rate.today_find(currency, operation).each do |rate|
-          avg[currency][operation] += rate.rate
-        end
-        avg[currency][operation] = avg[currency][operation] /
-                                   counts.values[currency].values[operation]
+        avg[currency][operation] = Rate.average_rate(currency, operation)
       end
     end
     { usd: { buy: avg[USD][BUY], sell: avg[USD][SELL] },
@@ -50,5 +43,12 @@ module ApplicationHelper
              sell: Forecast.forecast(USD, SELL) },
       eur: { buy: Forecast.forecast(EUR, BUY),
              sell: Forecast.forecast(EUR, SELL) } }
+  end
+
+  def current
+    { usd: { buy: Rate.last_rate(USD, BUY),
+             sell: Rate.last_rate(USD, SELL) },
+      eur: { buy: Rate.last_rate(EUR, BUY),
+             sell: Rate.last_rate(EUR, SELL) } }
   end
 end

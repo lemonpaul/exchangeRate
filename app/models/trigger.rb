@@ -8,11 +8,10 @@ class Trigger < ApplicationRecord
   @email = 'Email'
 
   class << self
-    attr_reader :email
+    attr_accessor :email
   end
 
-  def self.new_email(email)
-    @email = email
-    Rails.cache.delete('views//')
+  def self.select_email
+    Trigger.where({ email: email })
   end
 end

@@ -1,10 +1,9 @@
 # Triggers controller class
 class TriggersController < ApplicationController
-  before_action :init_triggers, only: %i[show create]
+  before_action :init_triggers, only: %i[index show create]
 
   def init_triggers
-    @triggers = Trigger.all
-                       .select { |trigger| trigger.email == Trigger.email }
+    @triggers = Trigger.select_email
   end
 
   def new
@@ -31,7 +30,7 @@ class TriggersController < ApplicationController
   end
 
   def update
-    Trigger.new_email(trigger_params[:email])
+    Trigger.email = trigger_params[:email]
     @triggers = Trigger.all
                        .select { |trigger| trigger.email == Trigger.email }
     respond_to do |format|
@@ -42,8 +41,7 @@ class TriggersController < ApplicationController
 
   def destroy
     @trigger = Trigger.destroy(params[:id])
-    @triggers = Trigger.all
-                       .select { |trigger| trigger.email == Trigger.email }
+    @triggers = Trigger.select_email
     respond_to do |format|
       format.html { redirect_to root_path }
       format.js

@@ -10,8 +10,8 @@
     <div class="col-sm-2">
       <h4>buy</h4>
       <h2>
-        <% if @current_rates[:usd][:buy] %>
-          <%= "%.2f" % @current_rates[:usd][:buy].rate.round(2) %> &#8381;
+        <% if current[:usd][:buy] %>
+          <%= "%.2f" % current[:usd][:buy].rate.round(2) %> &#8381;
         <% else %>
           N/D
         <% end %>
@@ -34,8 +34,8 @@
     <div class="col-sm-2">
       <h4>sell</h4>
       <h2>
-        <% if @current_rates[:usd][:sell] %>
-          <%= "%.2f" % @current_rates[:usd][:sell].rate.round(2) %> &#8381;
+        <% if current[:usd][:sell] %>
+          <%= "%.2f" % current[:usd][:sell].rate.round(2) %> &#8381;
         <% else %>
           N/D
         <% end %>
@@ -64,8 +64,8 @@
     <div class="col-sm-2">
       <h4>buy</h4>
       <h2>
-        <% if @current_rates[:eur][:buy] %>
-          <%= "%.2f" % @current_rates[:eur][:buy].rate.round(2) %> &#8381;
+        <% if current[:eur][:buy] %>
+          <%= "%.2f" % current[:eur][:buy].rate.round(2) %> &#8381;
         <% else %>
           N/D
         <% end %>
@@ -88,8 +88,8 @@
     <div class="col-sm-2">
       <h4>sell</h4>
       <h2>
-        <% if @current_rates[:eur][:sell] %>
-          <%= "%.2f" % @current_rates[:eur][:sell].rate.round(2) %> &#8381;
+        <% if current[:eur][:sell] %>
+          <%= "%.2f" % current[:eur][:sell].rate.round(2) %> &#8381;
         <% else %>
           N/D
         <% end %>

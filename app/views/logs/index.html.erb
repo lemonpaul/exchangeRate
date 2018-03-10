@@ -1,6 +1,7 @@
-<div id="old_rates" hidden="true">
+<div id="old_rates">
+  <%= link_to 'Show History', new_log_path, id: "show_link", remote: true, class: 'badge' %>
   <div class="container col-sm-12">
-    <h1 id="rate_count"><%= pluralize(Rate.sorted.size, "Rate") %></h1><br>
+    <h1 id="rate_count" hidden="true"><%= pluralize(Rate.sorted.size, "Rate") %></h1><br>
     <%= render :partial => 'logs/form' %>
     <%= render :template => 'logs/logs' %>
   </div>
