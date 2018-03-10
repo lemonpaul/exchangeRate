@@ -1,128 +1,126 @@
 <div id="rates" class="container col-sm-12">
-  <% cache @current_rates do %>
-    <h1>Current Rate</h1>
-    <div class="row">
-      <div class="col-sm-2">
-        <h4><br></h4>
-        <h2>USD:</h2>
-        <p><b>Average:</b></p>
-        <p><b>Forecast:</b></p>
-      </div>
-      <div class="col-sm-2">
-        <h4>buy</h4>
-        <h2>
-          <% if @current_rates[:usd][:buy] %>
-            <%= "%.2f" % @current_rates[:usd][:buy].rate.round(2) %> &#8381;
-          <% else %>
-            N/D
-          <% end %>
-        </h2>
-        <p>
-          <% if averages[:usd][:buy] %>
-            <%= "%.2f" % averages[:usd][:buy].round(2) %> &#8381;
-          <% else %>
-            N/D
-          <% end %>
-        </p>
-        <p>
-          <% if forecasts[:usd][:buy] %>
-            <%= "%.2f" % forecasts[:usd][:buy].round(2) %> &#8381;
-          <% else %>
-            N/D
-          <% end %>
-        </p>
-      </div>
-      <div class="col-sm-2">
-        <h4>sell</h4>
-        <h2>
-          <% if @current_rates[:usd][:sell] %>
-            <%= "%.2f" % @current_rates[:usd][:sell].rate.round(2) %> &#8381;
-          <% else %>
-            N/D
-          <% end %>
-        </h2>
-        <p>
-          <% if averages[:usd][:sell] %>
-            <%= "%.2f" % averages[:usd][:sell].round(2) %> &#8381;
-          <% else %>
-            N/D
-          <% end %>
-        </p>
-        <p>
-          <% if forecasts[:usd][:sell] %>
-            <%= "%.2f" % forecasts[:usd][:sell].round(2) %> &#8381;
-          <% else %>
-            N/D
-          <% end %>
-        </p>
-      </div>
-      <div class="col-sm-2">
-        <h4><br></h4>
-        <h2>EUR:</h2>
-        <p><b>Average:</b></p>
-        <p><b>Forecast:</b></p>
-      </div>
-      <div class="col-sm-2">
-        <h4>buy</h4>
-        <h2>
-          <% if @current_rates[:eur][:buy] %>
-            <%= "%.2f" % @current_rates[:eur][:buy].rate.round(2) %> &#8381;
-          <% else %>
-            N/D
-          <% end %>
-        </h2>
-        <p>
-          <% if averages[:eur][:buy] %>
-            <%= "%.2f" % averages[:eur][:buy].round(2) %> &#8381;
-          <% else %>
-            N/D
-          <% end %>
-        </p>
-        <p>
-          <% if forecasts[:eur][:buy] %>
-            <%= "%.2f" % forecasts[:eur][:buy].round(2) %> &#8381;
-          <% else %>
-            N/D
-          <% end %>
-        </p>
-      </div>
-      <div class="col-sm-2">
-        <h4>sell</h4>
-        <h2>
-          <% if @current_rates[:eur][:sell] %>
-            <%= "%.2f" % @current_rates[:eur][:sell].rate.round(2) %> &#8381;
-          <% else %>
-            N/D
-          <% end %>
-        </h2>
-        <p>
-          <% if averages[:eur][:sell] %>
-            <%= "%.2f" % averages[:eur][:sell].round(2) %> &#8381;
-          <% else %>
-            N/D
-          <% end %>
-        </p>
-        <p>
-          <% if forecasts[:eur][:sell] %>
-            <%= "%.2f" % forecasts[:eur][:sell].round(2) %> &#8381;
-          <% else %>
-            N/D
-          <% end %>
-        </p>
-      </div>
-      <div class="col-sm-2">
-        <p><b>Spread:</b></p>
-      </div>
-      <div class="col-sm-4">
-        <p><%= "%.2f" % spreads[:usd].round(2) %> &#8381; (<%= per_spreads[:usd].round %>%)</p>
-      </div>
-      <div class="col-sm-2">
-        <p><b>Spread:</b></p>
-      </div>
-      <div class="col-sm-4">
-        <p><%= "%.2f" % spreads[:eur].round(2) %> &#8381; (<%= per_spreads[:eur].round %>%)</p>
-      </div>
+  <h1>Current Rate</h1>
+  <div class="row">
+    <div class="col-sm-2">
+      <h4><br></h4>
+      <h2>USD:</h2>
+      <p><b>Average:</b></p>
+      <p><b>Forecast:</b></p>
     </div>
-  <% end %>
+    <div class="col-sm-2">
+      <h4>buy</h4>
+      <h2>
+        <% if @current_rates[:usd][:buy] %>
+          <%= "%.2f" % @current_rates[:usd][:buy].rate.round(2) %> &#8381;
+        <% else %>
+          N/D
+        <% end %>
+      </h2>
+      <p>
+        <% if averages[:usd][:buy] %>
+          <%= "%.2f" % averages[:usd][:buy].round(2) %> &#8381;
+        <% else %>
+          N/D
+        <% end %>
+      </p>
+      <p>
+        <% if forecasts[:usd][:buy] %>
+          <%= "%.2f" % forecasts[:usd][:buy].round(2) %> &#8381;
+        <% else %>
+          N/D
+        <% end %>
+      </p>
+    </div>
+    <div class="col-sm-2">
+      <h4>sell</h4>
+      <h2>
+        <% if @current_rates[:usd][:sell] %>
+          <%= "%.2f" % @current_rates[:usd][:sell].rate.round(2) %> &#8381;
+        <% else %>
+          N/D
+        <% end %>
+      </h2>
+      <p>
+        <% if averages[:usd][:sell] %>
+          <%= "%.2f" % averages[:usd][:sell].round(2) %> &#8381;
+        <% else %>
+          N/D
+        <% end %>
+      </p>
+      <p>
+        <% if forecasts[:usd][:sell] %>
+          <%= "%.2f" % forecasts[:usd][:sell].round(2) %> &#8381;
+        <% else %>
+          N/D
+        <% end %>
+      </p>
+    </div>
+    <div class="col-sm-2">
+      <h4><br></h4>
+      <h2>EUR:</h2>
+      <p><b>Average:</b></p>
+      <p><b>Forecast:</b></p>
+    </div>
+    <div class="col-sm-2">
+      <h4>buy</h4>
+      <h2>
+        <% if @current_rates[:eur][:buy] %>
+          <%= "%.2f" % @current_rates[:eur][:buy].rate.round(2) %> &#8381;
+        <% else %>
+          N/D
+        <% end %>
+      </h2>
+      <p>
+        <% if averages[:eur][:buy] %>
+          <%= "%.2f" % averages[:eur][:buy].round(2) %> &#8381;
+        <% else %>
+          N/D
+        <% end %>
+      </p>
+      <p>
+        <% if forecasts[:eur][:buy] %>
+          <%= "%.2f" % forecasts[:eur][:buy].round(2) %> &#8381;
+        <% else %>
+          N/D
+        <% end %>
+      </p>
+    </div>
+    <div class="col-sm-2">
+      <h4>sell</h4>
+      <h2>
+        <% if @current_rates[:eur][:sell] %>
+          <%= "%.2f" % @current_rates[:eur][:sell].rate.round(2) %> &#8381;
+        <% else %>
+          N/D
+        <% end %>
+      </h2>
+      <p>
+        <% if averages[:eur][:sell] %>
+          <%= "%.2f" % averages[:eur][:sell].round(2) %> &#8381;
+        <% else %>
+          N/D
+        <% end %>
+      </p>
+      <p>
+        <% if forecasts[:eur][:sell] %>
+          <%= "%.2f" % forecasts[:eur][:sell].round(2) %> &#8381;
+        <% else %>
+          N/D
+        <% end %>
+      </p>
+    </div>
+    <div class="col-sm-2">
+      <p><b>Spread:</b></p>
+    </div>
+    <div class="col-sm-4">
+      <p><%= "%.2f" % spreads[:usd].round(2) %> &#8381; (<%= per_spreads[:usd].round %>%)</p>
+    </div>
+    <div class="col-sm-2">
+      <p><b>Spread:</b></p>
+    </div>
+    <div class="col-sm-4">
+      <p><%= "%.2f" % spreads[:eur].round(2) %> &#8381; (<%= per_spreads[:eur].round %>%)</p>
+    </div>
+  </div>
   <br>
 </div>

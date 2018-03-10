@@ -34,7 +34,7 @@ module ApplicationHelper
       [BUY, SELL].each do |operation|
         next unless counts.values[currency].values[operation] > 0
         avg[currency][operation] = 0.0
-        Rate.find(currency, operation).each do |rate|
+        Rate.today_find(currency, operation).each do |rate|
           avg[currency][operation] += rate.rate
         end
         avg[currency][operation] = avg[currency][operation] /

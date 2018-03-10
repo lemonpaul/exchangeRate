@@ -44,19 +44,26 @@ class AddRateJob < ApplicationJob
     trigger.destroy
   end
 
-  def check_trigger(trigger)
+  def check_lower_trigger(trigger)
     rates = Rate.current
-    (trigger.kind.zero? &&
-     rates.values[trigger.currency]
-          .values[trigger.operation].rate <= trigger.rate) ||
-      (trigger.kind == 1 && rates.values[trigger.currency]
-                                 .values[trigger.operation]
-                                 .rate >= trigger.rate)
+    rates.values[trigger.currency]
+         .values[trigger.operation].rate <= trigger.rate
+  end
+
+  def check_upper_trigger(trigger)
+    rates = Rate.current
+    rates.values[trigger.currency].values[trigger.operation]
+         .rate >= trigger.rate
+  end
+
+  def check_trigger(trigger)
+    (trigger.kind.zero? && check_lower_trigger(trigger)) ||
+      (trigger.kind == 1 &&  check_upper_trigger(trigger))
   end
 
   def perform
     add_rates
-    Trigger.cached_all.each do |trigger|
+    Trigger.all.each do |trigger|
       check_trigger(trigger) && notificate(trigger)
     end
   end

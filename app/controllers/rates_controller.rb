@@ -3,7 +3,7 @@ class RatesController < ApplicationController
   before_action :init_values
 
   def init_values
-    @rates = Rate.cached_all
+    @rates = Rate.all
     @today_rates = Rate.today
     @counts = Rate.counts
     @current_rates = Rate.current

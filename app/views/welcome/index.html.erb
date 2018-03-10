@@ -1,5 +1,6 @@
 <div class="container">
   <%= render :template => 'triggers/index' %>
   <%= render :template => 'rates/index' %>
-  <%= render :template => 'history/index' %>
+  <%= link_to 'Show History', new_log_path, id: "show_link", remote: true, class: 'badge' %>
+  <%= render :template => 'logs/index' %>
 </div>

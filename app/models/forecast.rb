@@ -55,7 +55,7 @@ class Forecast < ApplicationRecord
   end
 
   def self.new_rates(currency, operation)
-    Rate.cached_all.select do |rate|
+    Rate.all.select do |rate|
       rate.currency == currency && rate.operation == operation
     end
   end

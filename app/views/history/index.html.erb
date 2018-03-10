@@ -1,6 +1,0 @@
-<div id="old_rates">
-  <% cache @rates do %>
-    <%= link_to 'Show History', new_history_path, id: "show_link", remote: true, class: 'badge' %>
-    <div class="container col-sm-12"><%= render :template => 'history/history' %></div>
-  <% end %>
-</div>

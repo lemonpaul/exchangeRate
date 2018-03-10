@@ -1,0 +1,2 @@
+$('#rate_count').replaceWith("<h1 id='rate_count'><%= j pluralize(Rate.sorted.size, 'Rate') %></h1>");
+$('#logs').replaceWith("<%= j render :template => 'logs/logs' %>");

@@ -1,29 +1,54 @@
 # Rate class
 class Rate < ApplicationRecord
-  include ActionView::Helpers::DateHelper
-  after_commit :flush_cache
-
   USD = 0
   EUR = 1
   BUY = 0
   SELL = 1
+  ALL = -1
+  UP = 0
+  DOWN = 1
 
-  def self.cached_all
-    Rails.cache.fetch('rates_cache') { all.to_a }
+  @sort_type = 0
+  @currency_filter = -1
+  @operation_filter = -1
+  @order = 0
+
+  class << self
+    attr_accessor :sort_type, :currency_filter, :operation_filter, :order
   end
 
-  def self.cached_last
-    Rails.cache.fetch('last_rate_cache') { last }
+  def self.sorted
+    rates = Rate.all
+    case sort_type.to_i
+    when 1
+      rates = rates.sort_by { |rate| rate.currency }
+    when 2
+      rates = rates.sort_by { |rate| rate.operation }
+    when 3
+      rates = rates.sort_by { |rate| rate.rate }
+    else
+      rates = rates.sort_by { |rate| rate.created_at }
+    end
+    if currency_filter.to_i != ALL
+      rates = rates.select { |rate| rate.currency == currency_filter.to_i }
+    end
+    if operation_filter.to_i != ALL
+      rates = rates.select { |rate| rate.operation == operation_filter.to_i }
+    end
+    if order.to_i == DOWN
+      rates = rates.reverse
+    end
+    rates
   end
 
   def self.today
-    Rate.cached_all.empty? && AddRateJob.perform_now
-    Rate.cached_all
+    Rate.all.empty? && AddRateJob.perform_now
+    Rate.all
         .select { |rate| rate.created_at.to_date == Time.now.to_date }
   end
 
-  def self.find(currency, operation)
-    Rate.cached_all.select do |rate|
+  def self.find_rate(currency, operation)
+    Rate.all.select do |rate|
       rate.currency == currency &&
         rate.operation == operation
     end
@@ -44,14 +69,9 @@ class Rate < ApplicationRecord
   end
 
   def self.current
-    { usd: { buy: Rate.find(USD, BUY).last,
-             sell: Rate.find(USD, SELL).last },
-      eur: { buy: Rate.find(EUR, BUY).last,
-             sell: Rate.find(EUR, SELL).last } }
-  end
-
-  def flush_cache
-    Rails.cache.delete('rates_cache')
-    Rails.cache.delete('last_rate_cache')
+    { usd: { buy: Rate.find_rate(USD, BUY).last,
+             sell: Rate.find_rate(USD, SELL).last },
+      eur: { buy: Rate.find_rate(EUR, BUY).last,
+             sell: Rate.find_rate(EUR, SELL).last } }
   end
 end

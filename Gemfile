@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'actionpack-action_caching'
+gem 'actionpack-page_caching'
 gem 'activesupport', '~> 5.1.5'
 gem 'bootstrap-sass', '~>3.2.0'
 gem 'dalli'

@@ -3,15 +3,16 @@ class WelcomeController < ApplicationController
   before_action :init_values
 
   def init_values
-    @triggers = Trigger.cached_all
+    @triggers = Trigger.all
                        .select { |trigger| trigger.email == Trigger.email }
-    @rates = Rate.cached_all
-    @today_rates = Rate.today
+    @rates = Rate.all
     @counts = Rate.counts
+    @today_rates = Rate.today
     @current_rates = Rate.current
   end
 
   def show
     respond_to { |format| format.js }
+    sleep 5
   end
 end
