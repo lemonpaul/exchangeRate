@@ -6,6 +6,8 @@ class AddRateJob < ApplicationJob
   EUR = 1
   BUY = 0
   SELL = 1
+  LOWER = 0
+  UPPER = 1
 
   def new_hash
     require 'net/http'
@@ -57,8 +59,8 @@ class AddRateJob < ApplicationJob
   end
 
   def check_trigger(trigger)
-    (trigger.kind.zero? && check_lower_trigger(trigger)) ||
-      (trigger.kind == 1 &&  check_upper_trigger(trigger))
+    (trigger.kind == LOWER && check_lower_trigger(trigger)) ||
+      (trigger.kind == UPPER &&  check_upper_trigger(trigger))
   end
 
   def perform
