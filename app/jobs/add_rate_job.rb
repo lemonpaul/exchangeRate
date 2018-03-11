@@ -1,6 +1,7 @@
 # Read data from JSON, put them in rates table, check all triggers
 class AddRateJob < ApplicationJob
   queue_as :default
+  include ApplicationHelper
 
   USD = 0
   EUR = 1
@@ -47,13 +48,13 @@ class AddRateJob < ApplicationJob
   end
 
   def check_lower_trigger(trigger)
-    rates = Rate.current
+    rates = current
     rates.values[trigger.currency]
          .values[trigger.operation].rate <= trigger.rate
   end
 
   def check_upper_trigger(trigger)
-    rates = Rate.current
+    rates = current
     rates.values[trigger.currency].values[trigger.operation]
          .rate >= trigger.rate
   end

@@ -2,6 +2,21 @@
   <%= form_with url: 'logs/update', remote: true do |form| %>
     <div class='row'>
       <div class='col-sm-3'>
+        <%= form.label :sort_type %>
+      </div>
+      <div class='col-sm-2'>
+        <%= form.label :currency_filter %>
+      </div>
+      <div class='col-sm-2'>
+        <%= form.label :operation_filter %>
+      </div>
+      <div class='col-sm-3'>
+        <%= form.label :order %>
+      </div>
+      <div class='col-sm-2'>
+        <br>
+      </div>
+      <div class='col-sm-3'>
         <%= form.select(:sort_type, [["Time", 0], ["Currency", 1], ["Operation", 2], ["Rate", 3]], { :selected => Rate.sort_type }, { class: 'form-control' }) %>
       </div>
       <div class='col-sm-2'>

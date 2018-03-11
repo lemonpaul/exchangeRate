@@ -5,9 +5,12 @@ if ($('#new_link').is(":visible"))
   $('#triggers_header').replaceWith("<h1 id='triggers_header'><%= j pluralize(@triggers.size, 'Trigger') %></h1>");
   $('#triggers_table').replaceWith("<%= j render :template => 'triggers/triggers' %>");
 }
-if ($('#old_rates').is(":visible"))
+if ($('#rate_count').is(":visible"))
 {
   $('#rate_count').replaceWith("<h1 id='rate_count'><%= j pluralize(Rate.sorted.size, 'Rate') %></h1>");
+}
+if ($('#logs').is(":visible"))
+{
   $('#logs').replaceWith("<%= j render :template => 'logs/logs' %>");
   $('#logs').show();
 }
