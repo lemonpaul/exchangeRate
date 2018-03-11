@@ -1,21 +1,21 @@
 <tr class="trigger" id="trigger_<%= trigger.id %>">
   <td><%= trigger.email %></td>
   <% if trigger.currency == 0 %>
-    <td>usd</td>
+    <td><%= t(:usd) %></td>
   <% else %>
-    <td>eur</td>
+    <td><%= t(:eur) %></td>
   <% end %>
   <% if trigger.operation == 0 %>
-    <td>buy</td>
+    <td><%= t(:buy) %></td>
   <% else %>
-    <td>sell</td>
+    <td><%= t(:sell) %></td>
   <% end %>
   <% if trigger.kind == 0 %>
-    <td>lower</td>
+    <td><%= t(:lower) %></td>
   <% else %>
-    <td>upper</td>
+    <td><%= t(:upper) %></td>
   <% end %>
   <td><%= "%.2f" % trigger.rate.round(2) %></td>
-  <td><%= link_to 'Delete', trigger_path(trigger),
+  <td><%= link_to t(:delete), trigger_path(trigger),
     method: :delete, remote: true, class: 'badge' %></td>
 </tr>

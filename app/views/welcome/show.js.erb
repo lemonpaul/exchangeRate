@@ -2,7 +2,7 @@ $('#rates').replaceWith("<%= j render :template => 'rates/index' %>");
 if ($('#new_link').is(":visible"))
 {
   $('#triggers').replaceWith("<%= j render :template => 'triggers/index' %>");
-  $('#triggers_header').replaceWith("<h1 id='triggers_header'><%= j pluralize(@triggers.size, 'Trigger') %></h1>");
+  $('#triggers_header').replaceWith("<h1 id='triggers_header'><%= j pluralize(@triggers.size, t(:trigger)) %></h1>");
   $('#triggers_table').replaceWith("<%= j render :template => 'triggers/triggers' %>");
 }
 if ($('#rate_count').is(":visible"))

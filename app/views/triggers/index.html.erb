@@ -1,13 +1,13 @@
 <div id="triggers">
   <div class="container col-sm-12">
-    <h1 id="triggers_header"><%= pluralize(@triggers.size, "Trigger") %></h1>
+    <h1 id="triggers_header"><%= pluralize(@triggers.size, t(:trigger)) %></h1>
     <%= form_with scope: :trigger, url: triggers_update_path, remote: true do |form| %>
       <div class="row">
         <div class="col-md-3">
           <%= form.email_field :email, class: 'form-control', placeholder: Trigger.email %>
         </div>
         <div class="col-md-2">
-          <%= form.submit 'View', class: 'btn btn-primary btn-block' %>
+          <%= form.submit t(:view), class: 'btn btn-primary btn-block' %>
         </div>
       </div>
       <br>
@@ -16,6 +16,6 @@
       <%= render :template => 'triggers/triggers' %>
     <% end %>
   </div>
-  <%= link_to 'New trigger', new_trigger_path, id: "new_link", remote: true, class: 'badge' %>
+  <%= link_to t(:new_trigger), new_trigger_path, id: "new_link", remote: true, class: 'badge' %>
   <br>
 </div>

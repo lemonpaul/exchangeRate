@@ -10,27 +10,27 @@
   <% end %>
   <%= form_with scope: :trigger, url: triggers_path, remote: true do |form| %>
     <div>
-        <%= form.email_field :email, class: 'form-control', placeholder: 'Email' %>
+        <%= form.email_field :email, class: 'form-control', placeholder: t(:email) %>
     </div>
     <br>
     <div class="row">
       <div class="col-sm-4">
-        <%= form.select(:currency, [["USD", 0], ["EUR", 1]], {}, { class: 'form-control' }) %>
+        <%= form.select(:currency, [[t(:usd), 0], [t(:eur), 1]], {}, { class: 'form-control' }) %>
       </div>
       <div class="col-sm-4">
-        <%= form.select(:operation, [["buy", 0], ["sell", 1]], {}, { class: 'form-control' }) %>
+        <%= form.select(:operation, [[t(:buy), 0], [t(:sell), 1]], {}, { class: 'form-control' }) %>
       </div>
       <div class="col-sm-4">
-        <%= form.select(:kind, [["lower", 0], ["upper", 1]], {}, { class: 'form-control' }) %>
+        <%= form.select(:kind, [[t(:lower), 0], [t(:upper), 1]], {}, { class: 'form-control' }) %>
       </div>
     </div>
     <br>
     <div class="input-group">
-      <%= form.number_field :rate, in: 0.01..200.00, step:0.01, class: 'form-control', placeholder: 'Rate' %>
+      <%= form.number_field :rate, in: 0.01..200.00, step:0.01, class: 'form-control', placeholder: t(:rate) %>
       <span class="input-group-addon">&#8381;</span>
     </div>
     <br>
-    <%= form.submit 'Save trigger', class: 'btn btn-primary btn-block' %>
+    <%= form.submit t(:save), class: 'btn btn-primary btn-block' %>
     <br>
   <% end %>
 </div>

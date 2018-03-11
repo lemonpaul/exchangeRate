@@ -1,122 +1,122 @@
 <div id="rates" class="container col-sm-12">
-  <h1>Current Rate</h1>
+  <h1><%= t(:current_rate) %></h1>
   <div class="row">
     <div class="col-sm-2">
       <h4><br></h4>
-      <h2>USD:</h2>
-      <p><b>Average:</b></p>
-      <p><b>Forecast:</b></p>
+      <h2><%= t(:usd) %>:</h2>
+      <p><b><%= t(:average) %>:</b></p>
+      <p><b><%= t(:forecast) %>:</b></p>
     </div>
     <div class="col-sm-2">
-      <h4>buy</h4>
+      <h4><%= t(:buy) %></h4>
       <h2>
         <% if current[:usd][:buy] %>
           <%= "%.2f" % current[:usd][:buy].rate.round(2) %> &#8381;
         <% else %>
-          N/D
+          <%= t(:no_data) %>
         <% end %>
       </h2>
       <p>
         <% if averages[:usd][:buy] %>
           <%= "%.2f" % averages[:usd][:buy].round(2) %> &#8381;
         <% else %>
-          N/D
+          <%= t(:no_data) %>
         <% end %>
       </p>
       <p>
         <% if forecasts[:usd][:buy] %>
           <%= "%.2f" % forecasts[:usd][:buy].round(2) %> &#8381;
         <% else %>
-          N/D
+          <%= t(:no_data) %>
         <% end %>
       </p>
     </div>
     <div class="col-sm-2">
-      <h4>sell</h4>
+      <h4><%= t(:sell) %></h4>
       <h2>
         <% if current[:usd][:sell] %>
           <%= "%.2f" % current[:usd][:sell].rate.round(2) %> &#8381;
         <% else %>
-          N/D
+          <%= t(:no_data) %>
         <% end %>
       </h2>
       <p>
         <% if averages[:usd][:sell] %>
           <%= "%.2f" % averages[:usd][:sell].round(2) %> &#8381;
         <% else %>
-          N/D
+          <%= t(:no_data) %>
         <% end %>
       </p>
       <p>
         <% if forecasts[:usd][:sell] %>
           <%= "%.2f" % forecasts[:usd][:sell].round(2) %> &#8381;
         <% else %>
-          N/D
+          <%= t(:no_data) %>
         <% end %>
       </p>
     </div>
     <div class="col-sm-2">
       <h4><br></h4>
-      <h2>EUR:</h2>
-      <p><b>Average:</b></p>
-      <p><b>Forecast:</b></p>
+      <h2><%= t(:eur) %>:</h2>
+      <p><b><%= t(:average) %>:</b></p>
+      <p><b><%= t(:forecast) %>:</b></p>
     </div>
     <div class="col-sm-2">
-      <h4>buy</h4>
+      <h4><%= t(:buy) %></h4>
       <h2>
         <% if current[:eur][:buy] %>
           <%= "%.2f" % current[:eur][:buy].rate.round(2) %> &#8381;
         <% else %>
-          N/D
+          <%= t(:no_data) %>
         <% end %>
       </h2>
       <p>
         <% if averages[:eur][:buy] %>
           <%= "%.2f" % averages[:eur][:buy].round(2) %> &#8381;
         <% else %>
-          N/D
+          <%= t(:no_data) %>
         <% end %>
       </p>
       <p>
         <% if forecasts[:eur][:buy] %>
           <%= "%.2f" % forecasts[:eur][:buy].round(2) %> &#8381;
         <% else %>
-          N/D
+          <%= t(:no_data) %>
         <% end %>
       </p>
     </div>
     <div class="col-sm-2">
-      <h4>sell</h4>
+      <h4><%= t(:sell) %></h4>
       <h2>
         <% if current[:eur][:sell] %>
           <%= "%.2f" % current[:eur][:sell].rate.round(2) %> &#8381;
         <% else %>
-          N/D
+          <%= t(:no_data) %>
         <% end %>
       </h2>
       <p>
         <% if averages[:eur][:sell] %>
           <%= "%.2f" % averages[:eur][:sell].round(2) %> &#8381;
         <% else %>
-          N/D
+          <%= t(:no_data) %>
         <% end %>
       </p>
       <p>
         <% if forecasts[:eur][:sell] %>
           <%= "%.2f" % forecasts[:eur][:sell].round(2) %> &#8381;
         <% else %>
-          N/D
+          <%= t(:no_data) %>
         <% end %>
       </p>
     </div>
     <div class="col-sm-2">
-      <p><b>Spread:</b></p>
+      <p><b><%= t(:spread) %>:</b></p>
     </div>
     <div class="col-sm-4">
       <p><%= "%.2f" % spreads[:usd].round(2) %> &#8381; (<%= per_spreads[:usd].round %>%)</p>
     </div>
     <div class="col-sm-2">
-      <p><b>Spread:</b></p>
+      <p><b><%= t(:spread) %>:</b></p>
     </div>
     <div class="col-sm-4">
       <p><%= "%.2f" % spreads[:eur].round(2) %> &#8381; (<%= per_spreads[:eur].round %>%)</p>

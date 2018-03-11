@@ -9,6 +9,8 @@ class WelcomeController < ApplicationController
   end
 
   def show
+    puts '---------------------------------------------------------------------'
+    puts Trigger.email
     respond_to { |format| format.js }
   end
 end
