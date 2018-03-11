@@ -10,4 +10,8 @@ class Trigger < ApplicationRecord
   class << self
     attr_accessor :email
   end
+
+  def self.select_email  
+    Trigger.where(email: email)  
+  end
 end
