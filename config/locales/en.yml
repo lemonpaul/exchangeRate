@@ -31,7 +31,10 @@
 
 en:
   name: "Exchange rates"
-  trigger: "trigger"
+  trigger:
+    one: "1 trigger"
+    few: "%{count} triggers"
+    many: "%{count} triggers"
   view: "View"
   email: "Email"
   currency: "Currency"
@@ -54,7 +57,10 @@ en:
   spread: "Spread"
   show_history: "Show history"
   show_history: "Hide history"
-  one_rate: "rate"
+  rate_header:
+    one: "rate"
+    few: "rates"
+    many: "rates"
   sort_type: "Type"
   currency_filter: "Currency"
   operation_filter: "Operation"

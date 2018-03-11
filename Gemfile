@@ -43,7 +43,6 @@ gem 'dalli'
 gem 'delayed_job'
 gem 'delayed_job_active_record'
 gem 'rb-inotify', '~> 0.9.10'
-gem 'russian', '~> 0.6.0'
 gem 'sidekiq'
 gem 'sidekiq-cron'
 

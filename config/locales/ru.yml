@@ -31,7 +31,10 @@
 
 ru:
   name: "Курсы валют"
-  trigger: "уведомление"
+  trigger:
+    one: "1 уведомление"
+    few: "%{count} уведомления"
+    many: "%{count} уведомлений"
   few_triggers: "уведомления"
   many_triggers: "уведомлений"
   view: "Показать"
@@ -56,9 +59,10 @@ ru:
   spread: "Спред"
   show_history: "Показать историю"
   hide_history: "Скрыть историю"
-  one_rate: "курс"
-  few_rates: "курса"
-  many_rates: "курсов"
+  rate_header:
+    one: "1 курс"
+    few: "%{count} курса"
+    many: "%{count} курсов"
   sort_type: "Тип"
   currency_filter: "Валюта"
   operation_filter: "Операция"
