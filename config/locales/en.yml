@@ -37,6 +37,7 @@ en:
     many: "%{count} triggers"
     other: "%{count} triggers"
   view: "View"
+  new_trigger: "Новое уведомление"
   email: "Email"
   currency: "Currency"
   operation: "Operation"
@@ -75,3 +76,22 @@ en:
   time:
     formats:
       short: "%F %H:%M"
+  uniq_trigger: "already has this trigger"
+  error_msg: "prohibited this trigger from being saved:"
+  error:
+    one: "1 error"
+    other: "%{count} errors"
+  error_msg: "prohibited this trigger from being saved:"
+  activerecord:
+    attributes:
+      trigger:
+        email: "Email"
+        rate: "Rate"
+    errors:
+      models:
+        trigger:
+          attributes:
+            email:
+              blank: "can't be empty"
+            rate:
+              not_a_number: "is not a number"

@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
 
   def init_values
     @triggers = Trigger.select_email
-    Rate.all.empty? && AddRateJob.perform_now
+    Rate.sorted.empty? && AddRateJob.perform_now
     @rates = Rate.sorted
   end
 

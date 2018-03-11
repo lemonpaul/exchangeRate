@@ -36,9 +36,8 @@ ru:
     few: "%{count} уведомления"
     many: "%{count} уведомлений"
     other: "%{count} уведомлений"
-  few_triggers: "уведомления"
-  many_triggers: "уведомлений"
   view: "Показать"
+  new_trigger: "Новое уведомление"
   email: "Email"
   currency: "Валюта"
   operation: "Операция"
@@ -77,3 +76,21 @@ ru:
   time:
     formats:
       short: "%d/%m/%y %H:%M"
+  uniq_trigger: "уже настроен с этим уведомлением"
+  error:
+    one: "1 ошибка"
+    other: "%{count} ошибки"
+  error_msg: "мешают сохранению этого уведомления:"
+  activerecord:
+    attributes:
+      trigger:
+        email: "Email"
+        rate: "Курс"
+    errors:
+      models:
+        trigger:
+          attributes:
+            email:
+              blank: "не может быть пустым"
+            rate:
+              not_a_number: "не число"
