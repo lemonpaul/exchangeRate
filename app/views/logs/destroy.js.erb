@@ -1,3 +1,4 @@
-$('#rate_count').replaceWith("<h1 id='rate_count'><%= @rates.size %> <% if locale == :ru %><%= j Russian.pluralize(@rates.size, 'курс', 'курса', 'курсов') %><% end %></h1>");
+$('#rate_count').replaceWith("<%= j render :partial => 'logs/header' %>");
+$('#rate_count').show();
 $('#logs').replaceWith("<%= j render :partial => 'logs/logs' %>");
 $('#logs').show();

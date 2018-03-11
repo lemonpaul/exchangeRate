@@ -1,17 +1,19 @@
-<% cache @rates do %>
-  <div id="logs" hidden="true">
-    <table id="logs_table" class="table">
-      <thead>
-        <tr>
-          <th><%= t(:time_header) %></th>
-          <th><%= t(:currency) %></th>
-          <th><%= t(:operation) %></th>
-          <th><%= t(:rate) %></th>
-        </tr>
-      </thead>
-      <tfoot>
-        <%= render :partial => 'logs/log', :collection => Rate.sorted %>
-      </tfoot>
-    </table>
-  </div>
+<% if @rates %>
+  <% cache @rates do %>
+    <div id="logs" hidden="true">
+      <table id="logs_table" class="table">
+        <thead>
+          <tr>
+            <th><%= t(:time_header) %></th>
+            <th><%= t(:currency) %></th>
+            <th><%= t(:operation) %></th>
+            <th><%= t(:rate) %></th>
+          </tr>
+        </thead>
+        <tfoot>
+          <%= render :partial => 'logs/log', :collection => Rate.sorted %>
+        </tfoot>
+      </table>
+    </div>
+  <% end %>
 <% end %>
