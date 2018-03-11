@@ -1,5 +1,5 @@
 <div id="triggers">
-  <div class="container col-sm-10 col-sm-offset-1">
+  <div class="col-sm-8 col-sm-offset-2">
     <h1 id="triggers_header">
       <%= t :trigger, count: @triggers.size %>
     </h1>
@@ -19,7 +19,7 @@
         <%= render :template => 'triggers/triggers' %>
       <% end %>
     <% end %>
-    <div class="container" id="new_link">
+    <div id="new_link">
       <%= link_to t(:new_trigger), new_trigger_path, remote: true, class: 'badge' %>
     </div>
   </div>

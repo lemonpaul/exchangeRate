@@ -1,7 +1,7 @@
 <div id='log_filter' hidden="true">
   <%= form_with url: 'logs/update', remote: true do |form| %>
     <div class='row'>
-      <div class='col-sm-3'>
+      <div class='col-sm-2'>
         <%= form.label t(:sort_type) %>
       </div>
       <div class='col-sm-2'>
@@ -13,10 +13,11 @@
       <div class='col-sm-3'>
         <%= form.label t(:order) %>
       </div>
-      <div class='col-sm-2'>
+      <div class='col-sm-3'>
+        <br>
         <br>
       </div>
-      <div class='col-sm-3'>
+      <div class='col-sm-2'>
         <%= form.select(:sort_type, [[t(:time_header), 0], [t(:currency), 1], [t(:operation), 2], [t(:rate), 3]], { :selected => Rate.sort_type }, { class: 'form-control' }) %>
       </div>
       <div class='col-sm-2'>
@@ -28,7 +29,7 @@
       <div class='col-sm-3'>
         <%= form.select(:order, [[t(:low_to_high), 0], [t(:high_to_low), 1]], { :selected => Rate.order }, { class: 'form-control' }) %>
       </div>
-      <div class='col-sm-2'>
+      <div class='col-sm-3'>
         <%= form.submit t(:sort), class: 'btn btn-primary btn-block' %>
       </div>
     </div>
