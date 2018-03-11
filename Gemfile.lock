@@ -168,6 +168,8 @@ GEM
     rubyzip (1.2.1)
     rufus-scheduler (3.4.2)
       et-orbi (~> 1.0)
+    russian (0.6.0)
+      i18n (>= 0.5.0)
     sass (3.5.5)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -248,6 +250,7 @@ DEPENDENCIES
   rails_12factor
   rb-inotify (~> 0.9.10)
   rubocop (~> 0.53.0)
+  russian (~> 0.6.0)
   sass-rails (~> 5.0)
   selenium-webdriver
   sidekiq

@@ -17,7 +17,7 @@
         <br>
       </div>
       <div class='col-sm-3'>
-        <%= form.select(:sort_type, [[t(:time), 0], [t(:currency), 1], [t(:operation), 2], [t(:rate), 3]], { :selected => Rate.sort_type }, { class: 'form-control' }) %>
+        <%= form.select(:sort_type, [[t(:time_header), 0], [t(:currency), 1], [t(:operation), 2], [t(:rate), 3]], { :selected => Rate.sort_type }, { class: 'form-control' }) %>
       </div>
       <div class='col-sm-2'>
         <%= form.select(:currency_filter, [[t(:all), 2], [t(:usd), 0], [t(:eur), 1]], { :selected => Rate.currency_filter }, { class: 'form-control' }) %>

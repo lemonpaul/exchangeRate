@@ -30,7 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
+  name: "Курсы валют"
   trigger: "уведомление"
+  few_triggers: "уведомления"
+  many_triggers: "уведомлений"
   view: "Показать"
   email: "Email"
   currency: "Валюта"
@@ -53,13 +56,18 @@ ru:
   spread: "Спред"
   show_history: "Показать историю"
   hide_history: "Скрыть историю"
-  rate_header: "курс"
-  sort_type: "Тип сортировки"
-  currency_filter: "Фильтр валюты"
-  operation_filter: "Фильтр операции"
+  one_rate: "курс"
+  few_rates: "курса"
+  many_rates: "курсов"
+  sort_type: "Тип"
+  currency_filter: "Валюта"
+  operation_filter: "Операция"
   order: "Порядок"
-  time: "Время"
+  time_header: "Время"
   all: "Все"
   low_to_high: "По возрастанию"
   high_to_low: "По убыванию"
-  sort: "Отсортировать"
+  sort: "Сортировать"
+  time:
+    formats:
+      short: "%d/%m/%y %H:%M"

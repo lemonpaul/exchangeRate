@@ -1,0 +1,8 @@
+<h1 id="rate_count" hidden="true">
+  <% if locale = :ru %>
+    <%= @rates.size %> 
+    <%= Russian.pluralize(@rates.size, t(:one_rate), t(:few_rates), t(:many_rates)) %>
+  <% else %>
+    <%= pluralize(@rates.size, t(:one_rate)) %>
+  <% end %>
+</h1>

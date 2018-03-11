@@ -1,3 +1,3 @@
-$('#rate_count').replaceWith("<h1 id='rate_count'><%= j pluralize(@rates.size, 'Rate') %></h1>");
+$('#rate_count').replaceWith("<h1 id='rate_count'><%= @rates.size %> <% if locale == :ru %><%= j Russian.pluralize(@rates.size, 'курс', 'курса', 'курсов') %><% end %></h1>");
 $('#logs').replaceWith("<%= j render :template => 'logs/logs' %>");
 $('#logs').show();

@@ -1,5 +1,5 @@
 <tr id="log_<%= log.id %>" class="log">
-  <td><%= log.created_at.strftime("%F %H:%M") %></td>
+  <td><p><%= l log.created_at, format: :short %></p></td>
   <% if log.currency == 0 %>
     <td><%= t(:usd) %></td>
   <% else %>

@@ -1,3 +1,4 @@
-$('#rate_count').replaceWith("<h1 id='rate_count'><%= j pluralize(@rates.size, t(:rate_header)) %></h1>");
+$('#rate_count').replaceWith("<%= j render :partial => 'logs/header' %>");
+$('#rate_count').show();
 $('#logs').replaceWith("<%= j render :template => 'logs/logs' %>");
 $('#logs').show();

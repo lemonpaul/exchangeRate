@@ -1,9 +1,9 @@
 <div id="old_rates">
-  <div class="container col-sm-12">
+  <div class="container col-sm-9">
     <div class="container">
       <%= link_to t(:show_history), new_log_path, id: "show_link", remote: true, class: 'badge' %>
     </div>
-    <h1 id="rate_count" hidden="true"><%= pluralize(@rates.size, t(:rate_header)) %></h1><br>
+    <%= render :partial => 'logs/header' %>
     <%= render :partial => 'logs/form' %>
     <%= render :template => 'logs/logs' %>
   </div>

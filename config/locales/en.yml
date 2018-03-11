@@ -30,6 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  name: "Exchange rates"
   trigger: "trigger"
   view: "View"
   email: "Email"
@@ -53,13 +54,16 @@ en:
   spread: "Spread"
   show_history: "Show history"
   show_history: "Hide history"
-  rate_header: "rate"
-  sort_type: "Sort type"
-  currency_filter: "Currency filter"
-  operation_filter: "Operation filter"
+  one_rate: "rate"
+  sort_type: "Type"
+  currency_filter: "Currency"
+  operation_filter: "Operation"
   order: "Order"
-  time: "Time"
+  time_header: "Time"
   all: "All"
   low_to_high: "Low to high"
   high_to_low: "High to low"
   sort: "Sort"
+  time:
+    formats:
+      short: "%F %H:%M"
