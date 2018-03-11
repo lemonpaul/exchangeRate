@@ -1,17 +1,17 @@
 <tr id="log_<%= log.id %>" class="log">
   <td><%= log.created_at.strftime("%F %H:%M") %></td>
   <% if log.currency == 0 %>
-    <td>usd</td>
+    <td><%= t(:usd) %></td>
   <% else %>
-    <td>eur</td>
+    <td><%= t(:eur) %></td>
   <% end %>
   <% if log.operation == 0 %>
-    <td>buy</td>
+    <td><%= t(:buy) %></td>
   <% else %>
-    <td>sell</td>
+    <td><%= t(:sell) %></td>
   <% end %>
   <td><%= "%.2f" % log.rate %></td>
-  <td><%= link_to 'Delete', 
+  <td><%= link_to t(:delete), 
     log_path(log),
     method: :delete, 
     remote: true, 

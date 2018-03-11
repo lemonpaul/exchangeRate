@@ -5,12 +5,10 @@ class WelcomeController < ApplicationController
   def init_values
     @triggers = Trigger.select_email
     Rate.all.empty? && AddRateJob.perform_now
-    @rates = Rate.all
+    @rates = Rate.sorted
   end
 
   def show
-    puts '---------------------------------------------------------------------'
-    puts Trigger.email
     respond_to { |format| format.js }
   end
 end

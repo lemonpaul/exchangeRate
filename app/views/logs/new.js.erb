@@ -1,13 +1,13 @@
-if ($('#show_link').text() == "Hide History")
+if ($('#show_link').text() == '<%= j t(:hide_history) %>')
 {
-  $('#show_link').text("Show History");
+  $('#show_link').text('<%= j t(:show_history) %>');
   $('#rate_count').hide();
   $('#log_filter').hide();
   $('#logs').hide();
 }
 else
 {
-  $('#show_link').text("Hide History");
+  $('#show_link').text('<%= j t(:hide_history) %>');
   $('#rate_count').show();
   $('#log_filter').show();
   $('#logs').show();

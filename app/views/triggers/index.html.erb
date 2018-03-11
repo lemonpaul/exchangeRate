@@ -15,7 +15,9 @@
     <% if @triggers %>
       <%= render :template => 'triggers/triggers' %>
     <% end %>
+    <div class="container" id="new_link">
+      <%= link_to t(:new_trigger), new_trigger_path, remote: true, class: 'badge' %>
+    </div>
   </div>
-  <%= link_to t(:new_trigger), new_trigger_path, id: "new_link", remote: true, class: 'badge' %>
-  <br>
+  <div id="insert_form" hidden="true"></div>
 </div>

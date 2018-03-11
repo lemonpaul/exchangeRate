@@ -2,34 +2,34 @@
   <%= form_with url: 'logs/update', remote: true do |form| %>
     <div class='row'>
       <div class='col-sm-3'>
-        <%= form.label :sort_type %>
+        <%= form.label t(:sort_type) %>
       </div>
       <div class='col-sm-2'>
-        <%= form.label :currency_filter %>
+        <%= form.label t(:currency_filter) %>
       </div>
       <div class='col-sm-2'>
-        <%= form.label :operation_filter %>
+        <%= form.label t(:operation_filter) %>
       </div>
       <div class='col-sm-3'>
-        <%= form.label :order %>
+        <%= form.label t(:order) %>
       </div>
       <div class='col-sm-2'>
         <br>
       </div>
       <div class='col-sm-3'>
-        <%= form.select(:sort_type, [["Time", 0], ["Currency", 1], ["Operation", 2], ["Rate", 3]], { :selected => Rate.sort_type }, { class: 'form-control' }) %>
+        <%= form.select(:sort_type, [[t(:time), 0], [t(:currency), 1], [t(:operation), 2], [t(:rate), 3]], { :selected => Rate.sort_type }, { class: 'form-control' }) %>
       </div>
       <div class='col-sm-2'>
-        <%= form.select(:currency_filter, [["All", 2], ["USD", 0], ["EUR", 1]], { :selected => Rate.currency_filter }, { class: 'form-control' }) %>
+        <%= form.select(:currency_filter, [[t(:all), 2], [t(:usd), 0], [t(:eur), 1]], { :selected => Rate.currency_filter }, { class: 'form-control' }) %>
       </div>
       <div class='col-sm-2'>
-        <%= form.select(:operation_filter, [["All", 2], ["buy", 0], ["sell", 1]], { :selected => Rate.operation_filter }, { class: 'form-control' }) %>
+        <%= form.select(:operation_filter, [[t(:all), 2], [t(:buy), 0], [t(:sell), 1]], { :selected => Rate.operation_filter }, { class: 'form-control' }) %>
       </div>
       <div class='col-sm-3'>
-        <%= form.select(:order, [["Low to high", 0], ["High to low", 1]], { :selected => Rate.order }, { class: 'form-control' }) %>
+        <%= form.select(:order, [[t(:low_to_high), 0], [t(:high_to_low), 1]], { :selected => Rate.order }, { class: 'form-control' }) %>
       </div>
       <div class='col-sm-2'>
-        <%= form.submit 'Sort', class: 'btn btn-primary btn-block' %>
+        <%= form.submit t(:sort), class: 'btn btn-primary btn-block' %>
       </div>
     </div>
     <br>
