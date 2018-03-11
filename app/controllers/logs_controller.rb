@@ -2,9 +2,17 @@
 class LogsController < ApplicationController
   before_action :init_values, only: %i[index new]
 
+  def chart
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
+  end
+
   def init_values
     Rate.sorted.empty? && AddRateJob.perform_now
     @rates = Rate.sorted
+    chart
   end
 
   def destroy
