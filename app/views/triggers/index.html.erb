@@ -1,12 +1,14 @@
 <div id="triggers">
-  <div class="container col-sm-9">
-    <h1 id="triggers_header"><%= t :trigger, count: @triggers.size %></h1>
+  <div class="container col-sm-10 col-sm-offset-1">
+    <h1 id="triggers_header">
+      <%= t :trigger, count: @triggers.size %>
+    </h1>
     <%= form_with scope: :trigger, url: triggers_update_path, remote: true do |form| %>
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-sm-4">
           <%= form.email_field :email, class: 'form-control', placeholder: Trigger.email %>
         </div>
-        <div class="col-md-2">
+        <div class="col-sm-2">
           <%= form.submit t(:view), class: 'btn btn-primary btn-block' %>
         </div>
       </div>
