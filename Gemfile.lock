@@ -252,6 +252,7 @@ DEPENDENCIES
   rails (~> 5.1.5)
   rails_12factor
   rb-inotify (~> 0.9.10)
+  redis
   rubocop (~> 0.53.0)
   russian
   sass-rails (~> 5.0)
