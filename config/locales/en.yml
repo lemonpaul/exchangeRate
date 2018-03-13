@@ -100,3 +100,7 @@ en:
   eur_rate: "EUR rate"
   show_charts: "Show charts"
   hide_charts: "Hide charts"
+  notification_header: "Notification about event"
+  notification_text: "Rate of %{currency} currency for %{operation} operation is %{kind} then %{rate} ₽."
+  notification_rate: "The current rate:"
+  notification_time: "The time of event:"

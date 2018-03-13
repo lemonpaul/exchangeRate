@@ -1,1 +1,4 @@
-The rate of <%= @currency %> for <%= @operation %> is <%= @kind %> then <%= "%.2f" % @rate.round(2) %>.
+<%= t :notification_text, operation: @operation, currency: @currency, kind: @kind, rate: "%.2f" % @rate.round(2) %>
+
+<%= t :notification_rate %> <%= "%.2f" % @current_rate %> ₽
+<%= t :notification_time %> <%= l @time, format: :short %>

@@ -6,14 +6,20 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.notification.subject
   #
-  def notification(email, currency_index, operation_index, kind_index, rate)
-    currencies = %w[usd eur]
-    operations = %w[buy sell]
-    kinds = %w[lower upper]
-    @currency = currencies[currency_index]
-    @operation = operations[operation_index]
-    @kind = kinds[kind_index]
+  USD = 0
+  EUR = 1
+  SELL = 0
+  BUY = 1
+  CURRENCY = [I18n.t(:usd), I18n.t(:eur)]
+  OPERATION = [I18n.t(:sell), I18n.t(:buy)]
+  KIND = [I18n.t(:lower), I18n.t(:upper)]
+  def notification(email, currency, operation, kind, rate, current_rate, time)
+    @currency = CURRENCY[currency]
+    @operation = OPERATION[operation]
+    @kind = KIND[kind]
     @rate = rate
-    mail to: email, subject: 'Notification'
+    @current_rate = current_rate
+    @time = time
+    mail to: email, subject: I18n.t(:notification_header)
   end
 end

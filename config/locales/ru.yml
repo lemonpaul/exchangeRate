@@ -99,3 +99,7 @@ ru:
   eur_rate: "Курс EUR"
   show_charts: "Показать графики"
   hide_charts: "Скрыть графики"
+  notification_header: "Уведомление о событии"
+  notification_text: "Курс для валюты %{currency} по операции %{operation} %{kind} %{rate} ₽."
+  notification_rate: "Текущий курс:"
+  notification_time: "Время события:"

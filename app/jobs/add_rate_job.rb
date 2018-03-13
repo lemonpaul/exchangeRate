@@ -42,8 +42,10 @@ class AddRateJob < ApplicationJob
   end
 
   def notificate(trigger)
+    rate = current.values[trigger.currency].values[trigger.operation]
     UserMailer.notification(trigger.email, trigger.currency, trigger.operation,
-                            trigger.kind, trigger.rate).deliver
+                            trigger.kind, trigger.rate, rate.rate,
+                            rate.created_at).deliver
     trigger.destroy
   end
 
