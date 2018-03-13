@@ -13,3 +13,7 @@ if ($('#logs').is(":visible"))
   $('#logs').replaceWith("<%= j render :partial => 'logs/logs' %>");
   $('#logs').show();
 }
+if ($('#chart_canvas').is(":visible"))
+{
+  $('#script').replaceWith("<%= j render :partial => 'charts/script' %>");
+}

@@ -1,0 +1,116 @@
+<% cache ['charts', @rates] do %>
+  <div id="script">
+    <script>
+      var usd_ctx = document.getElementById('usd_rates_chart').getContext('2d');
+      var chart = new Chart(usd_ctx, {
+        type: 'line',
+        data: {
+          labels: <%= raw Rate.find_rate(0, 0).map { |rate| rate.created_at.strftime("%d.%m.%y %H:%M") } %>,
+          datasets: [
+            {
+              backgroundColor: 'rgba(0, 128, 128, 0.2)',
+              borderColor: 'rgba(0, 255, 0, 0.5)',
+              fill: false,
+              lineTension: 0,
+              data: <%= raw Rate.find_rate(0, 0).map(&:rate) %>,
+            },
+            {
+              backgroundColor: 'rgba(0, 128, 128, 0.2)',
+              borderColor: 'rgba(0, 0, 255, 0.5)',
+              fill: false,
+              lineTension: 0,
+              data: <%= raw Rate.find_rate(0, 1).map(&:rate) %>,
+            },
+          ]
+        },
+          options: {
+            responsive: true,
+            legend: {
+              display: false
+            },
+            title: {
+              display: true, 
+              text: '<%= t(:usd_rate) %>'
+            },
+            scales: {
+              xAxes: [{
+                scaleLabel: {
+                  display: true,
+                  labelString: '<%= t :time_header %>'
+                }
+              }],
+              yAxes: [
+              {
+                scaleLabel:
+                {
+                  display: true,
+                  labelString: '<%= t :rate %>'
+                },
+                ticks:
+                {
+                  stepSize: 0.2,
+                  min: <%= (Rate.find_rate(0, 0).map(&:rate).min-1).ceil %>,
+                  max: <%= (Rate.find_rate(0, 1).map(&:rate).max+1).floor %>
+                }
+              }]
+            }
+          }
+      });
+      var eur_ctx = document.getElementById('eur_rates_chart').getContext('2d');
+      var chart = new Chart(eur_ctx, {
+        type: 'line',
+        data: {
+          labels: <%= raw Rate.find_rate(1, 0).map { |rate| rate.created_at.strftime("%d.%m.%y %H:%M") } %>,
+          datasets: [
+            {
+              backgroundColor: 'rgba(0, 128, 128, 0.2)',
+              borderColor: 'rgba(0, 255, 0, 0.5)',
+              fill: false,
+              lineTension: 0,
+              data: <%= raw Rate.find_rate(1, 0).map(&:rate) %>,
+            },
+            {
+              backgroundColor: 'rgba(0, 128, 128, 0.2)',
+              borderColor: 'rgba(0, 0, 255, 0.5)',
+              fill: false,
+              lineTension: 0,
+              data: <%= raw Rate.find_rate(1, 1).map(&:rate) %>,
+            },
+          ]
+        },
+        options: {
+          responsive: true,
+          legend: {
+            display: false
+          },
+          title: {
+            display: true, 
+            text: '<%= t(:eur_rate) %>'
+          },
+          scales: {
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: '<%= t(:time_header) %>'
+              }
+            }],
+            yAxes: [
+            {
+              scaleLabel:
+              {
+                display: true,
+                labelString: '<%= t(:rate) %>'
+              },
+              ticks:
+              {
+                stepSize: 0.2,
+                min: <%= (Rate.find_rate(1, 0).map(&:rate).min-1).ceil %>,
+                max: <%= (Rate.find_rate(1, 1).map(&:rate).max+1).floor %>
+              }
+            }]
+          }
+        }
+      });
+    </script>
+  </div>
+<% end %>

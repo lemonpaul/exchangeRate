@@ -95,3 +95,8 @@ en:
               blank: "can't be empty"
             rate:
               not_a_number: "is not a number"
+  charts: "Charts"
+  usd_rate: "USD rate"
+  eur_rate: "EUR rate"
+  show_charts: "Show charts"
+  hide_charts: "Hide charts"

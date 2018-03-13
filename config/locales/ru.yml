@@ -75,7 +75,7 @@ ru:
   sort: "Сортировать"
   time:
     formats:
-      short: "%d/%m/%y %H:%M"
+      short: "%d.%m.%y %H:%M"
   uniq_trigger: "уже настроен с этим уведомлением"
   error:
     one: "1 ошибка"
@@ -94,3 +94,8 @@ ru:
               blank: "не может быть пустым"
             rate:
               not_a_number: "не число"
+  charts: "Графики"
+  usd_rate: "Курс USD"
+  eur_rate: "Курс EUR"
+  show_charts: "Показать графики"
+  hide_charts: "Скрыть графики"

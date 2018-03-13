@@ -1,0 +1,13 @@
+<div id="charts">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div>
+      <%= link_to t(:show_charts), new_chart_path, id: "show_charts_link", remote: true, class: 'badge' %>
+    </div>
+    <div id="chart_canvas" hidden="true">
+      <h1><%= t :charts %></h1>
+      <canvas id="usd_rates_chart"></canvas>
+      <canvas id="eur_rates_chart"></canvas>
+    </div>
+    <%= render :partial => 'charts/script' %>
+  </div>
+</div>

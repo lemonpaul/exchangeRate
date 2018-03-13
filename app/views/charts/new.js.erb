@@ -1,0 +1,10 @@
+if ($('#show_charts_link').text() == '<%= j t(:hide_charts) %>')
+{
+  $('#show_charts_link').text('<%= j t(:show_charts) %>');
+  $('#chart_canvas').hide();
+}
+else
+{
+  $('#show_charts_link').text('<%= j t(:hide_charts) %>');
+  $('#chart_canvas').show();
+}
