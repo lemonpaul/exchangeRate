@@ -6,9 +6,9 @@
     <td><%= t(:eur) %></td>
   <% end %>
   <% if trigger.operation == 0 %>
-    <td><%= t(:buy) %></td>
-  <% else %>
     <td><%= t(:sell) %></td>
+  <% else %>
+    <td><%= t(:buy) %></td>
   <% end %>
   <% if trigger.kind == 0 %>
     <td><%= t(:lower) %></td>

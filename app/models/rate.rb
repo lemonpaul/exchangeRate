@@ -2,8 +2,8 @@
 class Rate < ApplicationRecord
   USD = 0
   EUR = 1
-  BUY = 0
-  SELL = 1
+  SELL = 0
+  BUY = 1
   TYPE = %w[created_at currency operation rate]
   CURRENCY = [0, 1, [0, 1]]
   OPERATION = [0, 1, [0, 1]]

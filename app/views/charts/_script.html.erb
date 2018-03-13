@@ -8,6 +8,7 @@
           labels: <%= raw @usd_buy_rates.map { |rate| rate.created_at.strftime("%d.%m.%y %H:%M") } %>,
           datasets: [
             {
+              label: '<%= t(:buy) %>',
               backgroundColor: 'rgba(0, 128, 128, 0.2)',
               borderColor: 'rgba(0, 255, 0, 0.5)',
               fill: false,
@@ -15,6 +16,7 @@
               data: <%= raw @usd_buy_rates.map(&:rate) %>,
             },
             {
+              label: '<%= t(:sell) %>',
               backgroundColor: 'rgba(0, 128, 128, 0.2)',
               borderColor: 'rgba(0, 0, 255, 0.5)',
               fill: false,
@@ -26,7 +28,9 @@
           options: {
             responsive: true,
             legend: {
-              display: false
+              labels: {
+                usePointStyle: true
+              }
             },
             title: {
               display: true, 
@@ -63,6 +67,7 @@
           labels: <%= raw @eur_buy_rates.map { |rate| rate.created_at.strftime("%d.%m.%y %H:%M") } %>,
           datasets: [
             {
+              label: '<%= t(:buy) %>',
               backgroundColor: 'rgba(0, 128, 128, 0.2)',
               borderColor: 'rgba(0, 255, 0, 0.5)',
               fill: false,
@@ -70,6 +75,7 @@
               data: <%= raw @eur_buy_rates.map(&:rate) %>,
             },
             {
+              label: '<%= t(:sell) %>', 
               backgroundColor: 'rgba(0, 128, 128, 0.2)',
               borderColor: 'rgba(0, 0, 255, 0.5)',
               fill: false,
@@ -81,7 +87,9 @@
         options: {
           responsive: true,
           legend: {
-            display: false
+            labels: {
+              usePointStyle: true
+            }
           },
           title: {
             display: true, 

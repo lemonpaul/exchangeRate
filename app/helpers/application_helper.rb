@@ -2,21 +2,21 @@
 module ApplicationHelper
   USD = 0
   EUR = 1
-  BUY = 0
-  SELL = 1
+  SELL = 0
+  BUY = 1
 
   def spread(currency)
     rates = current
-    rates.values[currency][:sell].rate -
-      rates.values[currency][:buy].rate
+    rates.values[currency][:buy].rate -
+      rates.values[currency][:sell].rate
   end
 
   def per_spread(currency)
     rates = current
-    2 * (rates.values[currency][:sell].rate -
-         rates.values[currency][:buy].rate) /
-      (rates.values[currency][:sell].rate +
-       rates.values[currency][:buy].rate) * 100
+    2 * (rates.values[currency][:buy].rate -
+         rates.values[currency][:sell].rate) /
+      (rates.values[currency][:buy].rate +
+       rates.values[currency][:sell].rate) * 100
   end
 
   def spreads

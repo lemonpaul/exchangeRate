@@ -5,8 +5,8 @@ class AddRateJob < ApplicationJob
 
   USD = 0
   EUR = 1
-  BUY = 0
-  SELL = 1
+  SELL = 0
+  BUY = 1
   LOWER = 0
   UPPER = 1
 
@@ -35,10 +35,10 @@ class AddRateJob < ApplicationJob
     hash = new_hash
     usd_rates = usd_rates(hash)
     eur_rates = eur_rates(hash)
-    Rate.create(currency: USD, operation: BUY, rate: usd_rates['buy'])
-    Rate.create(currency: USD, operation: SELL, rate: usd_rates['sell'])
-    Rate.create(currency: EUR, operation: BUY, rate: eur_rates['buy'])
-    Rate.create(currency: EUR, operation: SELL, rate: eur_rates['sell'])
+    Rate.create(currency: USD, operation: SELL, rate: usd_rates['buy'])
+    Rate.create(currency: USD, operation: BUY, rate: usd_rates['sell'])
+    Rate.create(currency: EUR, operation: SELL, rate: eur_rates['buy'])
+    Rate.create(currency: EUR, operation: BUY, rate: eur_rates['sell'])
   end
 
   def notificate(trigger)

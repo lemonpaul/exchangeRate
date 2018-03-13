@@ -4,18 +4,18 @@ class WelcomeController < ApplicationController
 
   USD = 0
   EUR = 1
-  BUY = 0
-  SELL = 1
+  SELL = 0
+  BUY = 1
 
   def init_values
     @triggers = Trigger.select_email
     Rate.sorted.empty? && AddRateJob.perform_now
     @rates = Rate.sorted
     @all_rates = Rate.all
-    @usd_buy_rates = Rate.find_rate(USD, BUY)
     @usd_sell_rates = Rate.find_rate(USD, SELL)
-    @eur_buy_rates = Rate.find_rate(EUR, BUY)
+    @usd_buy_rates = Rate.find_rate(USD, BUY)
     @eur_sell_rates = Rate.find_rate(EUR, SELL)
+    @eur_buy_rates = Rate.find_rate(EUR, BUY)
   end
 
   def show
