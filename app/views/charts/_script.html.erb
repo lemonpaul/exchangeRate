@@ -8,20 +8,20 @@
           labels: <%= raw @usd_buy_rates.map { |rate| rate.created_at.strftime("%d.%m.%y %H:%M") } %>,
           datasets: [
             {
-              label: '<%= t(:buy) %>',
-              backgroundColor: 'rgba(0, 128, 128, 0.2)',
-              borderColor: 'rgba(0, 255, 0, 0.5)',
-              fill: false,
-              lineTension: 0,
-              data: <%= raw @usd_buy_rates.map(&:rate) %>,
-            },
-            {
               label: '<%= t(:sell) %>',
               backgroundColor: 'rgba(0, 128, 128, 0.2)',
               borderColor: 'rgba(0, 0, 255, 0.5)',
               fill: false,
               lineTension: 0,
               data: <%= raw @usd_sell_rates.map(&:rate) %>,
+            },
+            {
+              label: '<%= t(:buy) %>',
+              backgroundColor: 'rgba(0, 128, 128, 0.2)',
+              borderColor: 'rgba(0, 255, 0, 0.5)',
+              fill: false,
+              lineTension: 0,
+              data: <%= raw @usd_buy_rates.map(&:rate) %>,
             },
           ]
         },
@@ -53,8 +53,8 @@
                 ticks:
                 {
                   stepSize: 0.2,
-                  min: <%= (@usd_buy_rates.map(&:rate).min-1).ceil %>,
-                  max: <%= (@usd_sell_rates.map(&:rate).max+1).floor %>
+                  min: <%= (@usd_sell_rates.map(&:rate).min-1).ceil %>,
+                  max: <%= (@usd_buy_rates.map(&:rate).max+1).floor %>
                 }
               }]
             }
@@ -67,20 +67,20 @@
           labels: <%= raw @eur_buy_rates.map { |rate| rate.created_at.strftime("%d.%m.%y %H:%M") } %>,
           datasets: [
             {
-              label: '<%= t(:buy) %>',
-              backgroundColor: 'rgba(0, 128, 128, 0.2)',
-              borderColor: 'rgba(0, 255, 0, 0.5)',
-              fill: false,
-              lineTension: 0,
-              data: <%= raw @eur_buy_rates.map(&:rate) %>,
-            },
-            {
               label: '<%= t(:sell) %>', 
               backgroundColor: 'rgba(0, 128, 128, 0.2)',
               borderColor: 'rgba(0, 0, 255, 0.5)',
               fill: false,
               lineTension: 0,
               data: <%= raw @eur_sell_rates.map(&:rate) %>,
+            },
+            {
+              label: '<%= t(:buy) %>',
+              backgroundColor: 'rgba(0, 128, 128, 0.2)',
+              borderColor: 'rgba(0, 255, 0, 0.5)',
+              fill: false,
+              lineTension: 0,
+              data: <%= raw @eur_buy_rates.map(&:rate) %>,
             },
           ]
         },
@@ -112,8 +112,8 @@
               ticks:
               {
                 stepSize: 0.2,
-                min: <%= (@eur_buy_rates.map(&:rate).min-1).ceil %>,
-                max: <%= (@eur_sell_rates.map(&:rate).max+1).floor %>
+                min: <%= (@eur_sell_rates.map(&:rate).min-1).ceil %>,
+                max: <%= (@eur_buy_rates.map(&:rate).max+1).floor %>
               }
             }]
           }

@@ -9,7 +9,6 @@ class ChartsController < ApplicationController
   
   def init_values
     @all_rates = Rate.all
-    
     @usd_sell_rates = Rate.find_rate(USD, SELL)
     @usd_buy_rates = Rate.find_rate(USD, BUY)
     @eur_sell_rates = Rate.find_rate(EUR, SELL)
